@@ -2,8 +2,8 @@ import React from "react";
 
 const Posts = () => {
   return (
-    <div className="my-10">
-      <div className="flex">
+    <div className="my-16">
+      <div className="flex shadow-lg">
         <div className="image basis-1/2">
           <img
             src="https://images.unsplash.com/photo-1623786159887-8a747d692e8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
@@ -51,8 +51,8 @@ const Posts = () => {
                 0 <span className="tracking-widest ml-1"> comments</span>
               </p>
             </div>
-            <div className="icon flex justify-between items-center mt-5">
-              <span>12</span>{" "}
+            <div className="icon flex justify-between items-start mt-5">
+              <span className="text-sm">12</span>{" "}
               <span className="ml-1 text-red-500 text-baseline  font-bolder">
                 <ion-icon name="heart-outline"></ion-icon>
               </span>
