@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <body className="dark:bg-black sticky top-0">
+      <body className="dark:bg-black sticky z-50 top-0">
         <nav class=" dark:bg-black dark:text-white flex flex-col md:flex-row items-center md:justify-between px-6 py-4  border-b-gray-60 shadow-sm max-w-screen-2xl mx-auto">
           <div>
             <Link to="/" class="text-3xl font-bold  cursor-pointer active:scale-95  duration-200">

@@ -1,4 +1,5 @@
 import React from 'react'
+import Down from '../Components/Down'
 import Navbar from '../Components/Navbar'
 import PostFull from '../Components/PostFull'
 import Search from '../Components/Search'
@@ -13,6 +14,7 @@ const SingleBlog = () => {
                 <PostFull />
             </div>
         </section>
+        <Down/>
     </div>
   )
 }
