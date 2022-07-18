@@ -10,6 +10,7 @@ const BlogList = () => {
           <li>Anime</li>
           <li>K-drama</li>
           <li>Games</li>
+          <li>Games 1</li>
         </ul>
         <div className="">
           <span className="text-2xl">
