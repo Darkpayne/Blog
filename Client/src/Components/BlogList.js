@@ -18,6 +18,9 @@ const BlogList = () => {
         </div>
       </div>
       <Posts />
+      <Posts />
+      <Posts />
+      <Posts />
     </>
   );
 };
