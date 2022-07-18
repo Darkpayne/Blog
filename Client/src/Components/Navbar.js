@@ -1,42 +1,58 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
-      <body>
-        <nav class="bg-white dark:bg-black dark:text-white flex flex-col md:flex-row items-center md:justify-between px-6 py-4 border-b border-b-gray-60 shadow-sm max-w-screen-2xl mx-auto">
+      <body className="dark:bg-black sticky z-50 top-0">
+        <nav class=" dark:bg-black dark:text-white flex flex-col md:flex-row items-center md:justify-between px-6 py-4  border-b-gray-60 shadow-sm max-w-screen-2xl mx-auto">
           <div>
-            <h2 class="text-3xl font-bold">
+            <Link to="/" class="text-3xl font-bold  cursor-pointer active:scale-95  duration-200">
               <p>
                 <span class="text-blue-600">Josh</span> Blog
               </p>
-            </h2>
+            </Link>
           </div>
 
           <div class="mt-5 md:mt-0">
-            <ul class="flex flex-col md:flex-row md:space-x-5 w-full items-center">
-              <li>
-                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+            <ul class="flex flex-col md:flex-row md:space-x-5 w-full items-center tracking-widest text-lg">
+              <Link to="/1" className="active:scale-90 duration-200">
+                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300  ">
                   Home
                 </p>
-              </li>
+              </Link>
+
               <li>
-                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
-                  List
+                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
+                <div class="dropdown dropdown-hover">
+                    <label tabindex="0" class="">List</label>
+                    <ul tabindex="0" class=" dropdown-content menu p-2 shadow text-white bg-transparent w-max">
+                      <li className=" my-2 hover:text-blue-600 active:scale-90 ">
+                        <a>Top 10 Anime May 2022</a>
+                      </li>
+                      <li className=" my-2 hover:text-blue-600 active:scale-90 ">
+                        <a>Top 10 K-Drama May 2022</a>
+                      </li>
+                      <li className=" my-2 hover:text-blue-600 active:scale-90 ">
+                        <a>Top 10 Games May 2022</a>
+                      </li>
+                    </ul>
+                  </div>
                 </p>
               </li>
-              <li>
-                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+
+              <li className="active:scale-90 duration-200">
+                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors ">
                   About Me
                 </p>
               </li>
-              <li>
-                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+              <li className="active:scale-90 duration-200">
+                <p class="block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
                   Shop
                 </p>
               </li>
-              <li>
-                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+              <li className="active:scale-90 duration-200">
+                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
                   Contact Us
                 </p>
               </li>
@@ -45,15 +61,25 @@ const Navbar = () => {
 
           <div class="mt-5 md:mt-0 md:block hidden">
             <ul class="flex flex-col md:flex-row md:space-x-5 w-full items-center">
-              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
+
+              <li className="duration-200 active:scale-90 ">
+              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-3xl active:scale-90 ">
                 <ion-icon name="logo-instagram"></ion-icon>
               </p>
-              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
+              </li>
+
+              <li className="duration-200 active:scale-90 ">
+              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-3xl">
                 <ion-icon name="logo-twitter"></ion-icon>
               </p>
-              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
+              </li>
+
+              <li className="duration-200 active:scale-90 ">
+              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-3xl">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </p>
+              </li>
+
             </ul>
           </div>
         </nav>

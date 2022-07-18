@@ -51,8 +51,8 @@ const Posts = () => {
                 0 <span className="tracking-widest ml-1"> comments</span>
               </p>
             </div>
-            <div className="icon flex justify-between items-center mt-5">
-              <span>12</span>{" "}
+            <div className="icon flex justify-between items-start mt-5">
+              <span className="text-sm">12</span>{" "}
               <span className="ml-1 text-red-500 text-baseline  font-bolder">
                 <ion-icon name="heart-outline"></ion-icon>
               </span>
