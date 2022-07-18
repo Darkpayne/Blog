@@ -16,27 +16,27 @@ const Navbar = () => {
           <div class="mt-5 md:mt-0">
             <ul class="flex flex-col md:flex-row md:space-x-5 w-full items-center">
               <li>
-                <p class="font-semibold tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
                   Home
                 </p>
               </li>
               <li>
-                <p class="font-semibold tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
-                  Shop
+                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+                  List
                 </p>
               </li>
               <li>
-                <p class="font-semibold tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
                   About Me
                 </p>
               </li>
               <li>
-                <p class="font-semibold tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
-                  Contact
+                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+                  Shop
                 </p>
               </li>
               <li>
-                <p class="font-semibold tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
+                <p class=" tracking-tight block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300">
                   Contact Us
                 </p>
               </li>
@@ -45,13 +45,13 @@ const Navbar = () => {
 
           <div class="mt-5 md:mt-0 md:block hidden">
             <ul class="flex flex-col md:flex-row md:space-x-5 w-full items-center">
-              <p class="font-semibold tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
+              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
                 <ion-icon name="logo-instagram"></ion-icon>
               </p>
-              <p class="font-semibold tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
+              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
                 <ion-icon name="logo-twitter"></ion-icon>
               </p>
-              <p class="font-semibold tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
+              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-3xl">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </p>
             </ul>
