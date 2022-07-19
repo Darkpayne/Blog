@@ -7,7 +7,7 @@ const RecentPost = () => {
             <p className='tracking-wider font-medium'>Recent Post</p>
             <p className='tracking-wider font-medium active:scale-95 cursor-pointer hover:text-blue-400'>See All</p>
         </div>
-        <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 lg:gap-x-44 ">
+        <div className="lg:grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 lg:gap-x-44 flex flex-col justify-center items-center my-10 ">
             <One/>
             <One/>
             <One/>

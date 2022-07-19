@@ -8,7 +8,7 @@ const AboutMe = () => {
     <div>
       <Navbar />
 
-      <section className='flex justify-center items-center'>
+      <section className=''>
         <Joshua />
       </section>
 
