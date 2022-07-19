@@ -17,16 +17,14 @@ const Home = () => {
       </section>
       <section className="container flex justify-center mx-auto my-16">
         <section className="basis-4/6 ">
-        <Footer/>
+          <Footer />
         </section>
       </section>
       <section>
-        <Down/>
+        <Down />
       </section>
     </div>
   );
 };
 
 export default Home;
-
-
