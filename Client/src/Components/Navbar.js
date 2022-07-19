@@ -49,11 +49,11 @@ const Navbar = () => {
                 </p>
               </li>
 
-              <li className="active:scale-90 duration-200">
+              <Link to="/about" className="active:scale-90 duration-200">
                 <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors ">
                   About Me
                 </p>
-              </li>
+              </Link>
               <li className="active:scale-90 duration-200">
                 <p class="block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
                   Shop
