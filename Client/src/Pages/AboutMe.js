@@ -1,14 +1,13 @@
-import React from 'react'
-import Down from '../Components/Down';
-import Navbar from '../Components/Navbar';
-import Joshua from '../Components/Joshua';
+import React from "react";
+import Down from "../Components/Down";
+import Navbar from "../Components/Navbar";
+import Joshua from "../Components/Joshua";
 
 const AboutMe = () => {
   return (
     <div>
       <Navbar />
-
-      <section className=''>
+      <section className="">
         <Joshua />
       </section>
 
@@ -16,7 +15,7 @@ const AboutMe = () => {
         <Down />
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default AboutMe
+export default AboutMe;
