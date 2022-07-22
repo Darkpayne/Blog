@@ -1,21 +1,61 @@
-import React from "react";
+import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Login = () => {
+const Signup = () => {
   return (
-    <>
-    
-      <div id="root" className="" style={{'backgroundImage':"url('/assets/bg1.jpg')", 'backgroundSize': 'contain'}}>
-      <div className="overlayNew"></div>
+    <div>
+          <>
+    <div className="overlayCopied"></div>
+      <div id="root" className="" style={{'backgroundImage':"url('/assets/bg2.jpg')", 'backgroundSize': 'cover'}}>
         <div className="mx-auto min-h-screen w-full flex items-center md:bg-none">
           <div className="flex w-full justify-center pt-8 pb-8 md:pt-4">
             <div className="min-h-[calc(100vh-theme(space.16))] w-full max-w-lg rounded-large bg-white p-10 pt-6 shadow-card sm:p-12 sm:pt-8 md:min-h-min md:min-w-[500px] md:p-14 md:pt-10 lg:p-16 lg:pt-16 rounded-xl">
               
               <h1 className="mt-6 flex text-[28px] font-bold text-primaryBlack sm:mt-10 sm:text-[32px] md:mt-4 md:justify-center md:text-[38px]">
-                Login
+                Sign Up
               </h1>
               <form className="mt-10 lg:mt-12">
                 <div className="removeAutocompleteBg relative">
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
+                    placeholder="Enter Name"
+                  />
+                  <label
+                    for="name"
+                    className="absolute left-0 -top-4 cursor-text text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-sm   peer-focus:text-gray-600 md:text-base md:peer-placeholder-shown:text-xl md:peer-focus:text-base"
+                  >
+                    <span className="flex items-center space-x-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        className="w-[1.2em] pb-[2px]"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          stroke-width="1.5"
+                          d="M17.268 9.061l-4.266 3.434a2.223 2.223 0 01-2.746 0L5.954 9.061"
+                        ></path>
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          stroke-width="1.5"
+                          d="M6.888 3.5h9.428c1.36.015 2.653.59 3.58 1.59a5.017 5.017 0 011.326 3.704v6.528a5.017 5.017 0 01-1.326 3.704 4.957 4.957 0 01-3.58 1.59H6.888C3.968 20.616 2 18.241 2 15.322V8.794C2 5.875 3.968 3.5 6.888 3.5z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                      <span className="font-semibold">Name</span>
+                    </span>
+                  </label>
+                </div>
+                <div className="relative mt-10 lg:mt-12">
+                  <div className="removeAutocompleteBg relative">
                   <input
                     id="emailId"
                     name="email"
@@ -51,8 +91,10 @@ const Login = () => {
                         ></path>
                       </svg>
                       <span className="font-semibold">Email</span>
-                    </span>
-                  </label>
+                      </span>
+                    </label>
+                  </div>
+                  
                 </div>
                 <div className="relative mt-10 lg:mt-12">
                   <div className="removeAutocompleteBg relative">
@@ -108,28 +150,21 @@ const Login = () => {
                     Show
                   </button>
                 </div>
-                <div className="mt-4">
-                  <a
-                    className="text-base font-bold hover:opacity-80"
-                    href="/forgot-password"
-                  >
-                    Forgot password?
-                  </a>
-                </div>
+                
                 <div className="mt-8 flex justify-center sm:mt-11 md:mt-14 lg:mt-16">
                   <button
                     type="submit"
                     className="border-none cursor-pointer appearance-none touch-manipulation flex items-center justify-center outline-none hover:opacity-80 px-7 py-2 rounded-full font-extrabold h-15 text-[17px] min-w-[180px] text-white bg-blue-500 w-[300px] shadow-product"
                   >
-                    Login
+                    Sign Up
                   </button>
                 </div>
                 <div className="mt-8 flex justify-center">
-                  <Link to="/signup"
+                  <Link to="/login"
                     className="text-base font-bold hover:opacity-80"
                     href="/signup"
                   >
-                    Create acccount
+                    Login
                   </Link>
                 </div>
               </form>
@@ -141,7 +176,8 @@ const Login = () => {
         </div>
       </div>
     </>
-  );
-};
+    </div>
+  )
+}
 
-export default Login;
+export default Signup

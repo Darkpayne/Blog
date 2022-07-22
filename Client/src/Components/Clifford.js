@@ -1,48 +1,29 @@
 import React from "react";
 import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import Down from "./Down";
+import Navbar from "./Navbar";
 
 const Joshua = () => {
   return (
-    <section className="">
-      <article className="h-screen">
-      <div className="container mx-auto basis-3/4 flex justify-center items-center relative mt-16">
-        <h1 className="flex tracking-wider font-semibold gap-x-10 mb-5 category text-7xl">
-          About<span className="text-white">Me</span>
-        </h1>
-        <div className="absolute h-24 w-40 -top-3 left-[53%] bg-black -z-10"></div>
-      </div>
-      
-      <div className="container mx-auto basis-3/4 flex justify-center items-center mt-[150px]">
-        
+    <section>
+        <Navbar/>
+      <div className="container mx-auto basis-3/4 flex justify-center items-center h-screen">
         <div className="grid gap-x-5 md:gap-x-3 pb-16 grid-cols-10 text-black">
-          <div className="col-span-5 flex justify-center items-center cursor-pointer">
+          <div className="col-span-8 flex justify-center items-center cursor-pointer">
             <h1 className="mb-4 xl:text-8xl lg:text-5xl  md:text-4xl text-8xl font-extrabold leading-none ease-in-out transition-all duration-500">
-              
+              <p className="text-2xl font-normal my-2">Hello, my name is</p>{" "}
               <span className="hover:text-blue-600  transition-all duration-500 category">
                 {" "}
                 Joshua Clifford
               </span>
-              <span className=" block text-3xl category">
-                {" "}
-                (owner of JoshBlog)
-              </span>
-              <span className=" block text-6xl category">
+              <span className="block text-6xl category">
                 {" "}
                 I build things for the web
               </span>
               <p className="text-2xl font-normal  mt-5">
-                <p>
-              Hello! My name is Joshua Clifford and I enjoy creating things that
-              live on the internet. My interest in web development started back
-              in 2021 as a hobby. Fast-forward to today, and I’ve had the
-              privilege of working at an advertising agency, a start-up, a huge
-              corporation, and a student-led design studio. My main focus these
-              days is building accessible, inclusive products and digital
-              experiences at for a variety of clients. I also recently launched
-              a course that covers everything you need to build a web app with
-              the Spotify API using Node React.
-            </p>
+                A software Developer with a passion for solving problems and
+                learning new things.
               </p>
               <div id="wrapper" className="mt-10">
                 <a id="a" href="#" className="hover:bg-black">
@@ -53,21 +34,14 @@ const Joshua = () => {
               </div>
             </h1>
           </div>
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex lg:justify-center items-center relative">
-            <img
-              src={"assets/joshua.jpeg"}
-              className="h-[500px] w-[490px] rounded"
-              alt="joshua"
-            />
-            <div className="absolute h-[500px] w-[490px] top-10 right-0 bg-black -z-10"></div>
-          </div>
         </div>
       </div>
-      </article>
-      {/* <Brief /> */}
-      <AltStack />
+      <Brief />
+      <Stack />
       <Work />
+      <FunFact/>
       <GetInTouch/>
+      <Down/>
     </section>
   );
 };
@@ -80,28 +54,28 @@ const Stack = () => {
       <div className=""></div>
       <div className="container mx-auto ">
         <div className="grid grid-cols-8 gap-x-5 py-5">
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center ">
+          <p className=" tracking-tight  cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center">
             <FaHtml5 />
           </p>
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
+          <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
             <FaReact />
           </p>
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
+          <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
             <FaNodeJs />
           </p>
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
+          <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
             <SiJavascript />
           </p>
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
+          <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
             <SiCss3 />
           </p>
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
+          <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
             <SiTailwindcss />
           </p>
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
+          <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center">
             <FaGithub />
           </p>
-          <p className=" tracking-tight block cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center ">
+          <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center ">
             <SiMongodb />
           </p>
         </div>
@@ -144,7 +118,19 @@ const AltStack = () => {
             <SiMongodb />
           </p>
           </div>
-          
+          {/* <div className="col-span-5 flex justify-center items-center tracking-wider leading-10">
+            <p>
+              Hello! My name is Joshua Clifford and I enjoy creating things that
+              live on the internet. My interest in web development started back
+              in 2021 as a hobby. Fast-forward to today, and I’ve had the
+              privilege of working at an advertising agency, a start-up, a huge
+              corporation, and a student-led design studio. My main focus these
+              days is building accessible, inclusive products and digital
+              experiences at for a variety of clients. I also recently launched
+              a course that covers everything you need to build a web app with
+              the Spotify API using Node React.
+            </p>
+          </div> */}
         </div>
       </article>
     </section>
@@ -154,8 +140,13 @@ const AltStack = () => {
 const Brief = () => {
   return (
     <section className="">
-      
-      <article className="container mx-auto mb-16 flex justify-center items-center ">
+      <div className="container mx-auto basis-3/4 flex justify-center items-center relative">
+        <h1 className="flex tracking-wider font-semibold gap-x-10 mb-5 category text-7xl">
+          About<span className="text-white">Me</span>
+        </h1>
+        <div className="absolute h-24 w-40 -top-3 left-[53%] bg-black -z-10"></div>
+      </div>
+      <article className="container mx-auto my-16 flex justify-center items-center">
         <div className="grid gap-x-5 md:gap-x-3 grid-cols-10 basis-3/4">
           <div className="col-span-5 flex justify-center items-center tracking-wider leading-10">
             <p>
@@ -250,7 +241,7 @@ const GetInTouch = () =>{
     <div className="">
       <div className="bg-black">
       <div className="container m-auto px-6 py-20 md:px-12 lg:px-20">
-        <div className="m-auto text-center lg:w-8/12 xl:w-7/12">
+        <div className="m-auto my-16 text-center lg:w-8/12 xl:w-7/12">
           <h2 className="text-7xl text-white tracking-wider font-semibold category">
             Get In Touch
           </h2>
@@ -270,4 +261,76 @@ const GetInTouch = () =>{
     </div>
     </div>
   )
+}
+
+const FunFact = () =>{
+    return (
+    <div className="my-16">
+            <div className="container mx-auto basis-3/4 flex justify-center items-center relative">
+                <h1 className="flex tracking-wider font-semibold gap-x-10 mb-5 category text-7xl">
+               Fun Fact
+                </h1>
+            </div>
+            <article className="container mx-auto my-16 flex justify-center items-center">
+        <div className="grid gap-x-10 md:gap-x-3 grid-cols-10 basis-3/4">
+         
+          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex lg:justify-center items-center relative">
+            <img
+              src={"assets/onepiece.jpg"}
+              className="h-[500px] w-[490px] rounded"
+              alt="joshua"
+            />
+          </div>
+
+          <div className="col-span-5 flex tracking-wide leading-7">
+            <ul className="flex-col flex justify-between">
+                
+            <li class="flex items-center mb-5 ">
+                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+				<span class="ml-2">I love Anime ALOT. I can go on for days binge watching. My current favourite Animes are: One Piece, Jujutsu Kaisen and Spy Family</span>
+			</li>
+
+            <li class="flex items-center mb-5 ">
+                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+				<span class="ml-2"> I like Sleep. Alot!!!</span>
+			</li>
+            
+            <li class="flex items-center mb-5 ">
+                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+				<span class="ml-2"> Shorts over Trousers anyday!!</span>
+			</li>
+
+            <li class="flex items-center mb-5 ">
+                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+				<span class="ml-2">I stan MESSI! Have nothing against Ronaldo, i believe he also is a top player but.. Messi is the Goat!</span>
+			</li>
+
+            <li class="flex items-center mb-5 ">
+                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+				<span class="ml-2">Love all kinds of Noodles.</span>
+			</li>
+
+            <li class="flex items-center mb-5 ">
+                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+				<span class="ml-2">DC universe will absolutly CLAP the marvel universe</span>
+			</li>
+            
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+    )
 }

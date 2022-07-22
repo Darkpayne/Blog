@@ -21,7 +21,7 @@ const Navbar = () => {
             <ul class="flex flex-col md:flex-row md:space-x-5 w-full items-center tracking-widest text-lg">
               <Link to="/1" className="active:scale-90 duration-200">
                 <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300  ">
-                  Home
+                  Blog
                 </p>
               </Link>
 
@@ -36,20 +36,20 @@ const Navbar = () => {
                       class=" dropdown-content menu p-2 shadow text-white bg-black w-max"
                     >
                       <li className=" my-2 hover:text-blue-600 active:scale-90 ">
-                        <a>Top 10 Anime May 2022</a>
+                        <Link to="/login">Top 10 Anime May 2022</Link>
                       </li>
                       <li className=" my-2 hover:text-blue-600 active:scale-90 ">
-                        <a>Top 10 K-Drama May 2022</a>
+                        <Link to="/signup">Top 10 K-Drama May 2022</Link>
                       </li>
                       <li className=" my-2 hover:text-blue-600 active:scale-90 ">
-                        <a>Top 10 Games May 2022</a>
+                        <Link to="/about">Top 10 Games May 2022</Link>
                       </li>
                     </ul>
                   </div>
                 </p>
               </li>
 
-              <Link to="/about" className="active:scale-90 duration-200">
+              <Link to="/joshua" className="active:scale-90 duration-200">
                 <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors ">
                   About Me
                 </p>
