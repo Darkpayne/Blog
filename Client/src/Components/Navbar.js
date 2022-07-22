@@ -29,7 +29,7 @@ const Navbar = () => {
                 <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
                   <div class="dropdown dropdown-hover">
                     <label tabindex="0" class="">
-                      List
+                      My Lists
                     </label>
                     <ul
                       tabindex="0"
@@ -54,16 +54,16 @@ const Navbar = () => {
                   About Me
                 </p>
               </Link>
-              <li className="active:scale-90 duration-200">
+              <Link to="/shop" className="active:scale-90 duration-200">
                 <p class="block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
                   Shop
                 </p>
-              </li>
-              <li className="active:scale-90 duration-200">
+              </Link>
+              <Link to="/contact" className="active:scale-90 duration-200">
                 <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
-                  Contact Us
+                  Contact Me
                 </p>
-              </li>
+              </Link>
             </ul>
           </div>
 

@@ -9,6 +9,8 @@ import AboutMe from "./Pages/AboutMe";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Clifford from "./Components/Clifford";
+import Shop from "./Pages/Shop";
+import Contact from "./Pages/Contact";
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route path="/login" element={ <Login />} />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/joshua" element={ <Clifford />} />
+          <Route path="/shop" element={ <Shop />} />
+          <Route path="/contact" element={ <Contact />} />
         </Routes>
       </BrowserRouter>
     </div>
