@@ -8,20 +8,20 @@ const Joshua = () => {
   return (
     <section>
         <Navbar/>
-      <div className="container mx-auto basis-3/4 flex justify-center items-center h-screen">
-        <div className="grid gap-x-5 md:gap-x-3 pb-16 grid-cols-10 text-black">
+      <div className="container mx-auto lg:basis-3/4 flex justify-center items-center h-screen">
+        <div className="grid gap-x-5 md:gap-x-3 pb-16 grid-cols-10 text-black p-2 xl:p-0">
           <div className="col-span-8 flex justify-center items-center cursor-pointer">
-            <h1 className="mb-4 xl:text-8xl lg:text-5xl  md:text-4xl text-8xl font-extrabold leading-none ease-in-out transition-all duration-500">
-              <p className="text-2xl font-normal my-2">Hello, my name is</p>{" "}
+            <h1 className="mb-4 xl:text-8xl lg:text-7xl  md:text-7xl text-6xl font-extrabold leading-none ease-in-out transition-all duration-500">
+              <p className="md:text-2xl text-lg  font-normal my-2">Hello, my name is</p>{" "}
               <span className="hover:text-blue-600  transition-all duration-500 category">
                 {" "}
                 Joshua Clifford
               </span>
-              <span className="block text-6xl category">
+              <span className="block lg:text-5xl md:text-3xl text-2xl category">
                 {" "}
                 I build things for the web
               </span>
-              <p className="text-2xl font-normal  mt-5">
+              <p className="md:text-2xl text-lg font-normal  mt-5">
                 A software Developer with a passion for solving problems and
                 learning new things.
               </p>
@@ -53,7 +53,7 @@ const Stack = () => {
     <div className=" text-black relative mb-10 bg-white ">
       <div className=""></div>
       <div className="container mx-auto ">
-        <div className="grid grid-cols-8 gap-x-5 py-5">
+        <div className="grid lg:grid-cols-4 xl:grid-cols-8 grid-cols-2 gap-x-5 py-5">
           <p className=" tracking-tight  cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center">
             <FaHtml5 />
           </p>
@@ -140,16 +140,16 @@ const AltStack = () => {
 const Brief = () => {
   return (
     <section className="">
-      <div className="container mx-auto basis-3/4 flex justify-center items-center relative">
+      <div className="container mx-auto flex justify-center items-center relative">
         <h1 className="flex tracking-wider font-semibold gap-x-10 mb-5 category text-7xl">
-          About<span className="text-white">Me</span>
+          About<span className="lg:text-white ">Me</span>
         </h1>
-        <div className="absolute h-24 w-40 -top-3 left-[53%] bg-black -z-10"></div>
+        <div className="absolute  h-24 w-40 hidden lg:block -top-3 left-[53%] bg-black -z-10"></div>
       </div>
       <article className="container mx-auto my-16 flex justify-center items-center">
-        <div className="grid gap-x-5 md:gap-x-3 grid-cols-10 basis-3/4">
-          <div className="col-span-5 flex justify-center items-center tracking-wider leading-10">
-            <p>
+        <div className="grid gap-x-5 md:gap-x-3 grid-cols-10 xl:basis-3/4 p-2 xl:p-0">
+          <div className="lg:col-span-5 col-span-10 flex justify-center items-center tracking-wider leading-10">
+            <p className="">
               Hello! My name is Joshua Clifford and I enjoy creating things that
               live on the internet. My interest in web development started back
               in 2021 as a hobby. Fast-forward to today, and I’ve had the
@@ -162,13 +162,13 @@ const Brief = () => {
             </p>
           </div>
 
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex lg:justify-center items-center relative">
+          <div className="lg:mt-0 lg:col-span-5 col-span-10 mt-10 flex justify-center items-center relative p-2 lg:p-0">
             <img
               src={"assets/joshua.jpeg"}
               className="h-[500px] w-[490px] rounded"
               alt="joshua"
             />
-            <div className="absolute h-[500px] w-[490px] top-10 right-0 bg-black -z-10"></div>
+            <div className="absolute xl:h-[500px] w-[490px] top-10 right-0 bg-black -z-10"></div>
           </div>
         </div>
       </article>
@@ -194,7 +194,7 @@ const Work = () => {
 
 const ProjectWork = () =>{
   return (
-    <div className="mt-12 m-auto -space-y-4 items-center justify-center mb-16 md:flex md:space-y-0 md:-space-x-4 xl:w-10/12">
+    <div className="mt-12 m-auto -space-y-4 items-center justify-center mb-16 md:flex md:space-y-0 md:-space-x-4 xl:w-10/12 p-2 md:p-0">
     <div className="relative z-10 -mx-4 group md:w-6/12 md:mx-0 lg:w-5/12">
       <div
         aria-hidden="true"
@@ -282,7 +282,7 @@ const FunFact = () =>{
             />
           </div>
 
-          <div className="col-span-5 flex tracking-wide leading-7">
+          <div className="lg:col-span-5 col-span-10 flex tracking-wide leading-7">
             <ul className="flex-col flex justify-between">
                 
             <li class="flex items-center mb-5 ">

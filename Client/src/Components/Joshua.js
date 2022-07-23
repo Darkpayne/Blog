@@ -27,7 +27,7 @@ const Joshua = () => {
                 {" "}
                 (owner of JoshBlog)
               </span>
-              <span className=" block text-6xl category">
+              <span className=" block lg:text-6xl md:text-3xl category">
                 {" "}
                 I build things for the web
               </span>
