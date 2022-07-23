@@ -53,7 +53,7 @@ const PostFull = () => {
 
         <div className="border-y-2">
           <div class="my-5 ">
-            <ul class="flex flex-col md:flex-row md:space-x-5 w-full items-center">
+            <ul class="flex md:flex-row justify-center gap-x-5 md:space-x-5 w-full items-center">
 
               <li className="duration-200 active:scale-90 ">
               <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-xl active:scale-90 ">

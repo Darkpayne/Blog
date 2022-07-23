@@ -12,7 +12,7 @@ const Home = () => {
       <Navbar />
       <Hero1 />
       <section className="container flex justify-center mx-auto my-8">
-        <section className="basis-4/6 ">
+        <section className="lg:basis-4/6 ">
           <BlogList />
         </section>
       </section>

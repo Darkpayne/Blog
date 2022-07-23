@@ -10,7 +10,7 @@ const SingleBlog = () => {
       <Navbar />
       <Search />
       <section className="container mx-auto flex justify-center items-center">
-        <div className="basis-3/6">
+        <div className="md:basis-3/6 p-2 md:p-0">
           <PostFull />
         </div>
       </section>
