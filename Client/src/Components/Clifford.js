@@ -53,7 +53,7 @@ const Stack = () => {
     <div className=" text-black relative mb-10 bg-white ">
       <div className=""></div>
       <div className="container mx-auto ">
-        <div className="grid lg:grid-cols-4 xl:grid-cols-8 grid-cols-2 gap-x-5 py-5">
+        <div className="grid lg:grid-cols-4 xl:grid-cols-8 grid-cols-2 gap-x-5 py-5 md:grid-cols-3">
           <p className=" tracking-tight  cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-8xl justify-self-center rounded-full hover:bg-black hover:text-white m-2 w-36 h-36  flex justify-center items-center">
             <FaHtml5 />
           </p>

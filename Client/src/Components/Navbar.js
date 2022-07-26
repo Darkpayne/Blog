@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
       <body className="dark:bg-black sticky z-50 top-0">
         <nav class="navvv dark:bg-black dark:text-white flex flex-col lg:flex-row lg:items-center lg:justify-between px-6 py-4  border-b-gray-60 shadow-sm max-w-screen-2xl mx-auto">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center lg:mb-0">
             <Link
               to="/"
               class="text-3xl font-bold  cursor-pointer active:scale-95  duration-200"
@@ -24,16 +24,17 @@ const Navbar = () => {
             <span onClick={handleNav} className="text-3xl cursor-pointer lg:hidden "><ion-icon name={isOpen?"menu-outline":"close-outline"}></ion-icon></span>
           </div>
 
-          <div class={`mt-5 lg:block md:mt-0 ${isOpen?"hidden":""}`}>
-            <ul class="flex flex-col md:flex-row md:space-x-5 w-full md:items-center  tracking-widest text-lg ">
+          <div class={`mt-5 lg:block md:mt-0 ${isOpen?"hidden":""} navv`}>
+            <ul class="flex-col lg:flex lg:space-x-5 md:flex-row w-full md:items-center  tracking-widest text-lg ">
+
               <Link to="/1" className="active:scale-90 duration-200">
-                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300  ">
+                <p class=" block cursor-pointer p-2 my-2 lg:my-0 hover:text-blue-500 transition-colors duration-300  ">
                   Blog
                 </p>
               </Link>
 
-              <li>
-                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
+              
+                <p class="cursor-pointer hover:text-blue-500 transition-colors duration-300  p-2  my-2 lg:my-0 ">
                   <div class="dropdown dropdown-hover">
                     <label tabindex="0" class="">
                       My Lists
@@ -49,25 +50,26 @@ const Navbar = () => {
                         <Link to="/signup">Top 10 K-Drama May 2022</Link>
                       </li>
                       <li className=" my-2 hover:text-blue-600 active:scale-90 ">
-                        <Link to="/about">Top 10 Games May 2022</Link>
+                        <Link to="/admin">Top 10 Games May 2022</Link>
                       </li>
                     </ul>
                   </div>
+                  
                 </p>
-              </li>
+              
 
               <Link to="/joshua" className="active:scale-90 duration-200">
-                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors ">
+                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors  my-2 lg:my-0 ">
                   About Me
                 </p>
               </Link>
               <Link to="/shop" className="active:scale-90 duration-200">
-                <p class="block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
+                <p class="block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300  my-2 lg:my-0 ">
                   Shop
                 </p>
               </Link>
               <Link to="/contact" className="active:scale-90 duration-200">
-                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300 ">
+                <p class=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300  my-2 lg:my-0 ">
                   Contact Me
                 </p>
               </Link>

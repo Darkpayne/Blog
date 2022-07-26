@@ -11,6 +11,12 @@ import Signup from "./Pages/Signup";
 import Clifford from "./Components/Clifford";
 import Shop from "./Pages/Shop";
 import Contact from "./Pages/Contact";
+import Admin from "./Admin/Pages/Admin";
+import AddPost from "./Admin/Pages/AddPost";
+import EditPost from "./Admin/Pages/EditPost";
+import ErrorPage from "./Pages/ErrorPage";
+import ViewPost from "./Admin/Pages/ViewPost";
+import ViewUsers from "./Admin/Pages/ViewUsers";
 
 
 function App() {
@@ -26,6 +32,12 @@ function App() {
           <Route path="/joshua" element={ <Clifford />} />
           <Route path="/shop" element={ <Shop />} />
           <Route path="/contact" element={ <Contact />} />
+          <Route path="/admin" element={ <Admin />} />
+          <Route path="/admin/addpost" element={ <AddPost />} />
+          <Route path="/admin/editpost" element={ <EditPost />} />
+          <Route path="/admin/viewpost" element={ <ViewPost />} />
+          <Route path="/admin/viewusers" element={ <ViewUsers />} /> 
+          <Route path="*" element={ <ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>
