@@ -29,7 +29,7 @@ const Sidebar = () => {
                 
                 <p  className='heading'>SHOP</p>
                 
-                <Link to="/">
+                <Link to="/admin/sadfgser">
                     <li className='list'>
                     <span className='icon'>
                         <ion-icon name="storefront-outline"></ion-icon>
