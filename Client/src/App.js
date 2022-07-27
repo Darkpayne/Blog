@@ -17,6 +17,7 @@ import EditPost from "./Admin/Pages/EditPost";
 import ErrorPage from "./Pages/ErrorPage";
 import ViewPost from "./Admin/Pages/ViewPost";
 import ViewUsers from "./Admin/Pages/ViewUsers";
+import AddUser from "./Admin/Pages/AddUser";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/admin/editpost" element={ <EditPost />} />
           <Route path="/admin/viewpost" element={ <ViewPost />} />
           <Route path="/admin/viewusers" element={ <ViewUsers />} /> 
+          <Route path="/admin/adduser" element={ <AddUser />} /> 
           <Route path="*" element={ <ErrorPage />} />
         </Routes>
       </BrowserRouter>

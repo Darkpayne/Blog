@@ -5,6 +5,7 @@ const ShopItem = () => {
     <div className=''>
       
 <section  className="bg-white h-screen">
+       
         <div  className="container px-6 py-8 mx-auto">
             <div  className="lg:flex lg:-mx-2">
                 <div  className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">

@@ -54,7 +54,7 @@ const Cards = () => {
         },
         {
             image:6,
-            link:'worktime.abiliintegratedserv.org/admin/user/user_list',
+            link:'/admin/adduser',
             title:"Admin",
             svg:"person-add-outline",
             desc:"Add New User",
