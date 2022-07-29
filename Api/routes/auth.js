@@ -30,15 +30,21 @@ router.post('/register',async (req,res) =>{
 
 router.post('/login', async (req,res)=>{
     try {
-        const user = await User.findOne({username:req.body.username})
 
-        !user && res.status(400).json({message:"user don't exist "})
+        const user = await User.findOne({username : req.body.username})
 
-        const validated = await bcrypt.compare(req.body.passsword, user.password)
+      
+        !user && res.status(400).json({ message : "user don't exist "})
+            
+       
 
-        !validated && res.status(400).json({message:"password is wrong"})
-
-        res.status(200).json(user);
+        const validated = await bcrypt.compare( req.body.password, user.password );
+        
+       
+        !validated && res.status(400).json({message:"password is wrong"});
+       
+        
+        res.status(200).json(user)
 
     } catch (error) {
         
