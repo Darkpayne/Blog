@@ -3,6 +3,8 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./routes/auth');
+const userRoute = require('./routes/users');
+const postRoute = require('./routes/posts');
 port = 6060;
 
 dotenv.config();
@@ -20,6 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
+app.use("/api/post", postRoute);
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);
