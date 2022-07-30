@@ -36,7 +36,7 @@ app.post("/api/upload", upload.single("file"), (req,res)=>{
   res.status(200).json("file has been uploaded");
 });
 
-// end file upload
+// End file upload
 
 app.get("/", (req, res) => {
   res.send("everything is okay!");
