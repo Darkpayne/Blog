@@ -52,28 +52,28 @@ const PostFull = () => {
         </div>
 
         <div className="border-y-2">
-          <div class="my-5 ">
-            <ul class="flex md:flex-row justify-center gap-x-5 md:space-x-5 w-full items-center">
+          <div className="my-5 ">
+            <ul className="flex md:flex-row justify-center gap-x-5 md:space-x-5 w-full items-center">
 
               <li className="duration-200 active:scale-90 ">
-              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-xl active:scale-90 ">
+              <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-xl active:scale-90 ">
               <ion-icon name="logo-facebook"></ion-icon>
               </p>
               </li>
               <li className="duration-200 active:scale-90 ">
-              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-xl active:scale-90 ">
+              <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-xl active:scale-90 ">
                 <ion-icon name="logo-instagram"></ion-icon>
               </p>
               </li>
 
               <li className="duration-200 active:scale-90 ">
-              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-xl">
+              <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-xl">
                 <ion-icon name="logo-twitter"></ion-icon>
               </p>
               </li>
 
               <li className="duration-200 active:scale-90 ">
-              <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-xl">
+              <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-xl">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </p>
               </li>

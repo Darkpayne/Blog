@@ -1,8 +1,19 @@
-import React from "react";
 
-const Posts = () => {
+const Posts = ({post}) => {
   return (
-    <div className="my-16 ">
+    <div className="">
+    {post.map((post)=>(
+      <Post key={post._id}/>
+    ))}
+    </div>
+  );
+};
+
+export default Posts;
+
+const Post = () =>{
+  return(
+    <div className="my-16">
       <div className="flex shadow-lg">
         <div className="image basis-1/2 md:block ">
           <img
@@ -34,7 +45,7 @@ const Posts = () => {
               </h2>
             </div>
 
-            <div className="desc md:tracking-wide md:leading-7 font-light  sm:mb-10 lg:mb-0">
+            <div className="desc md:tracking-wide md:leading-7 font-light px-3 sm:mb-10 lg:mb-0">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Veritatis natus et ipsam repudiandae, corporis ut voluptas
@@ -63,7 +74,5 @@ const Posts = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-export default Posts;
+  )
+}

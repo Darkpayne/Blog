@@ -7,7 +7,7 @@ const Sidebar = () => {
         <div className="flex items-center justify-center text-3xl border-b-2 p-3">
         <Link to="/" className='font-bold flex-none'>
           <p>
-            <span class="text-blue-600 ">Josh</span> Blog
+            <span className="text-blue-600 ">Josh</span> Blog
           </p>
         </Link>
         </div>

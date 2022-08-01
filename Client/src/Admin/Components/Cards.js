@@ -73,15 +73,15 @@ const Cards = () => {
         {
             Data.map((card, index)=>{
                 return (
-                    <div key={index}  class="col-span-1 mx-auto justify-center rounded-2xl shadow-xl shadow-slate-300/60 hover:scale-105 duration-500 translate-y-1 cursor-pointer active:scale-90 w-[300px] text-center bg-white">
+                    <div key={index}  className="col-span-1 mx-auto justify-center rounded-2xl shadow-xl shadow-slate-300/60 hover:scale-105 duration-500 translate-y-1 cursor-pointer active:scale-90 w-[300px] text-center bg-white">
                         <Link to={`${card.link}`}>
-                        {/* <img class="w-[250px] rounded-t-2xl object-cover object-center" src={`/assets/image${card.image}.jpg`} /> */}
+                        {/* <img className="w-[250px] rounded-t-2xl object-cover object-center" src={`/assets/image${card.image}.jpg`} /> */}
                         <div className="text-6xl p-5 flex justify-center items-center text-blue-600 font-extrabold">
                             <ion-icon name={card.svg}></ion-icon>
                         </div>
-                        <div class="p-4 bg-slate-50">
-                        <h1 class="text-xl font-medium text-slate-800 pb-2 capitalize">{card.title}</h1>
-                        <p class="text-sm font-semibold text-slate-500 capitalize">{card.desc}</p>
+                        <div className="p-4 bg-slate-50">
+                        <h1 className="text-xl font-medium text-slate-800 pb-2 capitalize">{card.title}</h1>
+                        <p className="text-sm font-semibold text-slate-500 capitalize">{card.desc}</p>
                         </div>
                         </Link>
                     </div>

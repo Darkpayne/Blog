@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Posts from "./Posts";
+import axios from "axios"
 
 const BlogList = () => {
+  const [post, setPost] = useState([])
+
+  useEffect(() => {
+    const fetchPost = async () =>{
+     const response = await axios.get("http://localhost:6060/api/post")
+     setPost(response.data);
+    }
+   fetchPost()
+  }, [])
+
   return (
     <>
       <div className=" flex items-center justify-between pb-3 border-b-2 px-5">
@@ -17,10 +28,8 @@ const BlogList = () => {
           </span>
         </div>
       </div>
-      <Posts />
-      <Posts />
-      <Posts />
-      <Posts />
+      <Posts post={post}/>
+     
     </>
   );
 };

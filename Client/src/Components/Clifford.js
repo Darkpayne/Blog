@@ -215,10 +215,10 @@ const ProjectWork = () =>{
           </p>
         </div>
         <div className="grid  grid-cols-3 gap-4 text-lg text-gray-600 ">
-          <button class="btn bg-black">React</button>
-          <button class="btn bg-black">Tailwind CSS</button>
-          <button class="btn bg-black">Dezeer Api</button>
-          <button class="btn bg-black">Axios</button>
+          <button className="btn bg-black">React</button>
+          <button className="btn bg-black">Tailwind CSS</button>
+          <button className="btn bg-black">Dezeer Api</button>
+          <button className="btn bg-black">Axios</button>
         </div>
       </div>
     </div>
@@ -285,46 +285,46 @@ const FunFact = () =>{
           <div className="lg:col-span-5 col-span-10 flex tracking-wide leading-7">
             <ul className="flex-col flex justify-between">
                 
-            <li class="flex items-center mb-5 ">
-                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <li className="flex items-center mb-5 ">
+                <svg className="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-				<span class="ml-2">I love Anime ALOT. I can go on for days binge watching. My current favourite Animes are: One Piece, Jujutsu Kaisen and Spy Family</span>
+				<span className="ml-2">I love Anime ALOT. I can go on for days binge watching. My current favourite Animes are: One Piece, Jujutsu Kaisen and Spy Family</span>
 			</li>
 
-            <li class="flex items-center mb-5 ">
-                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <li className="flex items-center mb-5 ">
+                <svg className="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-				<span class="ml-2"> I like Sleep. Alot!!!</span>
+				<span className="ml-2"> I like Sleep. Alot!!!</span>
 			</li>
             
-            <li class="flex items-center mb-5 ">
-                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <li className="flex items-center mb-5 ">
+                <svg className="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-				<span class="ml-2"> Shorts over Trousers anyday!!</span>
+				<span className="ml-2"> Shorts over Trousers anyday!!</span>
 			</li>
 
-            <li class="flex items-center mb-5 ">
-                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <li className="flex items-center mb-5 ">
+                <svg className="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-				<span class="ml-2">I stan MESSI! Have nothing against Ronaldo, i believe he also is a top player but.. Messi is the Goat!</span>
+				<span className="ml-2">I stan MESSI! Have nothing against Ronaldo, i believe he also is a top player but.. Messi is the Goat!</span>
 			</li>
 
-            <li class="flex items-center mb-5 ">
-                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <li className="flex items-center mb-5 ">
+                <svg className="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-				<span class="ml-2">Love all kinds of Noodles.</span>
+				<span className="ml-2">Love all kinds of Noodles.</span>
 			</li>
 
-            <li class="flex items-center mb-5 ">
-                <svg class="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <li className="flex items-center mb-5 ">
+                <svg className="w-7 h-10 flex-none mr-5 text-black fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-				<span class="ml-2">DC universe will absolutly CLAP the marvel universe</span>
+				<span className="ml-2">DC universe will absolutly CLAP the marvel universe</span>
 			</li>
             
             </ul>

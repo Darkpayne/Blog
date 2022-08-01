@@ -3,15 +3,15 @@ import React from 'react'
 const Down = () => {
   return (
     <div className="bg-black flex flex-col items-center justify-center text-white h-28">
-    <div class="">
-        <ul class="flex md:flex-row space-x-5 w-full items-center justify-center">
-        <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
+    <div className="">
+        <ul className="flex md:flex-row space-x-5 w-full items-center justify-center">
+        <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
             <ion-icon name="logo-instagram"></ion-icon>
         </p>
-        <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
+        <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
             <ion-icon name="logo-twitter"></ion-icon>
         </p>
-        <p class=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
+        <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
             <ion-icon name="logo-linkedin"></ion-icon>
         </p>
         </ul>

@@ -21,16 +21,16 @@ const Admin = () => {
     }}>
         <div className='sticky top-0 z-50 bg-blue-500'>
             <div className="flex flex-wrap place-items-center">
-                <section class="mx-auto">
-                    <nav class="flex justify-between items-center glass w-screen">
+                <section className="mx-auto">
+                    <nav className="flex justify-between items-center glass w-screen">
 
-                        <div class="px-5 xl:px-12 py-6 flex justify-between w-full items-center">
+                        <div className="px-5 xl:px-12 py-6 flex justify-between w-full items-center">
                            
                         <Link to="/"
-              class="text-3xl font-bold  cursor-pointer active:scale-95  duration-200"
+              className="text-3xl font-bold  cursor-pointer active:scale-95  duration-200"
             >
               <p>
-                <span class="text-blue-600">Josh</span>Blog
+                <span className="text-blue-600">Josh</span>Blog
               </p>
             </Link>
                             <Clock/>    
