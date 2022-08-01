@@ -1,9 +1,9 @@
-
+import {Link} from 'react-router-dom';
 const Posts = ({post}) => {
   return (
     <div className="">
     {post.map((post)=>(
-      <Post key={post._id}/>
+      <Post key={post._id} post={post}/>
     ))}
     </div>
   );
@@ -11,9 +11,11 @@ const Posts = ({post}) => {
 
 export default Posts;
 
-const Post = () =>{
+const Post = ({post}) =>{
   return(
-    <div className="my-16">
+    <>
+
+  <div className="my-16">
       <div className="flex shadow-lg">
         <div className="image basis-1/2 md:block ">
           <img
@@ -25,27 +27,30 @@ const Post = () =>{
         <div className="lg:p-5 p-1 basis-1/2 h-[354px] flex flex-col lg:justify-between">
 
           <section>
-            <div className="profile-image mb-5 flex items-center gap-x-5">
+            <div className="profile-image mb-5 flex items-center gap-x-5 px-3 lg:px-0">
+              {post.photo || 
               <div className="">
                 <img
                   src={"assets/joshua.jpeg"}
                   alt=""
                   className="w-8 rounded-full"
-                />
+                  />
               </div>
+              }
               <div className="text-sm">
-                <h1>Joshua Clifford</h1>
-                <h2 className="text-xs text-gray-500">Mar 15, 2022 . 2min</h2>
+                <h1>{post.username}</h1>
+                <h2 className="text-xs text-gray-500">{new Date(post.createdAt).toDateString()}</h2>
               </div>
             </div>
-
-            <div className="title md:mb-3">
-              <h2 className="tracking-widest font-normal md:text-2xl text-lg">
-                Top Games 2022
+            <Link to={`/post/${post._id}`}>
+            <div className=" md:mb-3 px-3 lg:px-0">
+              <h2 className="tracking-widest font-normal md:text-2xl text-lg uppercase">
+                {post.title}
               </h2>
             </div>
+            </Link>
 
-            <div className="desc md:tracking-wide md:leading-7 font-light px-3 sm:mb-10 lg:mb-0">
+            <div className="desc md:tracking-wide md:leading-7 font-light px-3 lg:px-0 sm:mb-10 lg:mb-0">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Veritatis natus et ipsam repudiandae, corporis ut voluptas
@@ -55,7 +60,7 @@ const Post = () =>{
             </div>
           </section>
 
-          <div className="flex justify-between items-center border-t-2 mt-5 md:mt-0">
+          <div className="flex justify-between items-center border-t-2 mt-5 md:mt-0 px-3 lg:px-0">
             <div className="flex items-center lg:gap-x-5 gap-x-2 md:text-sm text-xs text-gray-500 mt-5">
               <p>
                 345 <span className="lg:tracking-widest ml-1">views </span>
@@ -74,5 +79,8 @@ const Post = () =>{
         </div>
       </div>
     </div>
+
+    
+    </>
   )
 }
