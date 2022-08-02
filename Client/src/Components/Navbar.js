@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className={`mt-5 lg:block md:mt-0 ${isOpen?"hidden":""} navv`}>
             <ul className="flex-col lg:flex lg:space-x-5 md:flex-row w-full md:items-center  tracking-widest text-lg ">
 
-              <Link to="/1" className="active:scale-90 duration-200">
+              <Link to="/" className="active:scale-90 duration-200">
                 <p className=" block cursor-pointer p-2 my-2 lg:my-0 hover:text-blue-500 transition-colors duration-300  ">
                   Blog
                 </p>

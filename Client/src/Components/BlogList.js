@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Posts from "./Posts";
 import axios from "axios"
+import { Link, useLocation } from "react-router-dom";
 
 const BlogList = () => {
   const [post, setPost] = useState([])
   const [cat, setCat] = useState([])
+  
+  const {search} = useLocation()
 
   useEffect(() => {
     const fetchPost = async () =>{
-     const response = await axios.get("http://localhost:6060/api/post")
+     const response = await axios.get("http://localhost:6060/api/post"+ search)
      setPost(response.data);
     }
    fetchPost()
-  }, [])
+  }, [search])
 
   useEffect(() => {
     const fetchCat = async () =>{
@@ -21,7 +24,7 @@ const BlogList = () => {
     }
    fetchCat()
   }, [])
-  console.log(cat);
+ 
 
   return (
     <>
@@ -29,7 +32,7 @@ const BlogList = () => {
         <ul className="flex md:text-xl sm:text-lg tracking-wider font-semibold gap-x-10 category">
         <li className=" active:scale-90 cursor-pointer  duration-200">All Post</li>
           {cat.map((c)=>(
-            <li className=" active:scale-90 cursor-pointer  duration-200">{c.name}</li>
+         <li key={c._id} className=" active:scale-90 cursor-pointer  duration-200">{c.name}</li>
           ))}
         </ul>
         <div className="active:scale-90 cursor-pointer  duration-200">

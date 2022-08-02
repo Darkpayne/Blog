@@ -38,7 +38,7 @@ const Post = ({post}) =>{
               </div>
               }
               <div className="text-sm">
-                <h1>{post.username}</h1>
+               <h1>{post.username}</h1>
                 <h2 className="text-xs text-gray-500">{new Date(post.createdAt).toDateString()}</h2>
               </div>
             </div>

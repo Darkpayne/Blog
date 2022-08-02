@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Comments from './Comments'
 import RecentPost from './RecentPost'
-import Down from './Down'
+
 
 const PostFull = ({post}) => {
   return (
@@ -13,13 +14,13 @@ const PostFull = ({post}) => {
        <div className="flex justify-between items-center">
            <h2 className="text-xs text-gray-500">{new Date(post.createdAt).toDateString()}</h2>
            <span className='cursor-pointer'>
-            <span className="text-xs text-gray-500 tracking-wider">By {post.username}</span>
+           <Link to={`/?user=${post.username}`}><span className="text-xs text-gray-500 tracking-wider">By {post.username}</span></Link>
                {/* <ion-icon name="ellipsis-vertical-outline"></ion-icon> */}
            </span>
        </div>
 
        <div className=" my-5">
-         <h2 className="tracking-wide font-normal text-6xl ">
+         <h2 className="tracking-wide font-normal text-6xl capitalize">
          {post.title}
          </h2>
        </div>
