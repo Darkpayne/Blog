@@ -224,10 +224,10 @@ const ProjectWork = () =>{
           </p>
         </div>
         <div className="grid  grid-cols-3 gap-4 text-lg text-gray-600 ">
-          <button class="btn bg-black">React</button>
-          <button class="btn bg-black">Tailwind CSS</button>
-          <button class="btn bg-black">Dezeer Api</button>
-          <button class="btn bg-black">Axios</button>
+          <button className="btn bg-black">React</button>
+          <button className="btn bg-black">Tailwind CSS</button>
+          <button className="btn bg-black">Dezeer Api</button>
+          <button className="btn bg-black">Axios</button>
         </div>
       </div>
     </div>

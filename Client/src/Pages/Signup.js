@@ -1,7 +1,22 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react'
+import  { Link } from 'react-router-dom'
+import axios from "axios"
 
 const Signup = () => {
+  const [isShowing, setIsShowing] = useState(true)
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleSubmit =async (e) =>{
+    e.preventDefault();
+    const res = await axios.post("http://localhost:6060/api/auth" , {
+      username,
+      email,
+      password,
+    });
+    console.log(res);
+  }
   return (
     <div>
           <>
@@ -14,14 +29,16 @@ const Signup = () => {
               <h1 className="mt-6 flex text-[28px] font-bold text-primaryBlack sm:mt-10 sm:text-[32px] md:mt-4 md:justify-center md:text-[38px]">
                 Sign Up
               </h1>
-              <form className="mt-10 lg:mt-12">
+              <form onSubmit={handleSubmit} className="mt-10 lg:mt-12">
                 <div className="removeAutocompleteBg relative">
                   <input
-                    id="name"
+                    id="username"
                     name="name"
                     type="text"
                     className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
-                    placeholder="Enter Name"
+                    placeholder="Enter username"
+                    value={username}
+                    onChange={(e)=>setUsername(e.target.value)}
                   />
                   <label
                     for="name"
@@ -62,6 +79,7 @@ const Signup = () => {
                     type="email"
                     className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                     placeholder="Enter email"
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
                   <label
                     for="emailId"
@@ -101,9 +119,10 @@ const Signup = () => {
                     <input
                       id="passwordId"
                       name="password"
-                      type="password"
+                      type={isShowing?"password":"text"}
                       className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                       placeholder="Enter Password"
+                      onChange={(e)=>setPassword(e.target.value)}
                     />
                     <label
                       for="passwordId"
@@ -143,11 +162,13 @@ const Signup = () => {
                       </span>
                     </label>
                   </div>
-                  <button
+                  <button onClick={()=>{
+                    setIsShowing(!isShowing)
+                  }}
                     type="button"
                     className="border-none appearance-none touch-manipulation flex items-center justify-center outline-none absolute right-0 top-[58%] -translate-y-1/2 cursor-pointer text-base font-bold hover:opacity-80"
                   >
-                    Show
+                    {isShowing ? "Show":" Hide"}
                   </button>
                 </div>
                 

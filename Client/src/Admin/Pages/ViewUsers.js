@@ -12,14 +12,14 @@ const ViewUsers = () => {
         </section>
         <section className='basis-5/6'>
             <Nav/>
-			<div class="navbar bg-base-100">
+			<div className="navbar bg-base-100">
 				<div className="flex justify-between items-center w-full">
 					<div className=""></div>
-					<Link to="/admin/adduser" class="btn btn-info">Add User</Link>
+					<Link to="/admin/adduser" className="btn btn-info">Add User</Link>
 				</div>
 			</div>
-			<div class="overflow-x-auto">
-				<table class="table table-zebra w-full">
+			<div className="overflow-x-auto">
+				<table className="table table-zebra w-full">
 				
 					<thead>
 					<tr>

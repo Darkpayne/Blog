@@ -14,10 +14,10 @@ const EditPost = () => {
             <Nav/>
             
 <div className="w-full">
-<div class="navbar bg-base-100">
+<div className="navbar bg-base-100">
         <div className="flex justify-between items-center w-full">
             
-            <Link to="/admin/viewpost" class="btn btn-info">View Post</Link>
+            <Link to="/admin/viewpost" className="btn btn-info">View Post</Link>
         </div>
     </div>
     <div className="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div>

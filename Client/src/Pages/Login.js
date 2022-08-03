@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <>
     
-      <div id="root" className="" style={{'backgroundImage':"url('/assets/bg1.jpg')", 'backgroundSize': 'contain','backgroundRepeat': 'no-repeat'}}>
+      <div id="root" className="" style={{'backgroundImage':"url('/assets/bg1.jpg')", 'backgroundSize': 'cover','backgroundRepeat': 'no-repeat'}}>
       <div className="overlayNew"></div>
         <div className="mx-auto min-h-screen w-full flex items-center md:bg-none">
           <div className="flex w-full justify-center pt-8 pb-8 md:pt-4">

@@ -9,9 +9,9 @@ const ShopNav = () => {
   <div className="container flex flex-wrap justify-between items-center mx-auto">
   <Link
         to="/shop"
-        class="text-3xl font-bold  cursor-pointer active:scale-95 header  duration-200">
+        className="text-3xl font-bold  cursor-pointer active:scale-95 header  duration-200">
         <p>
-        <span class="text-blue-600">Josh</span> Shop
+        <span className="text-blue-600">Josh</span> Shop
         </p>
     </Link>
   <div className="flex md:order-2">
@@ -19,7 +19,7 @@ const ShopNav = () => {
     
       <button type="button" className="text-white bg-black hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 ">
         <button className='text-3xl indicator'>
-        <span class="indicator-item badge badge-primary">1</span> 
+        <span className="indicator-item badge badge-primary">1</span> 
             <ion-icon name="cart"></ion-icon>
         </button>
       </button>
