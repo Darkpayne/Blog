@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import  { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
 
 const Signup = () => {
@@ -7,16 +9,47 @@ const Signup = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState(false)
 
-  const handleSubmit =async (e) =>{
-    e.preventDefault();
-    const res = await axios.post("http://localhost:6060/api/auth" , {
-      username,
-      email,
-      password,
-    });
-    console.log(res);
+  
+  function createError(msg){
+    toast.error(msg , {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
+
+
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    if(username === ""||email === ""||password === ""){
+      setError(true)
+      createError('input your credentials')
+    }else{
+      try {
+        const res = await axios.post("http://localhost:6060/api/auth/register" , {
+          username,
+          email,
+          password,
+        });
+        // console.log(res.data);
+        res.data && window.location.replace("/login")
+      } catch (error) {
+        setError(true);
+        createError(error.response.data.message)
+      }
+    }
+  }
+
+
+  
+  
+  
   return (
     <div>
           <>
@@ -24,7 +57,7 @@ const Signup = () => {
       <div id="root" className="" style={{'backgroundImage':"url('/assets/bg2.jpg')", 'backgroundSize': 'cover'}}>
         <div className="mx-auto min-h-screen w-full flex items-center md:bg-none">
           <div className="flex w-full justify-center pt-8 pb-8 md:pt-4">
-            <div className="min-h-[calc(100vh-theme(space.16))] w-full max-w-lg rounded-large bg-white p-10 pt-6 shadow-card sm:p-12 sm:pt-8 md:min-h-min md:min-w-[500px] md:p-14 md:pt-10 lg:p-16 lg:pt-16 rounded-xl">
+            <div className=" w-full max-w-lg rounded-large bg-white p-10 pt-6 shadow-card sm:p-12 sm:pt-8 md:min-h-min md:min-w-[500px] md:p-14 md:pt-10 lg:p-16 lg:pt-16 rounded-xl">
               
               <h1 className="mt-6 flex text-[28px] font-bold text-primaryBlack sm:mt-10 sm:text-[32px] md:mt-4 md:justify-center md:text-[38px]">
                 Sign Up
@@ -197,6 +230,18 @@ const Signup = () => {
         </div>
       </div>
     </>
+    {error && 
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />}
     </div>
   )
 }

@@ -21,6 +21,7 @@ import AddUser from "./Admin/Pages/AddUser";
 
 
 function App() {
+  const user = false;
   return (
     <div className="">
       <BrowserRouter>
@@ -31,15 +32,15 @@ function App() {
           <Route path="/login" element={ <Login />} />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/joshua" element={ <Clifford />} />
-          <Route path="/shop" element={ <Shop />} />
+          <Route path="/shop" element={user ? <Shop /> : <Login/>} />
           <Route path="/contact" element={ <Contact />} />
-          <Route path="/admin" element={ <Admin />} />
-          <Route path="/admin/addpost" element={ <AddPost />} />
-          <Route path="/admin/editpost" element={ <EditPost />} />
-          <Route path="/admin/viewpost" element={ <ViewPost />} />
-          <Route path="/admin/viewusers" element={ <ViewUsers />} /> 
-          <Route path="/admin/adduser" element={ <AddUser />} /> 
-          <Route path="*" element={ <ErrorPage />} />
+          <Route path="/admin" element={user ?  <Admin /> : <Login/>} />
+          <Route path="/admin/addpost" element={user ? <AddPost />: <Login/>} />
+          <Route path="/admin/editpost" element={user ? <EditPost />: <Login/>} />
+          <Route path="/admin/viewpost" element={user ? <ViewPost />: <Login/>} />
+          <Route path="/admin/viewusers" element={user ? <ViewUsers />: <Login/>} /> 
+          <Route path="/admin/adduser" element={user ? <AddUser />: <Login/>} /> 
+          <Route path="*" element={user ? <ErrorPage /> : <Login/>} />
         </Routes>
       </BrowserRouter>
     </div>

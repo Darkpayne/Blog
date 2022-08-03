@@ -1,7 +1,33 @@
-import React from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
+import { useRef } from "react";
 import {Link} from 'react-router-dom'
+import { Context } from "../Context/Context";
 
 const Login = () => {
+  const userRef = useRef();
+  const passwordRef = useRef();
+
+  const {dispatch, isFetching, user} = useContext(Context)
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    dispatch({type:"LOGIN_START"})
+    try {
+      const res = await axios.post("http://localhost:6060/api/auth/login" , {
+        username : userRef.current.value,
+        password : passwordRef.current.value,
+      });
+      dispatch({type:"LOGIN_SUCCESS", payload: res.data})
+      // res.data && window.location.replace("/login")
+    } catch (error) {
+      console.log(error);
+      dispatch({type:"LOGIN_FAIL"})
+
+    }
+  }
+
+
+console.log(user);
   return (
     <>
     
@@ -14,17 +40,18 @@ const Login = () => {
               <h1 className="mt-6 flex text-[28px] font-bold text-primaryBlack sm:mt-10 sm:text-[32px] md:mt-4 md:justify-center md:text-[38px]">
                 Login
               </h1>
-              <form className="mt-10 lg:mt-12">
+              <form onSubmit={handleSubmit} className="mt-10 lg:mt-12">
                 <div className="removeAutocompleteBg relative">
                   <input
-                    id="emailId"
-                    name="email"
-                    type="email"
+                    id="username"
+                    name="username"
+                    type="username"
                     className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
-                    placeholder="Enter email"
+                    placeholder="Enter username"
+                   ref={userRef}
                   />
                   <label
-                    for="emailId"
+                    for="username"
                     className="absolute left-0 -top-4 cursor-text text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-sm   peer-focus:text-gray-600 md:text-base md:peer-placeholder-shown:text-xl md:peer-focus:text-base"
                   >
                     <span className="flex items-center space-x-3">
@@ -50,7 +77,7 @@ const Login = () => {
                           clip-rule="evenodd"
                         ></path>
                       </svg>
-                      <span className="font-semibold">Email</span>
+                      <span className="font-semibold">Username</span>
                     </span>
                   </label>
                 </div>
@@ -62,6 +89,7 @@ const Login = () => {
                       type="password"
                       className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                       placeholder="Enter Password"
+                      ref={passwordRef}
                     />
                     <label
                       for="passwordId"
