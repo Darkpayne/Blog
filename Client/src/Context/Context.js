@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import { createContext, useReducer } from "react"
 import Reducer from "./Reducer";
 
-function getLocalStorageItem(item,json=false){
+function getLocalStorageItem(item){
     var dataStored = localStorage.getItem(item)
-    if (dataStored !== undefined || null || ''){
-        if(json===false){return dataStored}
-        else{return JSON.parse(dataStored)}
+    if (dataStored !== undefined || null || ''){ 
+        return JSON.parse(dataStored)
     }else{return null}
 }
 

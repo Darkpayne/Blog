@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useRef } from "react";
 import {Link} from 'react-router-dom'
 import { Context } from "../Context/Context";
@@ -7,10 +9,16 @@ import { Context } from "../Context/Context";
 const Login = () => {
   const userRef = useRef();
   const passwordRef = useRef();
+  const [error, setError] = useState(false)
 
   const {dispatch, isFetching, user} = useContext(Context)
   const handleSubmit = async (e) =>{
     e.preventDefault();
+    if(userRef.current.value === ""||passwordRef.current.value === ""){
+      setError(true)
+      createError('input your credentials')
+    }else{
+    setError(true);
     dispatch({type:"LOGIN_START"})
     try {
       const res = await axios.post("http://localhost:6060/api/auth/login" , {
@@ -18,16 +26,28 @@ const Login = () => {
         password : passwordRef.current.value,
       });
       dispatch({type:"LOGIN_SUCCESS", payload: res.data})
-      // res.data && window.location.replace("/login")
+      res.data && window.location.replace("/admin")
     } catch (error) {
-      console.log(error);
+      createError(error.response.data.message)
       dispatch({type:"LOGIN_FAIL"})
-
     }
+    }
+  
   }
 
 
-console.log(user);
+  function createError(msg){
+    toast.error(msg , {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+
   return (
     <>
     
@@ -164,10 +184,19 @@ console.log(user);
             </div>
           </div>
         </div>
-        <div className="ToastWrapper-sc-19zjhpz-0 bGpCmT">
-          <div className="Toastify"></div>
-        </div>
       </div>
+        {error && 
+    <ToastContainer
+      position="top-right"
+      autoClose={1000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />}
     </>
   );
 };

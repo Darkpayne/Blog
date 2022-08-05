@@ -18,10 +18,12 @@ import ErrorPage from "./Pages/ErrorPage";
 import ViewPost from "./Admin/Pages/ViewPost";
 import ViewUsers from "./Admin/Pages/ViewUsers";
 import AddUser from "./Admin/Pages/AddUser";
+import { useContext } from "react";
+import { Context } from "./Context/Context";
 
 
 function App() {
-  const user = false;
+  const { user } = useContext(Context);
   return (
     <div className="">
       <BrowserRouter>
@@ -34,8 +36,8 @@ function App() {
           <Route path="/joshua" element={ <Clifford />} />
           <Route path="/shop" element={user ? <Shop /> : <Login/>} />
           <Route path="/contact" element={ <Contact />} />
-          <Route path="/admin" element={user ?  <Admin /> : <Login/>} />
-          <Route path="/admin/addpost" element={user ? <AddPost />: <Login/>} />
+          <Route path="/admin" element={user ?  <Admin user={user} /> : <Login/>} />
+          <Route path="/admin/addpost" element={user ? <AddPost user={user}  />: <Login/>} />
           <Route path="/admin/editpost" element={user ? <EditPost />: <Login/>} />
           <Route path="/admin/viewpost" element={user ? <ViewPost />: <Login/>} />
           <Route path="/admin/viewusers" element={user ? <ViewUsers />: <Login/>} /> 

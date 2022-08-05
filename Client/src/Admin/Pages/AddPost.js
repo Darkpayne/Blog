@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
 
-const AddPost = () => {
+const AddPost = ({user}) => {
   return (
     <div>
          <div className='flex min-h-screen'>
@@ -11,7 +11,7 @@ const AddPost = () => {
             <Sidebar/>
         </section>
         <section className='basis-5/6'>
-            <Nav/>
+            <Nav />
             
 <div className="w-full">
     <div className="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div>

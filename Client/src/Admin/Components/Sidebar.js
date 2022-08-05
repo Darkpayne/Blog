@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../Context/Context'
 
 const Sidebar = () => {
+    const {dispatch} = useContext(Context)
+
+    const handleLogout = () =>{
+        dispatch({type:"LOGOUT"})
+    }
   return (
     <div className='h-screen sticky top-0'>
         <div className="flex items-center justify-center text-3xl border-b-2 p-3">
@@ -82,7 +88,7 @@ const Sidebar = () => {
                     <span  className='icon'><ion-icon name="person-circle-outline"></ion-icon></span>
                     <span className='title'>Profile</span>
                 </li>
-                <li className='list' >
+                <li onClick={handleLogout} className='list' >
                     <span  className='icon'><ion-icon name="log-out-outline"></ion-icon></span>
                     <span className='title'>Log Out</span>
                 </li>
