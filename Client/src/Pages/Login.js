@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRef } from "react";
 import {Link} from 'react-router-dom'
 import { Context } from "../Context/Context";
+import Navbar from "../Components/Navbar";
 
 const Login = () => {
   const userRef = useRef();
@@ -50,7 +51,7 @@ const Login = () => {
 
   return (
     <>
-    
+    <Navbar/>
       <div id="root" className="" style={{'backgroundImage':"url('/assets/bg1.jpg')", 'backgroundSize': 'cover','backgroundRepeat': 'no-repeat'}}>
       <div className="overlayNew"></div>
         <div className="mx-auto min-h-screen w-full flex items-center md:bg-none">

@@ -3,6 +3,7 @@ import  { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios" 
+import Navbar from "../Components/Navbar"
 
 const Signup = () => {
   const [isShowing, setIsShowing] = useState(true)
@@ -53,6 +54,7 @@ const Signup = () => {
   return (
     <div>
           <>
+      <Navbar/>
     <div className="overlayCopied"></div>
       <div id="root" className="" style={{'backgroundImage':"url('/assets/bg2.jpg')", 'backgroundSize': 'cover'}}>
         <div className="mx-auto min-h-screen w-full flex items-center md:bg-none">
