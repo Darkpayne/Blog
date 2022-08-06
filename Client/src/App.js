@@ -17,9 +17,11 @@ import EditPost from "./Admin/Pages/EditPost";
 import ErrorPage from "./Pages/ErrorPage";
 import ViewPost from "./Admin/Pages/ViewPost";
 import ViewUsers from "./Admin/Pages/ViewUsers";
+import ViewCategory from "./Admin/Pages/ViewCategory";
 import AddUser from "./Admin/Pages/AddUser";
 import { useContext } from "react";
 import { Context } from "./Context/Context";
+import AddCategory from "./Admin/Pages/AddCategory";
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
           <Route path="/admin/viewpost" element={user ? <ViewPost />: <Login/>} />
           <Route path="/admin/viewusers" element={user ? <ViewUsers />: <Login/>} /> 
           <Route path="/admin/adduser" element={user ? <AddUser />: <Login/>} /> 
+          <Route path="/admin/viewcategory" element={user ? <ViewCategory />: <Login/>} /> 
+          <Route path="/admin/addcategory" element={user ? <AddCategory />: <Login/>} /> 
           <Route path="*" element={user ? <ErrorPage /> : <Login/>} />
         </Routes>
       </BrowserRouter>

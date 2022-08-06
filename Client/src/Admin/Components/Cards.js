@@ -17,10 +17,10 @@ const Cards = () => {
         
         {
             image:2,
-            link:'',
+            link:'/admin/viewcategory',
             svg:"mail-outline",
-            title:"Products",
-            desc:"custom mailing system",
+            title:"Category",
+            desc:"view all categories",
         },
         {
             image:3,

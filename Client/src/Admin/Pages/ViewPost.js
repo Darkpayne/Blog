@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
+// import Loader from '../../Loader/Loader';
 import axios from "axios";
-import Loader from '../../Loader/Loader';
 import ReactLoading from 'react-loading';
 
 const ViewPost = () => {
@@ -19,7 +19,7 @@ const ViewPost = () => {
   useEffect(() => {
     setTimeout(()=>{
       fetchPost();
-    }, 2000)
+    }, 1000)
   }, [])
 
   return (
@@ -33,6 +33,12 @@ const ViewPost = () => {
         </section>
         <section className='basis-5/6'>
             <Nav/>
+            <div className="navbar bg-base-100">
+				<div className="flex justify-between items-center w-full">
+					<div className=""></div>
+					<Link to="/admin/addpost" className="btn btn-info">Add Post</Link>
+				</div>
+			      </div>
             <div className="overflow-x-auto">
               <table className="table table-zebra w-full">
               
