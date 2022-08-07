@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Category = require("../models/Category");
 
-//ADD POST
+//ADD Category
 router.post("/", async (req,res)=>{
     const newCat = new Category(req.body);
     try {
@@ -12,7 +12,26 @@ router.post("/", async (req,res)=>{
     }
 })
 
-//GET ALL POST
+// DELETE CATEGORY
+router.delete("/:id", async (req, res) => {
+    try {
+        const cat = await Category.findById(req.params.id)
+        if (cat.username === req.body.username){
+            try {
+               await cat.delete();
+                res.status(200).json({message:"category deleted Successfully"});
+            } catch (error) {
+                console.log(error);
+            }
+        }else{
+            res.status(401).json({message:"You can only delete your posts!!"})
+        }
+    } catch (error) {
+        res.status(500).json(error)
+    }
+});
+
+//GET ALL Category
 router.get("/", async (req,res)=>{
     try {
         const allCat = await Category.find();

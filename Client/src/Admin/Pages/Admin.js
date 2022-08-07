@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Cards from '../Components/Cards'
 import Clock from '../Components/Clock'
 
-const Admin = () => {
+const Admin = ({user}) => {
   return (
     // <div className='flex min-h-screen'>
     //     <section className='basis-1/6 border-r-2 '>
@@ -45,7 +45,7 @@ const Admin = () => {
         </div>
         <div className="lg:container lg:mx-auto">
             <div className="flex justify-center my-5 md:text-4xl text-2xl text-center font-semibold">
-              Admin Dashboard
+              { user.username } Admin Dashboard
             </div>
                 <hr className='md:w-[400px] mx-auto w-[200px] mb-10'/>
                 <Cards/>
