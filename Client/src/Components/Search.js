@@ -11,7 +11,7 @@ const Search = ({cat}) => {
         <ul className="flex md:text-xl md:tracking-wider font-semibold md:gap-x-10 gap-x-5 category">
         <Link to="/"><li className=" active:scale-90 cursor-pointer  duration-200">All Post</li></Link>
           {cat.map((c)=>(
-            <Link to={`/cat=${c.name}`} key={c._id} >
+            <Link to={`/?cat=${c.name}`} key={c._id} >
             <li className=" active:scale-90 cursor-pointer  duration-200">{c.name}</li>
             </Link>
           ))}
