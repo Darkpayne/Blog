@@ -8,11 +8,12 @@ import { Context } from '../../Context/Context'
 import ReactLoading from 'react-loading';
 
 const AddPost = () => {
-    const [title, settitle] = useState("")
+    const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [file, setFile] = useState(null)
     const {user} = useContext(Context)
     const [cat, setCat] = useState([])
+    const [category, setCategory] = useState([])
 	const [isLoading, setisLoading] = useState(true)
   
 	const fetchCategories = async () =>{
@@ -20,7 +21,7 @@ const AddPost = () => {
 	  setCat(response.data);
 	  setisLoading(false)
 	}
-	console.log(cat)
+	
   
 	useEffect(() => {
 	  setTimeout(()=>{
@@ -28,21 +29,24 @@ const AddPost = () => {
 	  }, 1000)
 	}, [])
 
+   
+
     const handlePostSubmit = async (e) =>{
         e.preventDefault();
         const newPost = {
             username:user.username,
             title,
             desc,
+            categories:category
             }
             if (file)
             {
-                const data = FormData();
+                const data = new FormData();
                 const filename = Date.now() + file.name;
                 data.append("name", filename)
                 data.append("file", file)
                 newPost.photo = filename
-
+                console.log(filename);
                 try {
                     await axios.post("http://localhost:6060/api/upload", data)
                 } catch (error) {
@@ -51,7 +55,7 @@ const AddPost = () => {
             }
             try {
                 const res = await axios.post("http://localhost:6060/api/post/", newPost)
-                window.location.replace("/post/" +res.data._id)
+                window.location.replace("/post/" + res.data._id)
             } catch (error) {
                 console.log(error);
             }
@@ -82,7 +86,9 @@ const AddPost = () => {
                             <div className="md:flex items-center mt-12">
                                 <div className="w-full md:w-1/2 flex flex-col">
                                     <label className="font-semibold leading-none">Category</label>
-                                    <select id="countries" className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200">
+                                    <select id="countries" 
+                                     value={category} 
+                                     onChange={e=>setCategory(e.target.value)}className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200">
                                     <option selected>Choose a category</option>
                                     {cat.map((el)=>(
                                         <option value={el.name}>{el.name}</option>
@@ -93,14 +99,20 @@ const AddPost = () => {
                                 </div>
                                 <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
                                     <label className="font-semibold leading-none">Title</label>
-                                    <input type="text" className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
+                                    <input type="text"
+                                    value={title} 
+                                    onChange={e=>setTitle(e.target.value)}
+                                    className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
                                 </div>
                             </div>
                             
                             <div>
                                 <div className="w-full flex flex-col mt-8">
                                     <label className="font-semibold leading-none">Body</label>
-                                    <textarea type="text" className="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea>
+                                    <textarea type="text"
+                                     value={desc} 
+                                     onChange={e=>setDesc(e.target.value)}
+                                     className="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea>
                                 </div>
                             </div>
                             <div className="md:flex items-center mt-12">
@@ -108,8 +120,14 @@ const AddPost = () => {
                             
                             <div className="w-full md:w-1/2 flex flex-col md:mr-6 md:mt-0 mt-10">
                                     <label className="font-semibold leading-none mt-5">Choose Image</label>
-                                    <input type="file" className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
+                                    <input type="file" 
+                                    onChange={e=>setFile(e.target.files[0])} className="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"/>
+                                    {file 
+                                    ?
+                                    <img src={URL.createObjectURL(file)} alt="" />
+                                    :
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiFYZkovo6Uq69lsMtG9ZPzszPBTa55NlR85uUqbmjNRy6Zvdh7WSBwLFpivd_70aNtmU&usqp=CAU" alt="" />
+                                    }
                             </div>
                             </div>
 

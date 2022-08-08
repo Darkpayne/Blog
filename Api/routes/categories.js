@@ -14,9 +14,10 @@ router.post("/", async (req,res)=>{
 
 // DELETE CATEGORY
 router.delete("/:id", async (req, res) => {
-    try {
+   
         const cat = await Category.findById(req.params.id)
-        if (cat.username === req.body.username){
+       
+        if (cat){
             try {
                await cat.delete();
                 res.status(200).json({message:"category deleted Successfully"});
@@ -26,9 +27,7 @@ router.delete("/:id", async (req, res) => {
         }else{
             res.status(401).json({message:"You can only delete your posts!!"})
         }
-    } catch (error) {
-        res.status(500).json(error)
-    }
+   
 });
 
 //GET ALL Category

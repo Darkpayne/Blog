@@ -2,11 +2,37 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
-// import Loader from '../../Loader/Loader';
 import axios from "axios";
 import ReactLoading from 'react-loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ViewPost = () => {
+  const [error, setError] = useState(false)
+
+  
+  function createError(msg){
+    toast.error(msg , {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+  function createSuccess(msg){
+    toast.success(msg , {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
   const [post, setPost] = useState([])
   const [isLoading, setisLoading] = useState(true)
 
@@ -20,8 +46,22 @@ const ViewPost = () => {
     setTimeout(()=>{
       fetchPost();
     }, 1000)
-  }, [])
+  }, [post])
 
+  console.log(post);
+
+const handleDelete = async (id) =>{
+  try {
+    await axios.delete("http://localhost:6060/api/post/" + id)
+    setError(true);
+    createSuccess("Post Deleted Successfully");
+  } catch (error) {
+    setError(true)
+    createError(error.response.data.message);
+  }
+}
+
+const PF = "localhost:6060/images";
   return (
     <>
     {isLoading 
@@ -58,11 +98,10 @@ const ViewPost = () => {
                   {
                    
                     post.map((el,index)=>(
-                    
                   <tr>
                     <th>{index+1}</th>
                     <td>{el.title}</td>
-                    <td>Anime</td>
+                    <td>{el.categories.length === 1 ? el.categories : "Anime"}</td>
                     <td>
                       <img src="https://www.xtrafondos.com/thumbs/1_4543.jpg" alt=""  className='h-16 w-16' />
                     </td>
@@ -80,7 +119,7 @@ const ViewPost = () => {
                       </Link>
                     </td>
                     <td>
-                      <button className='btn btn-outline btn-error'>
+                      <button onClick={()=>handleDelete(el._id)} className='btn btn-outline btn-error'>
                       <span className='text-3xl'>
                       <ion-icon name="trash-sharp"></ion-icon>
                       </span>
@@ -96,6 +135,18 @@ const ViewPost = () => {
         </section>
     </div>
     }
+    {error && 
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />}
     </>
   )
 }

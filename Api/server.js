@@ -7,10 +7,17 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
+const cors = require("cors");
+const path = require("path");
 port = 6060;
+
 
 dotenv.config();
 app.use(express.json());
+
+// app.use(express.urlencoded());
+
+app.use(cors());
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -20,25 +27,29 @@ mongoose
   .then(console.log("connected to MongoDB"))
   .catch((err) => console.log(err));
 
+
+
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); 
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+//   next();
+// });
+
+
 // uploading a file/picture
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); 
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    //cb(null, req.body.name);
-    cb(null, "hello.jpeg");
+    cb(null, req.body.name);
   },
 });
 
 const upload = multer({ storage: storage });
+
+
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("file has been uploaded");
 });

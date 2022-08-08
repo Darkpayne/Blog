@@ -4,8 +4,25 @@ import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
 import axios from "axios";
 import ReactLoading from 'react-loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ViewCategory = () => {
+	const [error, setError] = useState(false)
+
+  
+	function createError(msg){
+	  toast.success(msg , {
+		position: "top-right",
+		autoClose: 5000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		});
+	}
+
 	const [cat, setCat] = useState([])
 	const [isLoading, setisLoading] = useState(true)
   
@@ -20,11 +37,13 @@ const ViewCategory = () => {
 	  setTimeout(()=>{
 		fetchCategories();
 	  }, 1000)
-	}, [])
+	}, [cat])
 
 	const handleDelete = async (i) =>{
 		const deleteCategories = async () =>{
 			 await axios.delete("http://localhost:6060/api/categories/"+ i)
+			 setError(true)
+			 createError('Category Deleted Successfully');
 		  }
 		
 		  deleteCategories();
@@ -83,6 +102,18 @@ const ViewCategory = () => {
 			</div>
         </section> 
         </div>
+		{error && 
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />}
     </div>
 	}
 	</>
