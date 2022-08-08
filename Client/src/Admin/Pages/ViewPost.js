@@ -61,7 +61,7 @@ const handleDelete = async (id) =>{
   }
 }
 
-const PF = "localhost:6060/images";
+const PF = "localhost:6060/images/";
   return (
     <>
     {isLoading 
@@ -103,7 +103,12 @@ const PF = "localhost:6060/images";
                     <td>{el.title}</td>
                     <td>{el.categories.length === 1 ? el.categories : "Anime"}</td>
                     <td>
+                      {el.photo 
+                      ?
+                      <img src={PF + el.photo} alt=""  className='h-16 w-16' />
+                      :
                       <img src="https://www.xtrafondos.com/thumbs/1_4543.jpg" alt=""  className='h-16 w-16' />
+                    }
                     </td>
                     <td>
                     <span className="px-2 py-1 rounded-xl bg-green-200 ">Visible</span>
