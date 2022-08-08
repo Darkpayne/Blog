@@ -12,23 +12,30 @@ const Posts = ({post}) => {
 export default Posts;
 
 const Post = ({post}) =>{
+  const PF = "http://localhost:6060/images/";
   return(
     <>
 
   <div className="my-16">
       <div className="flex shadow-lg">
         <div className="image basis-1/2 md:block ">
+        {post.photo
+        ?
+        <img src={PF + post.photo} alt="" 
+        className="w-[473px] h-[354px] object-cover rounded"/>
+        :
           <img
             src="https://images.unsplash.com/photo-1623786159887-8a747d692e8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
             className="w-[473px] h-[354px] object-cover"
             alt=""
           />
+        }
         </div>
         <div className="lg:p-5 p-1 basis-1/2 h-[354px] flex flex-col lg:justify-between">
 
           <section>
             <div className="profile-image mb-5 flex items-center gap-x-5 px-3 lg:px-0">
-              {post.photo || 
+               
               <div className="">
                 <img
                   src={"assets/joshua.jpeg"}
@@ -36,7 +43,7 @@ const Post = ({post}) =>{
                   className="w-8 rounded-full"
                   />
               </div>
-              }
+              
               <div className="text-sm">
                <h1>{post.username}</h1>
                 <h2 className="text-xs text-gray-500">{new Date(post.createdAt).toDateString()}</h2>

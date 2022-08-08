@@ -5,6 +5,7 @@ import RecentPost from './RecentPost'
 
 
 const PostFull = ({post}) => {
+  const PF = "http://localhost:6060/images/";
   return (
     <>
     <div className='my-16'>
@@ -37,8 +38,14 @@ const PostFull = ({post}) => {
        </div>
 
        <div className="image flex justify-center">
-           <img src="https://images.unsplash.com/photo-1623786159887-8a747d692e8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="" 
-           className="w-[573px] h-[454px] object-cover rounded"/>
+        {post.photo
+        ?
+        <img src={PF + post.photo} alt="" 
+        className="w-[573px] h-[454px] object-cover rounded"/>
+        :
+        <img src="https://images.unsplash.com/photo-1623786159887-8a747d692e8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="" 
+        className="w-[573px] h-[454px] object-cover rounded"/>
+        }
        </div>
 
        <div className="long-desc mb-10">

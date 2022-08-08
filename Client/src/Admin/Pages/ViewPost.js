@@ -48,7 +48,6 @@ const ViewPost = () => {
     }, 1000)
   }, [post])
 
-  console.log(post);
 
 const handleDelete = async (id) =>{
   try {
@@ -61,7 +60,7 @@ const handleDelete = async (id) =>{
   }
 }
 
-const PF = "localhost:6060/images/";
+const PF = "http://localhost:6060/images/";
   return (
     <>
     {isLoading 

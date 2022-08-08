@@ -55,7 +55,8 @@ const AddPost = () => {
             }
             try {
                 const res = await axios.post("http://localhost:6060/api/post/", newPost)
-                window.location.replace("/post/" + res.data._id)
+                // window.location.replace("/post/" + res.data._id)
+                window.location.replace("/admin/viewpost")
             } catch (error) {
                 console.log(error);
             }

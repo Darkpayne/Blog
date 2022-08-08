@@ -14,6 +14,7 @@ port = 6060;
 
 dotenv.config();
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname, "/images")))
 
 // app.use(express.urlencoded());
 
