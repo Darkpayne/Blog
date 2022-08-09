@@ -4,8 +4,36 @@ import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
 import axios from "axios";
 import ReactLoading from 'react-loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ViewUsers = () => {
+
+	const [error, setError] = useState(false)
+
+  
+	function createError(msg){
+	  toast.error(msg , {
+		position: "top-right",
+		autoClose: 5000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		});
+	}
+	function createSuccess(msg){
+	  toast.success(msg , {
+		position: "top-right",
+		autoClose: 5000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		});
+	}
 	const [users, setUsers] = useState([])
 	const [isLoading, setisLoading] = useState(true)
   
@@ -14,15 +42,25 @@ const ViewUsers = () => {
 	  setUsers(response.data);
 	  setisLoading(false)
 	}
-	console.log(users)
+	
   
 	useEffect(() => {
 	  setTimeout(()=>{
 		fetchUsers();
 	  }, 1000)
-	}, [])
+	}, [users])
   
-
+const handleDelete = async (id) =>{
+	// e.preventDefault();
+	try {
+		await axios.delete("http://localhost:6060/api/user/"+ id);
+		setError(true);
+    	createSuccess("User Deleted Successfully");
+	} catch (error) {
+		setError(true)
+    	createError(error.response.data.message);
+	}
+}
   return (
 	<>{isLoading
 	?
@@ -63,7 +101,7 @@ const ViewUsers = () => {
 							<span className="px-2 py-1 rounded-xl bg-green-200 ">Active</span>
 						</td>
 						<td>
-							<button className='btn btn-outline btn-error'>
+							<button onClick={()=> handleDelete(el._id)} className='btn btn-outline btn-error'>
 							Delete
 							</button>
 						</td>
@@ -79,6 +117,18 @@ const ViewUsers = () => {
         </div>
     </div>
 	}
+	{error && 
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />}
 	</>
   )
 }

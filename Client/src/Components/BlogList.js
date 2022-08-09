@@ -43,10 +43,22 @@ const BlogList = () => {
           </span>
         </div>
       </div>
+      {post.length > 0 ? 
       <Posts post={post}/>
+    :
+    <Nodata/>
+    }
      
     </>
   );
 };
 
 export default BlogList;
+
+const Nodata = () =>{
+  return (
+    <div className="items-center justify-between max-w-2xl px-8 py-4 mx-auto border my-10  rounded-xl">
+            <h1 className="text-center text-2xl uppercase tracking-wider">No Blog Available</h1>
+    </div>
+  )
+}
