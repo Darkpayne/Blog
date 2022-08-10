@@ -15,7 +15,7 @@ const ViewPost = () => {
     toast.error(msg , {
       position: "top-right",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -26,7 +26,7 @@ const ViewPost = () => {
     toast.success(msg , {
       position: "top-right",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -97,7 +97,7 @@ const PF = "http://localhost:6060/images/";
                   {
                    
                     post.map((el,index)=>(
-                  <tr>
+                  <tr key={el._id}>
                     <th>{index+1}</th>
                     <td>{el.title}</td>
                     <td>{el.categories.length === 1 ? el.categories : "Anime"}</td>
@@ -110,13 +110,19 @@ const PF = "http://localhost:6060/images/";
                     }
                     </td>
                     <td>
-                    <span className="px-2 py-1 rounded-xl bg-green-200 ">Visible</span>
-                    </td>
+                      {
+                        el.status 
+                        ?
+                        <span className="px-2 py-1 rounded-xl bg-green-200 ">Visible</span>
+                        :  
+                        <span className="px-2 py-1 rounded-xl bg-yellow-200 ">hidden</span>
+                      }
+                      </td>
                     <td>
                     {el.username}
                     </td>
                     <td>
-                      <Link to="/admin/editpost" className='btn-outline btn btn-info'>
+                      <Link to={`/admin/editpost/${el._id}`} className='btn-outline btn btn-info'>
                       <span className='text-3xl'>
                       <ion-icon name="create-sharp"></ion-icon>
                       </span>
@@ -143,7 +149,7 @@ const PF = "http://localhost:6060/images/";
     <ToastContainer
       position="top-right"
       autoClose={3000}
-      hideProgressBar={false}
+      hideProgressBar={true}
       newestOnTop={false}
       closeOnClick
       rtl={false}

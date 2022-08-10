@@ -18,6 +18,10 @@ const PostSchema = mongoose.Schema({
         type:String,
         required:true,
     },
+    status:{
+        type:Boolean,
+        default:true,
+    },
     categories:{
         type:Array,
         required:false,

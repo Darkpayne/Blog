@@ -16,7 +16,7 @@ const ViewUsers = () => {
 	  toast.error(msg , {
 		position: "top-right",
 		autoClose: 5000,
-		hideProgressBar: false,
+		hideProgressBar: true,
 		closeOnClick: true,
 		pauseOnHover: true,
 		draggable: true,
@@ -27,7 +27,7 @@ const ViewUsers = () => {
 	  toast.success(msg , {
 		position: "top-right",
 		autoClose: 5000,
-		hideProgressBar: false,
+		hideProgressBar: true,
 		closeOnClick: true,
 		pauseOnHover: true,
 		draggable: true,
@@ -121,7 +121,7 @@ const handleDelete = async (id) =>{
     <ToastContainer
       position="top-right"
       autoClose={3000}
-      hideProgressBar={false}
+      hideProgressBar={true}
       newestOnTop={false}
       closeOnClick
       rtl={false}

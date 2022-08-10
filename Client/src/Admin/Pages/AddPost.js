@@ -12,16 +12,17 @@ const AddPost = () => {
     const [desc, setDesc] = useState("")
     const [file, setFile] = useState(null)
     const {user} = useContext(Context)
-    const [cat, setCat] = useState([])
-    const [category, setCategory] = useState([])
 	const [isLoading, setisLoading] = useState(true)
+    const [cat, setCat] = useState([])
+    const [status, setStatus] = useState(true)
+    const [category, setCategory] = useState([])
   
 	const fetchCategories = async () =>{
 	  const response = await axios.get("http://localhost:6060/api/categories")
 	  setCat(response.data);
 	  setisLoading(false)
 	}
-	
+	console.log(status);
   
 	useEffect(() => {
 	  setTimeout(()=>{
@@ -37,7 +38,8 @@ const AddPost = () => {
             username:user.username,
             title,
             desc,
-            categories:category
+            categories:category,
+            status
             }
             if (file)
             {
@@ -117,8 +119,6 @@ const AddPost = () => {
                                 </div>
                             </div>
                             <div className="md:flex items-center mt-12">
-                               
-                            
                             <div className="w-full md:w-1/2 flex flex-col md:mr-6 md:mt-0 mt-10">
                                     <label className="font-semibold leading-none mt-5">Choose Image</label>
                                     <input type="file" 
@@ -129,6 +129,12 @@ const AddPost = () => {
                                     :
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiFYZkovo6Uq69lsMtG9ZPzszPBTa55NlR85uUqbmjNRy6Zvdh7WSBwLFpivd_70aNtmU&usqp=CAU" alt="" />
                                     }
+                            </div>
+                            <div className="w-full md:w-1/2 flex ">
+                                <label className="font-semibold leading-none mr-5">Status: </label>
+                                <input type="checkbox" onClick={()=>setStatus(!status)}  className="checkbox" 
+                                defaultChecked={status}
+                                />
                             </div>
                             </div>
 

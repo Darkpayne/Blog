@@ -27,6 +27,17 @@ const AddPost = () => {
       progress: undefined,
       });
   }
+  function createSuccess(msg){
+    toast.success(msg , {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
 
 
   const handleSubmit = async (e) =>{
@@ -41,8 +52,9 @@ const AddPost = () => {
           email,
           password,
         });
-        // console.log(res.data);
-        res.data && window.location.replace("/login")
+        setError(true);
+        createSuccess("user created successfully")
+        res.data && window.location.replace("/admin/viewusers")
       } catch (error) {
         setError(true);
         createError(error.response.data.message)

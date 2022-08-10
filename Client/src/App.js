@@ -40,7 +40,7 @@ function App() {
           <Route path="/contact" element={ <Contact />} />
           <Route path="/admin" element={user ?  <Admin user={user} /> : <Login/>} />
           <Route path="/admin/addpost" element={user ? <AddPost user={user}  />: <Login/>} />
-          <Route path="/admin/editpost" element={user ? <EditPost />: <Login/>} />
+          <Route path="/admin/editpost/:id" element={user ? <EditPost />: <Login/>} />
           <Route path="/admin/viewpost" element={user ? <ViewPost />: <Login/>} />
           <Route path="/admin/viewusers" element={user ? <ViewUsers />: <Login/>} /> 
           <Route path="/admin/adduser" element={user ? <AddUser />: <Login/>} /> 

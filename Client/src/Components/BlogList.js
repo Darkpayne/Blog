@@ -12,7 +12,9 @@ const BlogList = () => {
   useEffect(() => {
     const fetchPost = async () =>{
      const response = await axios.get("http://localhost:6060/api/post"+ search)
-     setPost(response.data);
+     const data = response.data
+     const filtered = data.filter((d)=>d.status === true);
+     setPost(filtered);
     }
    fetchPost()
   }, [search])
