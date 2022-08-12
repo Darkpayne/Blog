@@ -22,6 +22,7 @@ import AddUser from "./Admin/Pages/AddUser";
 import { useContext } from "react";
 import { Context } from "./Context/Context";
 import AddCategory from "./Admin/Pages/AddCategory";
+import Profile from "./Pages/Profile";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/" element={ <Home />} />
           <Route path="/post/:id" element={ <SingleBlog />} />
           <Route path="/about" element={ <AboutMe />} />
+          <Route path="/profile" element={ <Profile />} />
           <Route path="/login" element={ <Login />} />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/joshua" element={ <Clifford />} />

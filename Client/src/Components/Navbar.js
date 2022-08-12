@@ -80,7 +80,7 @@ const Navbar = () => {
             <ul className="flex flex-col md:flex-row md:space-x-5 w-full items-center">
               <li className="duration-200 active:scale-90 ">
                 <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-3xl active:scale-90 ">
-                  <ion-icon name="logo-instagram"></ion-icon>
+                  <Link to=""><ion-icon name="logo-instagram"></ion-icon></Link>
                 </p>
               </li>
 
