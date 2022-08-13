@@ -30,17 +30,16 @@ const Profile = () => {
     <div>
          <Navbar />
          <section className='mx-auto container px-6 my-10'>
-            <div className='flex items-start gap-x-5'>
-                <div className="basis-1/3  shadow-xl sticky top-16">
-                  <div className="flex-col mt-10 flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1657299170129-858a7f31a794?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="" className='lg:w-[350px] lg:h-[350px] rounded-full shadow-xl h-[250px] w-[250px]'/>
+            <div className='lg:flex items-start gap-x-5'>
+                <div className="basis-1/3  shadow-xl lg:sticky lg:top-16">
+                  <div className="lg:flex-col mt-10 mb-10 flex items-center lg:justify-center justify-around">
+                    <img src="https://images.unsplash.com/photo-1657299170129-858a7f31a794?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="" className='lg:w-[350px] lg:h-[350px] rounded-full my-10 shadow-xl h-[250px] w-[250px]'/>
 
                     <div className="my-10 text-center">
                       
                         <h2 className='text-4xl'>{author}</h2>
                      
-                        <h2 className='text-2xl text-gray-500'>Author</h2>
-                    </div>
+                        <h2 className='text-2xl text-gray-500 mb-7'>Author</h2>
                     <div className="mt-5 md:mt-0 lg:block mb-6">
             <ul className="flex flex-col md:flex-row md:space-x-5 w-full items-center">
               <li className="duration-200 active:scale-90 ">
@@ -61,15 +60,16 @@ const Profile = () => {
                 </p>
               </li>
             </ul>
-          </div>
+                    </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="basis-2/3 shadow-xl px-5">
+                <div className="basis-2/3 shadow-xl p-5">
                   {post.map((post)=>(
                   <div key={post._id} className="my-16">
       <div className="flex shadow-lg">
-        <div className="image basis-1/2 md:block ">
+        <div className="image basis-1/2  md:block ">
         {post.photo
         ?
         <img src={PF + post.photo} alt="" 
