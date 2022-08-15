@@ -3,8 +3,23 @@ import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import Down from "./Down";
 import Navbar from "./Navbar";
+import axios from "axios";
+import fileDownload from "js-file-download";
 
 const Joshua = () => {
+
+  const handleDownload = (e) =>{
+    e.preventDefault();
+     axios({
+      url:"http://localhost:6060/api/downloadCV",
+      method:"GET",
+      responseType:"blob",
+      type: "application/pdf"
+    }).then((res)=>{
+      console.log(res.data);
+      fileDownload(res.data, "Joshua's CV")
+    })
+  }
   return (
     <section>
         <Navbar/>
@@ -26,11 +41,11 @@ const Joshua = () => {
                 learning new things.
               </p>
               <div id="wrapper" className="mt-10">
-                <a id="a" href="#" className="hover:bg-black">
+                <button id="a" onClick={handleDownload} className="hover:bg-black">
                   <span id="span" className="">
                     Download CV
                   </span>
-                </a>
+                </button>
               </div>
             </h1>
           </div>

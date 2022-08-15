@@ -38,6 +38,13 @@ mongoose
 // });
 
 
+
+// to download a file
+app.get("/api/downloadCV", (req,res)=>{
+console.log('done');
+  res.download("./CV.pdf")
+})
+
 // uploading a file/picture
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
