@@ -8,18 +8,7 @@ import fileDownload from "js-file-download";
 
 const Joshua = () => {
 
-  const handleDownload = (e) =>{
-    e.preventDefault();
-     axios({
-      url:"http://localhost:6060/api/downloadCV",
-      method:"GET",
-      responseType:"blob",
-      type: "application/pdf"
-    }).then((res)=>{
-      console.log(res.data);
-      fileDownload(res.data, "Joshua's CV")
-    })
-  }
+ 
   return (
     <section>
         <Navbar/>
@@ -41,11 +30,11 @@ const Joshua = () => {
                 learning new things.
               </p>
               <div id="wrapper" className="mt-10">
-                <button id="a" onClick={handleDownload} className="hover:bg-black">
+                <a href="http://localhost:6060/api/download" id="a" className="hover:bg-black">
                   <span id="span" className="">
                     Download CV
                   </span>
-                </button>
+                </a>
               </div>
             </h1>
           </div>

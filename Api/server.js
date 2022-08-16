@@ -40,9 +40,8 @@ mongoose
 
 
 // to download a file
-app.get("/api/downloadCV", (req,res)=>{
-console.log('done');
-  res.download("./CV.pdf")
+app.get("/api/download", (req,res)=>{
+  res.download("./CV.pdf","joshua.pdf")
 })
 
 // uploading a file/picture
