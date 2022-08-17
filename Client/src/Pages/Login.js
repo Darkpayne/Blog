@@ -26,6 +26,7 @@ const Login = () => {
         username : userRef.current.value,
         password : passwordRef.current.value,
       });
+      console.log(res.data);
       dispatch({type:"LOGIN_SUCCESS", payload: res.data})
       res.data && window.location.replace("/admin")
     } catch (error) {

@@ -1,7 +1,10 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
+const JWT_SECRET = "jhsdljb485t798vh8^#)79(*$*904ihnt8y89409u2jngn9030";
 // REGISTER
 router.post("/register", async (req, res) => {
   const user = await User.findOne({ username: req.body.username });
@@ -28,10 +31,6 @@ router.post("/register", async (req, res) => {
       
     }
     }
-  
-   
-  
-  
 });
 
 // LOGIN
@@ -47,8 +46,21 @@ router.post("/login", async (req, res) => {
       if(!validated){
         res.status(400).json({ message: "wrong password" });
       }else{
+        const accessToken = jwt.sign(
+          { username: user.username},
+           process.env.ACCESS_TOKEN_SECRET,
+           {expiresIn: '30s'}
+          );
+        const refreshToken = jwt.sign(
+          { username: user.username},
+           process.env.REFRESH_TOKEN_SECRET,
+           {expiresIn: '1d'}
+          );
+          
         const { password, ...others } = user._doc;
         res.status(200).json(others);
+        // res.status(200).json({accessToken});
+        
         console.log(others);
       }
   
