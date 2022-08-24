@@ -5,7 +5,6 @@ import {
   Routes,  
 } from "react-router-dom";
 import SingleBlog from "./Pages/SingleBlog";
-import AboutMe from "./Pages/AboutMe";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Clifford from "./Components/Clifford";
@@ -22,6 +21,7 @@ import AddUser from "./Admin/Pages/AddUser";
 import { useContext } from "react";
 import { Context } from "./Context/Context";
 import AddCategory from "./Admin/Pages/AddCategory";
+import Profile from "./Pages/Profile";
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home />} />
           <Route path="/post/:id" element={ <SingleBlog />} />
-          <Route path="/about" element={ <AboutMe />} />
+          <Route path="/profile" element={ <Profile />} />
           <Route path="/login" element={ <Login />} />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/joshua" element={ <Clifford />} />

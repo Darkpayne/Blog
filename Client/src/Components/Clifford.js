@@ -3,8 +3,12 @@ import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import Down from "./Down";
 import Navbar from "./Navbar";
+import axios from "axios";
+import fileDownload from "js-file-download";
 
 const Joshua = () => {
+
+ 
   return (
     <section>
         <Navbar/>
@@ -26,7 +30,7 @@ const Joshua = () => {
                 learning new things.
               </p>
               <div id="wrapper" className="mt-10">
-                <a id="a" href="#" className="hover:bg-black">
+                <a href="http://localhost:6060/api/download" id="a" className="hover:bg-black">
                   <span id="span" className="">
                     Download CV
                   </span>

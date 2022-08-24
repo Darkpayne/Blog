@@ -15,7 +15,7 @@ const PostFull = ({post}) => {
        <div className="flex justify-between items-center">
            <h2 className="text-xs text-gray-500">{new Date(post.createdAt).toDateString()}</h2>
            <span className='cursor-pointer'>
-           <Link to={`/?user=${post.username}`}><span className="text-xs text-gray-500 tracking-wider">By {post.username}</span></Link>
+           <Link to={`/profile/?user=${post.username}`}><span className="text-xs text-gray-500 tracking-wider">By {post.username}</span></Link>
                {/* <ion-icon name="ellipsis-vertical-outline"></ion-icon> */}
            </span>
        </div>
