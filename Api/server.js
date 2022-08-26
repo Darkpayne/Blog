@@ -3,6 +3,8 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
+const refreshToken = require("./routes/refreshToken");
+const logout = require("./routes/logout");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
@@ -10,6 +12,8 @@ const multer = require("multer");
 const cors = require("cors");
 const path = require("path");
 port = 6060;
+const verifyJWt = require('./middleware/verifyJWT')
+const cookieParser = require('cookie-parser');
 
 dotenv.config();
 app.use(express.json());
@@ -18,6 +22,8 @@ app.use("/images", express.static(path.join(__dirname, "/images")));
 // app.use(express.urlencoded());
 
 app.use(cors());
+
+app.use(cookieParser());
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -62,6 +68,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoute);
+app.use("/api/refresh", refreshToken);
+app.use("/api/logout", logout);
+app.use(verifyJWt);
 app.use("/api/user", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/categories", categoryRoute);
