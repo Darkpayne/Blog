@@ -19,7 +19,7 @@ const Login = () => {
       setError(true)
       createError('input your credentials')
     }else{
-    setError(true);
+    setError(true);  
     dispatch({type:"LOGIN_START"})
     try {
       const res = await axios.post("http://localhost:6060/api/auth/login" , {

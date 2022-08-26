@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const JWT_SECRET = "jhsdljb485t798vh8^#)79(*$*904ihnt8y89409u2jngn9030";
+// const JWT_SECRET = "jhsdljb485t798vh8^#)79(*$*904ihnt8y89409u2jngn9030";
 // REGISTER
 router.post("/register", async (req, res) => {
   const user = await User.findOne({ username: req.body.username });
@@ -59,6 +59,7 @@ router.post("/login", async (req, res) => {
           
         const { password, ...others } = user._doc;
         res.status(200).json(others);
+        // res.cookie('jwt',refreshToken, { httpOnly: true, maxAge:24 * 60 * 60 * 1000});
         // res.status(200).json({accessToken});
         
         console.log(others);
