@@ -61,10 +61,10 @@ router.post("/login", async (req, res) => {
           { expiresIn: "1d" }
         );
 
-        const { password, ...others } = user._doc;
-        res.status(200).json(others);
-        // res.cookie('jwt',refreshToken, { httpOnly: true, maxAge:24 * 60 * 60 * 1000});
-        // res.status(200).json({accessToken});
+        // const { password, ...others } = user._doc;
+        // res.status(200).json(others);
+        res.cookie('jwt',refreshToken, { httpOnly: true, maxAge:24 * 60 * 60 * 1000,secure:true});
+        res.status(200).json({accessToken});
 
         console.log(others);
       }
