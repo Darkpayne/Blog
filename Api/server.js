@@ -11,10 +11,9 @@ const cors = require("cors");
 const path = require("path");
 port = 6060;
 
-
 dotenv.config();
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "/images")))
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 // app.use(express.urlencoded());
 
@@ -28,21 +27,17 @@ mongoose
   .then(console.log("connected to MongoDB"))
   .catch((err) => console.log(err));
 
-
-
 // app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); 
+//   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
 //   next();
 // });
 
-
-
 // to download a file
-app.get("/api/download", (req,res)=>{
-  res.download("./CV.pdf","joshua.pdf")
-})
+app.get("/api/download", (req, res) => {
+  res.download("./CV.pdf", "joshua.pdf");
+});
 
 // uploading a file/picture
 const storage = multer.diskStorage({
@@ -55,7 +50,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("file has been uploaded");
