@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-// const JWT_SECRET = "jhsdljb485t798vh8^#)79(*$*904ihnt8y89409u2jngn9030";
 // REGISTER
 router.post("/register", async (req, res) => {
   const user = await User.findOne({ username: req.body.username });
@@ -44,7 +43,7 @@ router.post("/login", async (req, res) => {
         res.status(400).json({ message: "wrong password" });
       } else {
         const roles = Object.values(user.roles);
-        console.log(roles);
+        // console.log(roles);
         const accessToken = jwt.sign(
           {
             UserInfo: {
@@ -61,19 +60,13 @@ router.post("/login", async (req, res) => {
           process.env.REFRESH_TOKEN_SECRET,
           { expiresIn: "1d" }
         );
+          user.refreshToken = refreshToken;
+          const result = await user.save();
+          console.log(result);
 
-
-        // const { password, ...others } = user._doc;
-        // res.status(200).json(others);
-        res.cookie('jwt',refreshToken, { httpOnly: true, maxAge:24 * 60 * 60 * 1000,secure:true});
+       
+        res.cookie('jwt', refreshToken, { httpOnly : true, sameSite:'None' ,maxAge : 24 * 60 * 60 * 1000});
         res.status(200).json({accessToken});
-
-        const { password, ...others } = user._doc;
-        res.status(200).json(others);
-        // res.status(200).json({accessToken});
-
-
-        console.log(others);
       }
     }
   } catch (error) {

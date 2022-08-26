@@ -70,10 +70,10 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/refresh", refreshToken);
 app.use("/api/logout", logout);
-app.use(verifyJWt);
-app.use("/api/user", userRoute);
-app.use("/api/post", postRoute);
 app.use("/api/categories", categoryRoute);
+app.use("/api/post", postRoute);
+app.use("/api/user", userRoute);
+app.use(verifyJWt);
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);

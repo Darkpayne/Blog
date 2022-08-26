@@ -28,7 +28,7 @@ const Login = () => {
       });
       console.log(res.data);
       dispatch({type:"LOGIN_SUCCESS", payload: res.data})
-      res.data && window.location.replace("/admin")
+      // res.data && window.location.replace("/admin")
     } catch (error) {
       createError(error.response.data.message)
       dispatch({type:"LOGIN_FAIL"})
@@ -68,6 +68,7 @@ const Login = () => {
                     id="username"
                     name="username"
                     type="username"
+                    autoComplete="off"
                     className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                     placeholder="Enter username"
                    ref={userRef}
@@ -109,6 +110,7 @@ const Login = () => {
                       id="passwordId"
                       name="password"
                       type="password"
+                      autoComplete="off"
                       className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                       placeholder="Enter Password"
                       ref={passwordRef}

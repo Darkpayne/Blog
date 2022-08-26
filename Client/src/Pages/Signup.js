@@ -69,6 +69,7 @@ const Signup = () => {
                   <input
                     id="username"
                     name="name"
+                    autoComplete="off"
                     type="text"
                     className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                     placeholder="Enter username"
@@ -111,7 +112,9 @@ const Signup = () => {
                   <input
                     id="emailId"
                     name="email"
+                    autoComplete="off"
                     type="email"
+                    value={email}
                     className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                     placeholder="Enter email"
                     onChange={(e)=>setEmail(e.target.value)}
@@ -154,6 +157,8 @@ const Signup = () => {
                     <input
                       id="passwordId"
                       name="password"
+                      autoComplete="off"
+                      value={password}
                       type={isShowing?"password":"text"}
                       className="peer font- h-14 w-full cursor-text appearance-none border-b-2 border-gray-300 bg-white  text-base text-primaryBlack placeholder-transparent focus:outline-none md:text-xl"
                       placeholder="Enter Password"
