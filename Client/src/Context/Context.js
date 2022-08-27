@@ -14,6 +14,7 @@ const INITIAL_STATE = {
     user: getLocalStorageItem('user'),
     isFetching:false,
     error:false,
+    roles:[]
 }
 
 export const Context = createContext(INITIAL_STATE);

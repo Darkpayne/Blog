@@ -42,7 +42,7 @@ router.post("/login", async (req, res) => {
       if (!validated) {
         res.status(400).json({ message: "wrong password" });
       } else {
-        const roles = Object.values(user.roles);
+        const roles = Object.values(user.roles).filter(Boolean);
         // console.log(roles);
         const accessToken = jwt.sign(
           {
@@ -66,7 +66,7 @@ router.post("/login", async (req, res) => {
 
        
         res.cookie('jwt', refreshToken, { httpOnly : true, sameSite:'None' ,maxAge : 24 * 60 * 60 * 1000});
-        res.status(200).json({accessToken});
+        res.status(200).json({accessToken, roles});
       }
     }
   } catch (error) {

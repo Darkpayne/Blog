@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRef } from "react";
 import {Link} from 'react-router-dom'
 import { Context } from "../Context/Context";
-import Navbar from "../Components/Navbar";
+import Navbar from "../Components/Navbar";   
 
 const Login = () => {
   const userRef = useRef();
@@ -25,9 +25,16 @@ const Login = () => {
       const res = await axios.post("http://localhost:6060/api/auth/login" , {
         username : userRef.current.value,
         password : passwordRef.current.value,
+      },{
+        headers:{'Content-type':'application/json'},
+        
       });
-      console.log(res.data);
-      dispatch({type:"LOGIN_SUCCESS", payload: res.data})
+      console.log(res?.data);
+      const accessToken = res?.data?.accessToken
+      const roles = res?.data?.roles
+      console.log(accessToken);
+      console.log(roles);
+      // dispatch({type:"LOGIN_SUCCESS", payload: res.data})
       // res.data && window.location.replace("/admin")
     } catch (error) {
       createError(error.response.data.message)
