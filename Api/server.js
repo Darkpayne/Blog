@@ -18,10 +18,10 @@ const cookieParser = require('cookie-parser');
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
+// app.use("/", express.static(path.join(__dirname, "../Client/build")));
 
 // app.use(express.urlencoded());
-
-app.use(cors());
+app.use(cors()); // TODO configure Cors
 
 app.use(cookieParser());
 
@@ -53,7 +53,7 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(null, req.body.name);
   },
-});
+}); 
 
 const upload = multer({ storage: storage });
 
@@ -72,8 +72,8 @@ app.use("/api/refresh", refreshToken);
 app.use("/api/logout", logout);
 app.use("/api/categories", categoryRoute);
 app.use("/api/post", postRoute);
-app.use("/api/user", userRoute);
-app.use(verifyJWt);
+app.use("/api/user", userRoute); 
+// app.use(verifyJWt);
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);

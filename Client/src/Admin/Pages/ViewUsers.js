@@ -6,9 +6,11 @@ import axios from "axios";
 import ReactLoading from 'react-loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Context } from '../../Context/Context';
+import { useContext } from 'react';
 
 const ViewUsers = () => {
-
+	const {user} = useContext(Context)
 	const [error, setError] = useState(false)
 
   
@@ -53,12 +55,18 @@ const ViewUsers = () => {
 const handleDelete = async (id) =>{
 	// e.preventDefault();
 	try {
-		await axios.delete("http://localhost:6060/api/user/"+ id);
+		await axios.delete("http://localhost:6060/api/user/"+ id,{
+			headers:{
+				'Content-type':'application/json',
+				'authorization':`Bearer ${user.accessToken}`,
+			},
+			
+		  });
 		setError(true);
     	createSuccess("User Deleted Successfully");
 	} catch (error) {
 		setError(true)
-    	createError(error.response.data.message);
+    	createError(error.response.data);
 	}
 }
   return (
@@ -93,7 +101,7 @@ const handleDelete = async (id) =>{
 					</thead>
 					<tbody>
 						{users.map((el, index)=>(
-					<tr>
+					<tr key={index}>
 						<th>{index+1}</th>
 						<td>{el.username}</td>
 						<td>{el.email}</td>

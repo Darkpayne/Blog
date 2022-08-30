@@ -2,6 +2,7 @@ const Reducer = (state,action)=>{
     switch (action.type) {
         case "LOGIN_START":
             return {
+                ...state,
                 user:null,
                 isFetching:true,
                 error:false
@@ -9,13 +10,21 @@ const Reducer = (state,action)=>{
             
         case "LOGIN_SUCCESS":
             return {
+                ...state,
                 user:action.payload,
                 isFetching:false,
                 error:false
             };
+        case "ACCESS_TOKEN":
+            return {
+                ...state,
+                accessToken:action.payload,
+               
+            };
            
         case "LOGIN_FAIL":
             return {
+                ...state,
                 user:null,
                 isFetching:false,
                 error:true
@@ -25,6 +34,7 @@ const Reducer = (state,action)=>{
             return {
                 user:null,
                 isFetching:false,
+                accessToken:'',
                 error:false
             };
            

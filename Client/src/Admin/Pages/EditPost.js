@@ -110,7 +110,8 @@ const EditPost = () => {
             },1000)
         } catch (error) {
             setError(true)
-            createError(error.response.data.message);
+
+            createError(error.response.data);
         }
     }
 

@@ -14,6 +14,7 @@ const INITIAL_STATE = {
     user: getLocalStorageItem('user'),
     isFetching:false,
     error:false,
+    accessToken:'',
     roles:[]
 }
 
@@ -32,6 +33,8 @@ export const ContextProvider = ({children}) =>{
             user:state.user,
             isFetching:state.isFetching,
             error:state.error,
+            accessToken:state.accessToken,
+            roles:state.roles,
             dispatch
             }}>
             {children}
