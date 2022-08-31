@@ -51,15 +51,12 @@ const EditUser = () => {
   
 	const fetchCategories = async () =>{
 	  const response = await axios.get("http://localhost:6060/api/user/"+ userId)
-	//   console.log(response.data.roles);
       Object.entries(response.data.roles).map(([key,value])=>{
         response.data.roles[key]=true
       })
-	  console.log(response.data.roles);
       setData(response.data);
 	  setisLoading(false);
-      //TODO assign true or false value to user roles
-      setRoles(Object.keys(response.data.roles))
+      setRoles(response.data.roles)
 	}
 
 
@@ -87,6 +84,16 @@ const EditUser = () => {
                 console.log(error);
                 createError(error.response.data)
             }
+    }
+
+
+    const setAllUserRole = (prev,userRole) =>{
+        if(Object.keys(prev).includes(userRole)){
+            delete prev.userRole
+            return prev
+        }else{
+            return {...prev, userRole: true}
+        }
     }
 
     
@@ -124,23 +131,24 @@ const EditUser = () => {
                                 </div>
                             </div>
                             
+                            {console.log(roles)}
                             <div className="md:flex items-center mt-12">
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">User: </label>
-                                <input type="checkbox" onClick={()=> setRoles(prev=> {return prev})}  className="checkbox" 
-                                defaultChecked={roles?.includes('User')}
+                                <input type="checkbox" onClick={()=> setRoles(prev=> setAllUserRole(prev,'User'))}  className="checkbox" 
+                                defaultChecked={roles?.User}
                                 />
                             </div>
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">Editor: </label>
-                                <input type="checkbox" onClick={()=> setRoles(prev=> {return prev})}  className="checkbox" 
-                                defaultChecked={roles?.includes('Editor')}
+                                <input type="checkbox" onClick={()=> setRoles(prev=> setAllUserRole(prev,'Editor'))}  className="checkbox" 
+                                defaultChecked={roles?.Editor}
                                 />
                             </div>
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">Admin: </label>
-                                <input type="checkbox" onClick={()=> setRoles(prev=> {return prev})}  className="checkbox" 
-                                defaultChecked={roles?.includes('Admin')}
+                                <input type="checkbox" onClick={()=> setRoles(prev=> setAllUserRole(prev,'Admin'))}  className="checkbox" 
+                                defaultChecked={roles?.Admin}
                                 />
                             </div>
                             </div>
