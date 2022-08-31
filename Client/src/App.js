@@ -22,6 +22,7 @@ import { useContext } from "react";
 import { Context } from "./Context/Context";
 import AddCategory from "./Admin/Pages/AddCategory";
 import Profile from "./Pages/Profile";
+import EditUser from "./Admin/Pages/EditUser";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/admin" element={user ?  <Admin user={user} /> : <Login/>} />
           <Route path="/admin/addpost" element={user ? <AddPost user={user}  />: <Login/>} />
           <Route path="/admin/editpost/:id" element={user ? <EditPost />: <Login/>} />
+          <Route path="/admin/edituser/:id" element={user ? <EditUser />: <Login/>} />
           <Route path="/admin/viewpost" element={user ? <ViewPost />: <Login/>} />
           <Route path="/admin/viewusers" element={user ? <ViewUsers />: <Login/>} /> 
           <Route path="/admin/adduser" element={user ? <AddUser />: <Login/>} /> 

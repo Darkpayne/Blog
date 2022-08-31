@@ -65,7 +65,7 @@ const handleDelete = async (id) =>{
   } catch (error) {
     setError(true)
     console.log(error);
-    createError(error.response.data);
+    createError(error.response.data.message);
   }
 }
 
