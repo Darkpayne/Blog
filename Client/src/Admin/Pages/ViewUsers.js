@@ -45,7 +45,7 @@ const ViewUsers = () => {
 	  setisLoading(false)
 	}
 	
-  console.log(users);
+  
 	useEffect(() => {
 	  setTimeout(()=>{
 		fetchUsers();
@@ -107,7 +107,7 @@ const handleDelete = async (id) =>{
 						<th>{index+1}</th>
 						<td>{el.username}</td>
 						<td>{el.email}</td>
-						<td>{Object.keys(el.roles).map(i=><span className={`mx-1 ${i==='User' && 'bg-indigo-300'} ${i==='Admin' && 'bg-red-300'} ${i==='Editor' && 'bg-yellow-300'} px-3 rounded-full py-1`}>{i}</span>)}</td>
+						<td>{Object.keys(el.roles).map((i,index)=><span key={index} className={`mx-1 ${i==='User' && 'bg-indigo-300'} ${i==='Admin' && 'bg-red-300'} ${i==='Editor' && 'bg-yellow-300'} px-3 rounded-full py-1`}>{i}</span>)}</td>
 						<td>
 							<span className="px-2 py-1 rounded-xl bg-green-200 ">Active</span>
 						</td>

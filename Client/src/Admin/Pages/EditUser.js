@@ -17,7 +17,7 @@ const EditUser = () => {
 
     const [data, setData] = useState({})
 
-    const [roles, setRoles] = useState([])
+    const [roles, setRoles] = useState({})
 
 
 	const [isLoading, setisLoading] = useState(true)
@@ -51,9 +51,9 @@ const EditUser = () => {
   
 	const fetchCategories = async () =>{
 	  const response = await axios.get("http://localhost:6060/api/user/"+ userId)
-      Object.entries(response.data.roles).map(([key,value])=>{
-        response.data.roles[key]=true
-      })
+    //   Object.entries(response.data.roles).map(([key,value])=>{
+    //     return response.data.roles[key]=true
+    //   })
       setData(response.data);
 	  setisLoading(false);
       setRoles(response.data.roles)
@@ -86,15 +86,34 @@ const EditUser = () => {
             }
     }
 
+console.log(roles);
 
-    const setAllUserRole = (prev,userRole) =>{
-        if(Object.keys(prev).includes(userRole)){
-            delete prev.userRole
-            return prev
+    const setAllUserRole = ( userRole ) =>{
+        if(roles[`${userRole}`]){
+           
+            delete roles[`${userRole}`];
+            return roles;
         }else{
-            return {...prev, userRole: true}
+             if (userRole === 'Admin'){
+                 return {...roles, Admin:2003 }
+             }
+             if(userRole === 'Editor'){
+                return {...roles, Admin:200 }
+             }
+             if(userRole === 'Editor'){
+                return {...roles, Admin:200 }
+             }
         }
     }
+    console.log(roles);
+    // const setAllUserRole = (prev,userRole) =>{
+    //     if(Object.keys(prev).includes(userRole)){
+    //         delete prev.userRole
+    //         return prev
+    //     }else{
+    //         return {...prev, userRole: true}
+    //     }
+    // }
 
     
   return (
@@ -111,7 +130,7 @@ const EditUser = () => {
             <div className="navbar bg-base-100">
 				<div className="flex justify-between items-center w-full">
 					<div className=""></div>
-					<Link to="/admin/viewPost" className="btn btn-info">View Post</Link>
+					<Link to="/admin/viewusers" className="btn btn-info">View Users</Link>
 				</div>
 			      </div>
             <div className="w-full">
@@ -135,27 +154,23 @@ const EditUser = () => {
                             <div className="md:flex items-center mt-12">
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">User: </label>
-                                <input type="checkbox" onClick={()=> setRoles(prev=> setAllUserRole(prev,'User'))}  className="checkbox" 
+                                <input type="checkbox" onClick={()=> setRoles(()=> setAllUserRole('User'))}  className="checkbox" 
                                 defaultChecked={roles?.User}
                                 />
                             </div>
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">Editor: </label>
-                                <input type="checkbox" onClick={()=> setRoles(prev=> setAllUserRole(prev,'Editor'))}  className="checkbox" 
+                                <input type="checkbox" onClick={()=> setRoles(()=> setAllUserRole('Editor'))}  className="checkbox" 
                                 defaultChecked={roles?.Editor}
                                 />
                             </div>
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">Admin: </label>
-                                <input type="checkbox" onClick={()=> setRoles(prev=> setAllUserRole(prev,'Admin'))}  className="checkbox" 
+                                <input type="checkbox" onClick={()=> setRoles(()=> setAllUserRole('Admin'))}  className="checkbox" 
                                 defaultChecked={roles?.Admin}
                                 />
                             </div>
                             </div>
-
-                        
-                            
-                            
                             <div className="flex items-center justify-center w-full">
                                 <button type="submit" className="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
                                 Update User
