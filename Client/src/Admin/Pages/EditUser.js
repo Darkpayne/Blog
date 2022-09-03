@@ -70,7 +70,7 @@ const EditUser = () => {
     const handlePostSubmit = async (e) =>{
         e.preventDefault();
             try {
-                await axios.post("http://localhost:6060/api/post/",{
+                await axios.put("http://localhost:6060/api/user/"+ userId,{roles},{
                     headers:{
                         'Content-type':'application/json',
                         'authorization':`Bearer ${user.accessToken}`,
@@ -78,7 +78,7 @@ const EditUser = () => {
                     
                   })
                 // window.location.replace("/post/" + res.data._id)
-                window.location.replace("/admin/viewpost")
+                window.location.replace("/admin/viewusers")
             } catch (error) {
                 setError(true);
                 console.log(error);
@@ -86,26 +86,29 @@ const EditUser = () => {
             }
     }
 
-console.log(roles);
-
     const setAllUserRole = ( userRole ) =>{
         if(roles[`${userRole}`]){
-           
             delete roles[`${userRole}`];
+            setRoles(roles);
             return roles;
         }else{
              if (userRole === 'Admin'){
-                 return {...roles, Admin:2003 }
+                console.log('admin role');
+                 setRoles({...roles, Admin:2003 })
+                 return roles;
              }
              if(userRole === 'Editor'){
-                return {...roles, Admin:200 }
+                console.log('editor role');
+                setRoles({...roles, Editor:2002 })
+                return roles;
              }
-             if(userRole === 'Editor'){
-                return {...roles, Admin:200 }
+             if(userRole === 'User'){
+                console.log('user role');
+                setRoles({...roles, User:2001 })
+                return roles;
              }
         }
     }
-    console.log(roles);
     // const setAllUserRole = (prev,userRole) =>{
     //     if(Object.keys(prev).includes(userRole)){
     //         delete prev.userRole
@@ -138,7 +141,7 @@ console.log(roles);
                 <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
                     <div className="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
                         <p className="text-3xl font-bold leading-7 text-center">Edit User</p>
-                        <form onSubmit={handlePostSubmit} method="post">
+                        <form onSubmit={handlePostSubmit} method="put">
                             <div className="md:flex items-center mt-12">
                                 <div className="w-full md:w-1/2 flex flex-col">
                                     <label className="font-semibold leading-none">Username</label>
@@ -149,24 +152,22 @@ console.log(roles);
                                     <h1 className='text-3xl'>{data.email}</h1>
                                 </div>
                             </div>
-                            
-                            {console.log(roles)}
                             <div className="md:flex items-center mt-12">
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">User: </label>
-                                <input type="checkbox" onClick={()=> setRoles(()=> setAllUserRole('User'))}  className="checkbox" 
+                                <input type="checkbox" onClick={()=>setAllUserRole('User')}  className="checkbox" 
                                 defaultChecked={roles?.User}
                                 />
                             </div>
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">Editor: </label>
-                                <input type="checkbox" onClick={()=> setRoles(()=> setAllUserRole('Editor'))}  className="checkbox" 
+                                <input type="checkbox" onClick={()=> setAllUserRole('Editor')}  className="checkbox" 
                                 defaultChecked={roles?.Editor}
                                 />
                             </div>
                             <div className="w-full md:w-1/2 flex ">
                                 <label className="font-semibold leading-none mr-5">Admin: </label>
-                                <input type="checkbox" onClick={()=> setRoles(()=> setAllUserRole('Admin'))}  className="checkbox" 
+                                <input type="checkbox" onClick={()=>setAllUserRole('Admin')}  className="checkbox" 
                                 defaultChecked={roles?.Admin}
                                 />
                             </div>

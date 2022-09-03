@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../Context/Context"
 
 const Navbar = () => {
+  const {dispatch} = useContext(Context)
 
   const [isOpen, setIsOpen] = useState(true);
   const handleNav = () =>{
     setIsOpen(!isOpen);
-  }
+  } 
+  const handleLogout = () =>{
+    dispatch({type:"LOGOUT"})
+}
 
   return (
     <>
@@ -90,7 +95,7 @@ const Navbar = () => {
                 </p>
               </li>
 
-              <li className="duration-200 active:scale-90 ">
+              <li  onClick={handleLogout}  className="duration-200 active:scale-90 ">
                 <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-3xl">
                   <ion-icon name="logo-linkedin"></ion-icon>
                 </p>
