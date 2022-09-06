@@ -6,8 +6,12 @@ import Sidebar from '../Components/Sidebar'
 import axios from "axios";
 import { Context } from '../../Context/Context'
 import ReactLoading from 'react-loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddPost = () => {
+
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [file, setFile] = useState(null)
@@ -16,13 +20,39 @@ const AddPost = () => {
     const [cat, setCat] = useState([])
     const [status, setStatus] = useState(true)
     const [category, setCategory] = useState([])
+    const [error, setError] = useState(false)
+
+    function createError(msg){
+        toast.error(msg , {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }
+      function createSuccess(msg){
+        toast.success(msg , {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }
+    
+    
   
 	const fetchCategories = async () =>{
 	  const response = await axios.get("http://localhost:6060/api/categories")
 	  setCat(response.data);
 	  setisLoading(false)
 	}
-	console.log(status);
+	
   
 	useEffect(() => {
 	  setTimeout(()=>{
@@ -30,7 +60,6 @@ const AddPost = () => {
 	  }, 1000)
 	}, [])
 
-   
 
     const handlePostSubmit = async (e) =>{
         e.preventDefault();
@@ -56,11 +85,19 @@ const AddPost = () => {
                 }
             }
             try {
-                const res = await axios.post("http://localhost:6060/api/post/", newPost)
+                await axios.post("http://localhost:6060/api/post/", newPost,{
+                    headers:{
+                        'Content-type':'application/json',
+                        'authorization':`Bearer ${user.accessToken}`,
+                    },
+                    
+                  })
                 // window.location.replace("/post/" + res.data._id)
                 window.location.replace("/admin/viewpost")
             } catch (error) {
+                setError(true);
                 console.log(error);
+                createError(error.response.data)
             }
     }
   return (
@@ -153,6 +190,18 @@ const AddPost = () => {
         </section>
     </div>
    }
+   {error && 
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />}
     </div>
   )
 }

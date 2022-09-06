@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
@@ -6,8 +6,10 @@ import axios from "axios";
 import ReactLoading from 'react-loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Context } from '../../Context/Context';
 
 const ViewPost = () => {
+  const {user} = useContext(Context);
   const [error, setError] = useState(false)
 
   
@@ -51,11 +53,18 @@ const ViewPost = () => {
 
 const handleDelete = async (id) =>{
   try {
-    await axios.delete("http://localhost:6060/api/post/" + id)
+    await axios.delete("http://localhost:6060/api/post/" + id ,{
+      headers:{
+          'Content-type':'application/json',
+          'authorization':`Bearer ${user.accessToken}`,
+      },
+      
+    })
     setError(true);
     createSuccess("Post Deleted Successfully");
   } catch (error) {
     setError(true)
+    console.log(error);
     createError(error.response.data.message);
   }
 }

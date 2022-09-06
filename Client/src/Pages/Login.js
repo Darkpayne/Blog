@@ -1,18 +1,25 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRef } from "react";
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import { Context } from "../Context/Context";
 import Navbar from "../Components/Navbar";   
 
 const Login = () => {
+  const {dispatch,user} = useContext(Context);
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (user){
+      navigate('/');
+    }
+  }, [])
+
   const userRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState(false)
 
-  const {dispatch, isFetching, user} = useContext(Context)
   const handleSubmit = async (e) =>{
     e.preventDefault();
     if(userRef.current.value === ""||passwordRef.current.value === ""){
@@ -30,12 +37,10 @@ const Login = () => {
         
       });
       console.log(res?.data);
-      const accessToken = res?.data?.accessToken
-      const roles = res?.data?.roles
-      console.log(accessToken);
-      console.log(roles);
-      // dispatch({type:"LOGIN_SUCCESS", payload: res.data})
-      // res.data && window.location.replace("/admin")
+       
+      dispatch({type:"ACCESS_TOKEN", payload: res.data.accessToken});
+      dispatch({type:"LOGIN_SUCCESS", payload: res.data})
+      res.data && window.location.replace("/admin")
     } catch (error) {
       createError(error.response.data.message)
       dispatch({type:"LOGIN_FAIL"})

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { Context } from "../../Context/Context"
 
 const Cards = () => {
-
+ 
     const {dispatch} = useContext(Context)
 
     const Data = [

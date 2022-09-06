@@ -22,10 +22,12 @@ import { useContext } from "react";
 import { Context } from "./Context/Context";
 import AddCategory from "./Admin/Pages/AddCategory";
 import Profile from "./Pages/Profile";
+import EditUser from "./Admin/Pages/EditUser";
 
 
 function App() {
   const { user } = useContext(Context);
+  console.log(user);
   return (
     <div className="">
       <BrowserRouter>
@@ -33,20 +35,21 @@ function App() {
           <Route path="/" element={ <Home />} />
           <Route path="/post/:id" element={ <SingleBlog />} />
           <Route path="/profile" element={ <Profile />} />
-          <Route path="/login" element={ <Login />} />
+          <Route path="/login" element={ <Login/>} />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/joshua" element={ <Clifford />} />
           <Route path="/shop" element={user ? <Shop /> : <Login/>} />
           <Route path="/contact" element={ <Contact />} />
-          <Route path="/admin" element={user ?  <Admin user={user} /> : <Login/>} />
-          <Route path="/admin/addpost" element={user ? <AddPost user={user}  />: <Login/>} />
-          <Route path="/admin/editpost/:id" element={user ? <EditPost />: <Login/>} />
-          <Route path="/admin/viewpost" element={user ? <ViewPost />: <Login/>} />
-          <Route path="/admin/viewusers" element={user ? <ViewUsers />: <Login/>} /> 
-          <Route path="/admin/adduser" element={user ? <AddUser />: <Login/>} /> 
-          <Route path="/admin/viewcategory" element={user ? <ViewCategory />: <Login/>} /> 
-          <Route path="/admin/addcategory" element={user ? <AddCategory />: <Login/>} /> 
-          <Route path="*" element={user ? <ErrorPage /> : <Login/>} />
+          <Route path="/admin" element={user?.ROLES.includes(2002 || 2003) ?  <Admin user={user} /> : <Login/>} />
+          <Route path="/admin/addpost" element={user?.ROLES.includes(2002 || 2003) ? <AddPost user={user}  />: <Login/>} />
+          <Route path="/admin/editpost/:id" element={user?.ROLES.includes(2002 || 2003) ? <EditPost />: <Login/>} />
+          <Route path="/admin/edituser/:id" element={user?.ROLES.includes(2002 || 2003) ? <EditUser />: <Login/>} />
+          <Route path="/admin/viewpost" element={user?.ROLES.includes(2002 || 2003) ? <ViewPost />: <Login/>} />
+          <Route path="/admin/viewusers" element={user?.ROLES.includes(2002 || 2003) ? <ViewUsers />: <Login/>} /> 
+          <Route path="/admin/adduser" element={user?.ROLES.includes(2002 || 2003) ? <AddUser />: <Login/>} /> 
+          <Route path="/admin/viewcategory" element={user?.ROLES.includes(2002 || 2003) ? <ViewCategory />: <Login/>} /> 
+          <Route path="/admin/addcategory" element={user?.ROLES.includes(2002 || 2003) ? <AddCategory />: <Login/>} /> 
+          <Route path="*" element={ <ErrorPage /> } />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,18 +1,28 @@
-import React, { useState } from 'react'
-import  { Link } from 'react-router-dom'
+import React, { useState,useEffect, useContext } from 'react'
+import  { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios" 
 import Navbar from "../Components/Navbar"
+import { Context } from "../Context/Context";
+
+
 
 const Signup = () => {
+  const {user} = useContext(Context);
   const [isShowing, setIsShowing] = useState(true)
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
 
-  
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (user){
+      navigate('/');
+    }
+  }, [])
+
   function createError(msg){
     toast.error(msg , {
       position: "top-right",

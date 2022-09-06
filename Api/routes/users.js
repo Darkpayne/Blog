@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const verifyJWT = require('../middleware/verifyJWT');
+const verifyRoles = require("../middleware/verifyRoles");
 
 
 // UPDATE
-router.put("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id) {
+router.put("/:id", verifyJWT ,verifyRoles(2002,2003) ,async (req, res) => {
+ 
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
       req.body.password = await bcrypt.hash(req.body.password, salt);
@@ -18,17 +20,16 @@ router.put("/:id", async (req, res) => {
         },
         { new: true }
       );
+      console.log(updatedUser);
       res.status(200).json(updatedUser);
     } catch (error) {
       res.status(500).json(error);
     }
-  } else {
-    res.status(401).json({ message: "You can update just your account" });
-  }
+  
 });
 
 // DELETE
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",verifyJWT,verifyRoles(2002,2003) , async (req, res) => {
   // if (req.body.userId === req.params.id) {
   try {
     await User.findByIdAndDelete(req.params.id);

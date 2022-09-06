@@ -101,7 +101,12 @@ const EditPost = () => {
         }
         try {
              await axios.put("http://localhost:6060/api/post/" + path , 
-               newPost
+               newPost, {
+                headers : {
+                    'Content-type':'application/json',
+                    'authorization':`Bearer ${user.accessToken}`,
+                }
+               }
              );
             setError(true)
             createSuccess("Post Updated Successfully");
@@ -110,7 +115,8 @@ const EditPost = () => {
             },1000)
         } catch (error) {
             setError(true)
-            createError(error.response.data.message);
+
+            createError(error.response.data);
         }
     }
 

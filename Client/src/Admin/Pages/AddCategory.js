@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Context } from '../../Context/Context';
 
 const AddCategory = () => {
-  
+const {user} = useContext(Context);
   const [name, setName] = useState("")
   const [error, setError] = useState(false)
 
   
-  function createError(msg){
+  function createError(msg){ 
+    // TODO: create reusable function for toast
     toast.error(msg , {
       position: "top-right",
       autoClose: 5000,
@@ -45,7 +47,12 @@ const AddCategory = () => {
       try {
         const res = await axios.post("http://localhost:6060/api/categories" , {
           name,
-        });
+        },{
+          headers:{
+              'Content-type':'application/json',
+              'authorization':`Bearer ${user.accessToken}`,
+          },
+        }); 
         setError(true)
       createSuccess('Category added Successfully')
         res.data && window.location.replace("/admin/viewcategory")

@@ -6,9 +6,11 @@ import axios from "axios";
 import ReactLoading from 'react-loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Context } from '../../Context/Context';
+import { useContext } from 'react';
 
 const ViewUsers = () => {
-
+	const {user} = useContext(Context)
 	const [error, setError] = useState(false)
 
   
@@ -53,12 +55,18 @@ const ViewUsers = () => {
 const handleDelete = async (id) =>{
 	// e.preventDefault();
 	try {
-		await axios.delete("http://localhost:6060/api/user/"+ id);
+		await axios.delete("http://localhost:6060/api/user/"+ id,{
+			headers:{
+				'Content-type':'application/json',
+				'authorization':`Bearer ${user.accessToken}`,
+			},
+			
+		  });
 		setError(true);
     	createSuccess("User Deleted Successfully");
 	} catch (error) {
 		setError(true)
-    	createError(error.response.data.message);
+    	createError(error.response.data);
 	}
 }
   return (
@@ -87,29 +95,38 @@ const handleDelete = async (id) =>{
 						<th></th>
 						<th>Name</th>
 						<th>Email</th>
+						<th>Roles</th>
 						<th>Status</th>
+						<th>Edit</th>
 						<th>Delete</th>
 					</tr>
 					</thead>
 					<tbody>
 						{users.map((el, index)=>(
-					<tr>
+					<tr key={index}>
 						<th>{index+1}</th>
 						<td>{el.username}</td>
 						<td>{el.email}</td>
+						<td>{Object.keys(el.roles).map((i,index)=><span key={index} className={`mx-1 ${i==='User' && 'bg-indigo-300'} ${i==='Admin' && 'bg-red-300'} ${i==='Editor' && 'bg-yellow-300'} px-3 rounded-full py-1`}>{i}</span>)}</td>
 						<td>
 							<span className="px-2 py-1 rounded-xl bg-green-200 ">Active</span>
 						</td>
 						<td>
-							<button onClick={()=> handleDelete(el._id)} className='btn btn-outline btn-error'>
-							Delete
-							</button>
-						</td>
+                      <Link to={`/admin/edituser/${el._id}`} className='btn-outline btn btn-info'>
+                      <span className='text-3xl'>
+                      <ion-icon name="create-sharp"></ion-icon>
+                      </span>
+                      </Link>
+                    </td>
+                    <td>
+                      <button onClick={()=>handleDelete(el._id)} className='btn btn-outline btn-error'>
+                      <span className='text-3xl'>
+                      <ion-icon name="trash-sharp"></ion-icon>
+                      </span>
+                      </button>
+                    </td>
 					</tr>
-
 						))}
-					
-					
 					</tbody>
 				</table>
 			</div>

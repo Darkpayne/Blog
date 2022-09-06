@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const Post = require("../models/Post");
 const verifyJWt = require('../middleware/verifyJWT')
+const verifyRoles = require('../middleware/verifyRoles')
 
 // CREATE NEW POST
-router.post("/",verifyJWt , async (req, res) => {
+router.post("/",verifyJWt , verifyRoles(2002,2003) , async (req, res) => {
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();
@@ -14,7 +15,7 @@ router.post("/",verifyJWt , async (req, res) => {
 });
 
 // UPDATE
-router.put("/:id",verifyJWt , async (req, res) => {
+router.put("/:id",verifyJWt , verifyRoles(2002,2003) , async (req, res) => {
     try {
          await Post.findById(req.params.id)
 
@@ -40,7 +41,7 @@ router.put("/:id",verifyJWt , async (req, res) => {
 });
 
 // DELETE POST
-router.delete("/:id",verifyJWt , async (req, res) => {
+router.delete("/:id",verifyJWt , verifyRoles(2003) , async (req, res) => {
     try {
         const post = await Post.findById(req.params.id)
         // if (post.username === req.body.username){

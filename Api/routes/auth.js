@@ -48,12 +48,11 @@ router.post("/login", async (req, res) => {
           {
             UserInfo: {
               username: user.username,
-              email: user.email,
               roles: roles,
             },
           },
           process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: "30s" }
+          { expiresIn: "15m" }
         );
         const refreshToken = jwt.sign(
           { username: user.username },
@@ -66,7 +65,7 @@ router.post("/login", async (req, res) => {
 
        
         res.cookie('jwt', refreshToken, { httpOnly : true, sameSite:'None' ,maxAge : 24 * 60 * 60 * 1000});
-        res.status(200).json({accessToken, roles});
+        res.status(200).json({'ROLES':roles, accessToken, username: user.username});
       }
     }
   } catch (error) {

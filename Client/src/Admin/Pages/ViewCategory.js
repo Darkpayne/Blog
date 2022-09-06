@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
@@ -6,13 +6,25 @@ import axios from "axios";
 import ReactLoading from 'react-loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Context } from '../../Context/Context';
 
 const ViewCategory = () => {
 	const [error, setError] = useState(false)
-
+	const {user} = useContext(Context)
   
 	function createError(msg){
 	  toast.success(msg , {
+		position: "top-right",
+		autoClose: 5000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		});
+	}
+	function createErrors(msg){
+	  toast.error(msg , {
 		position: "top-right",
 		autoClose: 5000,
 		hideProgressBar: false,
@@ -27,7 +39,7 @@ const ViewCategory = () => {
 	const [isLoading, setisLoading] = useState(true)
   
 	const fetchCategories = async () =>{
-	  const response = await axios.get("http://localhost:6060/api/categories")
+	  const response = await axios.get("http://localhost:6060/api/categories",)
 	  setCat(response.data);
 	  setisLoading(false)
 	}
@@ -41,9 +53,21 @@ const ViewCategory = () => {
 
 	const handleDelete = async (i) =>{
 		const deleteCategories = async () =>{
-			 await axios.delete("http://localhost:6060/api/categories/"+ i)
-			 setError(true)
-			 createError('Category Deleted Successfully');
+			try {
+				await axios.delete("http://localhost:6060/api/categories/"+ i,{
+					headers:{
+						'Content-type':'application/json',
+						'authorization':`Bearer ${user.accessToken}`,
+					},
+					
+				  })
+				setError(true)
+				createError('Category Deleted Successfully');
+				
+			} catch (error) {
+				setError(true);
+				createErrors(error.response.data)
+			}
 		  }
 		
 		  deleteCategories();
