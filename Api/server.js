@@ -6,6 +6,7 @@ const authRoute = require("./routes/auth");
 const refreshToken = require("./routes/refreshToken");
 const logout = require("./routes/logout");
 const userRoute = require("./routes/users");
+const commentRoute = require("./routes/comments");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
@@ -73,6 +74,7 @@ app.use("/api/logout", logout);
 app.use("/api/categories", categoryRoute);
 app.use("/api/post", postRoute);
 app.use("/api/user", userRoute); 
+app.use("/api/comment", commentRoute); 
 // app.use(verifyJWt);
 
 app.listen(port, () => {

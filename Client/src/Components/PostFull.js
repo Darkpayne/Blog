@@ -4,7 +4,7 @@ import Comments from './Comments'
 import RecentPost from './RecentPost'
 
 
-const PostFull = ({post}) => {
+const PostFull = ({post,path}) => {
   const PF = "http://localhost:6060/images/";
   return (
     <>
@@ -111,8 +111,8 @@ const PostFull = ({post}) => {
             </div>
           </div>
 
-      <RecentPost/>
-      <Comments/>
+        <RecentPost/>
+        <Comments path={path}/>
     </div>
    </>
   )

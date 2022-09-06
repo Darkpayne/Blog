@@ -65,7 +65,7 @@ router.post("/login", async (req, res) => {
 
        
         res.cookie('jwt', refreshToken, { httpOnly : true, sameSite:'None' ,maxAge : 24 * 60 * 60 * 1000});
-        res.status(200).json({'ROLES':roles, accessToken, username: user.username});
+        res.status(200).json({'ROLES':roles, accessToken, username: user.username, userId : user._id});
       }
     }
   } catch (error) {

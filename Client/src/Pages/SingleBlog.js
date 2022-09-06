@@ -10,7 +10,6 @@ import Search from "../Components/Search";
 const SingleBlog = () => {
   const location = useLocation();
  const path = location.pathname.split("/")[2];
-
  const [post, setPost] = useState({});
  const [cat, setCat] = useState([]);
 
@@ -37,7 +36,7 @@ const SingleBlog = () => {
       <Search cat={cat}/>
       <section className="container mx-auto flex justify-center items-center">
         <div className="lg:basis-3/6 p-2 md:p-0">
-          <PostFull post={post}/>
+          <PostFull post={post} path={path}/>
         </div>
       </section>
       <Down />
