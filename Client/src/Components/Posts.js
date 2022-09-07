@@ -1,9 +1,22 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 const Posts = ({post}) => {
+  const [comments, setComments] = useState([]);
+
+
+  useEffect(() => {
+    const getComments = async () =>{
+      const response = await axios.get("http://localhost:6060/api/comment")
+      setComments(response.data)
+    }
+    getComments();
+   }, [comments])
+
   return (
     <div className="">
     {post.map((post)=>(
-      <Post key={post._id} post={post}/>
+      <Post key={post._id} post={post} comments={comments}/>
     ))}
     </div>
   );
@@ -11,8 +24,13 @@ const Posts = ({post}) => {
 
 export default Posts;
 
-const Post = ({post}) =>{
+const Post = ({post,comments}) =>{
   const PF = "http://localhost:6060/images/";
+
+  const length = () =>{
+    const commentlength = comments.filter((data)=>data.postId === post._id)
+    return commentlength.length
+  }
   return(
     <>
 
@@ -45,7 +63,7 @@ const Post = ({post}) =>{
               </div>
               
               <div className="text-sm">
-               <h1>{post.username}</h1>
+               <h1 className='uppercase'>{post.username}</h1>
                 <h2 className="text-xs text-gray-500">{new Date(post.createdAt).toDateString()}</h2>
               </div>
             </div>
@@ -58,25 +76,25 @@ const Post = ({post}) =>{
             </Link>
 
             <div className="desc md:tracking-wide md:leading-7 font-light px-3 lg:px-0 sm:mb-10 lg:mb-0">
-              <p>
+              <p className='md:text-base text-sm'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Veritatis natus et ipsam repudiandae, corporis ut voluptas
                 nihil, eius cupiditate quas nulla dolore dignissimos doloremque
-                consequuntu....
+                consequuntu.... 
               </p>
             </div>
           </section>
 
           <div className="flex justify-between items-center border-t-2 mt-5 md:mt-0 px-3 lg:px-0">
-            <div className="flex items-center lg:gap-x-5 gap-x-2 md:text-sm text-xs text-gray-500 mt-5">
+            <div className="flex items-center justify-between md:justify-start lg:gap-x-5 gap-x-2 md:text-sm text-xs text-gray-500 mt-5">
               <p>
-                345 <span className="lg:tracking-widest ml-1">views </span>
+                345 <span className="lg:tracking-widest ml-1 text-xs">views </span>
               </p>
               <p>
-                0 <span className="lg:tracking-widest ml-1"> comments</span>
+                {length()} <span className="lg:tracking-widest ml-1 text-xs"> comments</span>
               </p>
             </div>
-            <div className="icon flex justify-between items-start mt-5">
+            <div className="hidden icon md:flex justify-between items-start mt-5">
               <span className="md:text-sm text-xs">12</span>{" "}
               <span className="ml-1 text-red-500 text-baseline  font-bolder">
                 <ion-icon name="heart-outline"></ion-icon>

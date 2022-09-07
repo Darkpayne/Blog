@@ -65,6 +65,23 @@ const Comments = ({path}) => {
     }
   }
 
+  const handleDelete = async (id) =>{
+    // e.preventDefault();
+    try {
+      await axios.delete("http://localhost:6060/api/comment/"+ id,{
+        headers:{
+          'Content-type':'application/json',
+          'authorization':`Bearer ${user.accessToken}`,
+        },
+        
+        });
+      setError(true);
+        createSuccess("Comment Deleted Successfully");
+    } catch (error) {
+      setError(true)
+        createError(error.response.data);
+    }
+  }
 
  useEffect(() => {
   const getComments = async () =>{
@@ -95,7 +112,7 @@ const Comments = ({path}) => {
               <div className="relative z-0 ">
                 <h1>{com.body}</h1>
               </div>
-            {(com.userId === user?.userId || user?.ROLES.includes(2003)) && <div className="text-end"> <span className="text-blue-500 text-xs cursor-pointer mr-5">edit</span> <span className="text-red-500 text-xs cursor-pointer">delete</span> </div>}
+            {(com.userId === user?.userId) && <div className="text-end">  <span onClick={()=>handleDelete(com._id)} className="text-red-500 text-xs cursor-pointer">delete</span> </div>}
             </div>
           </section>
         </section>
