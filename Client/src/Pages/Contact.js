@@ -1,8 +1,60 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Down from '../Components/Down'
 import Navbar from '../Components/Navbar'
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
+
+   const [error, setError] = useState(false)
+
+  
+   function createError(msg){
+     toast.error(msg , {
+       position: "top-right",
+       autoClose: 5000,
+       hideProgressBar: true,
+       closeOnClick: true,
+       pauseOnHover: true,
+       draggable: true,
+       progress: undefined,
+       });
+   }
+   function createSuccess(msg){
+     toast.success(msg , {
+       position: "top-right",
+       autoClose: 5000,
+       hideProgressBar: true,
+       closeOnClick: true,
+       pauseOnHover: true,
+       draggable: true,
+       progress: undefined,
+       });
+   }
+
+   const form =  useRef();
+   // const [email, setEmail] = useState('');
+   // const [name, setName] = useState('');
+   // const [subject, setSubject] = useState('');
+   // const [body, setBody] = useState('');
+
+   const handleSubmit = (e) =>{
+         e.preventDefault();
+     
+         emailjs.sendForm('service_wp3k7sr', 'template_mdt7zgp', form.current, 'b1nU_Syt2f3KP3vIs')
+           .then((result) => {
+            setError(true);
+            createSuccess("Message sent Successfully");
+               console.log(result.text);
+           }, (error) => {
+            setError(true)
+            createError('error');
+               console.log(error.text);
+           });
+
+           e.target.reset();
+   }
   return (
     <div>
         <Navbar/>
@@ -41,10 +93,14 @@ const Contact = () => {
          </div>
          <div  className="w-full lg:w-1/2 xl:w-5/12 px-4">
             <div  className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-               <form>
+               {/* FORM */}
+               <form onSubmit={handleSubmit} ref={form}>
                   <div  className="mb-6">
                      <input
                         type="text"
+                        // onChange={(e)=>setName(e.target.value)}
+                        // value={name}
+                        name='name'
                         placeholder="Your Name"
                          className="
                         w-full
@@ -63,6 +119,9 @@ const Contact = () => {
                      <input
                         type="email"
                         placeholder="Your Email"
+                        // onChange={(e)=>setEmail(e.target.value)}
+                        // value={email}
+                        name='email'
                          className="
                         w-full
                         rounded
@@ -79,7 +138,10 @@ const Contact = () => {
                   <div  className="mb-6">
                      <input
                         type="text"
-                        placeholder="Your Phone"
+                        placeholder="Subject"
+                        // onChange={(e)=>setSubject(e.target.value)}
+                        // value={subject}
+                        name='subject'
                          className="
                         w-full
                         rounded
@@ -97,7 +159,10 @@ const Contact = () => {
                      <textarea
                         rows="6"
                         placeholder="Your Message"
-                         className="
+                        // onChange={(e)=>setBody(e.target.value)}
+                        // value={body}
+                        name="message"
+                        className="
                         w-full
                         rounded
                         py-3
@@ -947,6 +1012,18 @@ const Contact = () => {
    </div>
 </section>
 <Down/>
+{error && 
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={true}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />}
     </div>
   )
 }

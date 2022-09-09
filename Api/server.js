@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
+const mailRoute = require("./routes/mailer");
 const refreshToken = require("./routes/refreshToken");
 const logout = require("./routes/logout");
 const userRoute = require("./routes/users");
@@ -66,8 +67,9 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 app.get("/", (req, res) => {
   res.send("everything is okay!");
-});
-
+}); 
+ 
+app.use("/api/sendMail", mailRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/refresh", refreshToken);
 app.use("/api/logout", logout);
