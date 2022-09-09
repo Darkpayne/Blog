@@ -110,6 +110,7 @@ const Comments = ({path}) => {
             </div>
             <div className="grow">
               <div className="relative z-0 ">
+                <h1 className="uppercase font-bold">{com.username}</h1>
                 <h1>{com.body}</h1>
               </div>
             {(com.userId === user?.userId) && <div className="text-end">  <span onClick={()=>handleDelete(com._id)} className="text-red-500 text-xs cursor-pointer">delete</span> </div>}
