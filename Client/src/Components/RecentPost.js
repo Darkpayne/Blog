@@ -21,7 +21,7 @@ const RecentPost = () => {
     <div className=''>
         <div className="flex justify-between items-center mt-10">
             <p className='tracking-wider font-medium'>Recent Post</p>
-            <p className='tracking-wider font-medium active:scale-95 cursor-pointer hover:text-blue-400'>See All</p>
+            <Link to="/"><p className='tracking-wider font-medium active:scale-95 cursor-pointer hover:text-blue-400'>See All</p></Link>
         </div>
         <div className="lg:grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 lg:gap-x-44 flex flex-col justify-center items-center my-10 ">
             {

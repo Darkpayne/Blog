@@ -6,6 +6,10 @@ const Posts = ({post}) => {
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  useEffect(() => {
+    
     const getComments = async () =>{
       const response = await axios.get("http://localhost:6060/api/comment")
       setComments(response.data)
@@ -25,7 +29,7 @@ const Posts = ({post}) => {
 export default Posts;
 
 const Post = ({post,comments}) =>{
-  const PF = "http://localhost:6060/images/";
+  const PF = "http://localhost:6060/images/"; 
 
   const length = () =>{
     const commentlength = comments.filter((data)=>data.postId === post._id)

@@ -5,6 +5,8 @@ import Down from "./Down";
 import Navbar from "./Navbar";
 import axios from "axios";
 import fileDownload from "js-file-download";
+import Posts from "./Posts";
+import { Link } from "react-router-dom";
 
 const Joshua = () => {
 
@@ -190,7 +192,7 @@ const Work = () => {
           </h2>
         </div>
        <ProjectWork/>
-       
+       {/* <Posts/> */}
       </div>
     </div>
   );
@@ -255,9 +257,9 @@ const GetInTouch = () =>{
         
        </div>
        <div id="wrapper" className="mt-10 flex justify-center">
-                <a id="ab" href="#" className="hover:bg-black">
+                <a id="ab"  className="hover:bg-black">
                   <span id="spanb" className="text-xl font-normal">
-                    Say Hello!
+                    <Link to="/contact">Say Hello!</Link>
                   </span>
                 </a>
               </div>

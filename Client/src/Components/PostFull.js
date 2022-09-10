@@ -71,24 +71,24 @@ const PostFull = ({post,path}) => {
 
               <li className="duration-200 active:scale-90 ">
               <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-xl active:scale-90 ">
-              <ion-icon name="logo-facebook"></ion-icon>
+              <a href="https://www.facebook.com/joshua4336" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
               </p>
               </li>
               <li className="duration-200 active:scale-90 ">
-              <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-xl active:scale-90 ">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </p>
-              </li>
-
-              <li className="duration-200 active:scale-90 ">
-              <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-xl">
-                <ion-icon name="logo-twitter"></ion-icon>
+              <p className=" tracking-tight block cursor-pointer hover:text-red-500 transition-colors  text-xl active:scale-90 ">
+                <a href="https://www.instagram.com/life_of_joshh/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
               </p>
               </li>
 
               <li className="duration-200 active:scale-90 ">
               <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors text-xl">
-                <ion-icon name="logo-linkedin"></ion-icon>
+                <a href="https://twitter.com/life_of_joosh" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+              </p>
+              </li>
+
+              <li className="duration-200 active:scale-90 ">
+              <p className=" tracking-tight block cursor-pointer hover:text-blue-800 transition-colors text-xl">
+                <a href="https://www.linkedin.com/in/joshua-clifford-625604228/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
               </p>
               </li>
 
@@ -101,9 +101,7 @@ const PostFull = ({post,path}) => {
               <p>
                 345 <span className="tracking-widest ml-1">views </span>
               </p>
-              <p>
-                0 <span className="tracking-widest ml-1"> comments</span>
-              </p>
+              
             </div>
             <div className="icon flex justify-between items-start mt-5">
               <span className="text-sm">12</span>{" "}

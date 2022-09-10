@@ -5,14 +5,14 @@ const Down = () => {
     <div className="bg-black flex flex-col items-center justify-center text-white h-28">
     <div className="">
         <ul className="flex md:flex-row space-x-5 w-full items-center justify-center">
-        <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
-            <ion-icon name="logo-instagram"></ion-icon>
+        <p className=" tracking-tight block cursor-pointer hover:text-red-400 transition-colors duration-300 text-2xl">
+            <a target="_blank" href="https://www.instagram.com/life_of_joshh/"><ion-icon name="logo-instagram"></ion-icon></a>
         </p>
         <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
-            <ion-icon name="logo-twitter"></ion-icon>
+            <a target="_blank" href="https://twitter.com/life_of_joosh"><ion-icon name="logo-twitter"></ion-icon></a>
         </p>
-        <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors duration-300 text-2xl">
-            <ion-icon name="logo-linkedin"></ion-icon>
+        <p className=" tracking-tight block cursor-pointer hover:text-blue-800 transition-colors duration-300 text-2xl">
+            <a target="_blank" href="https://www.linkedin.com/in/joshua-clifford-625604228/"><ion-icon name="logo-linkedin"></ion-icon></a>
         </p>
         </ul>
     </div>

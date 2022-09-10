@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Nav from '../Components/Nav'
 import Sidebar from '../Components/Sidebar'
@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from "react";
 import { Context } from "../../Context/Context";
+import { Editor } from '@tinymce/tinymce-react';
 
 const EditPost = () => {
     const { user } = useContext(Context);
@@ -120,6 +121,13 @@ const EditPost = () => {
         }
     }
 
+const editorRef = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
+    }
+  };
+
   return (
     <div>
          {isLoading 
@@ -167,7 +175,26 @@ const EditPost = () => {
                 <div>
                     <div className="w-full flex flex-col mt-8">
                         <label className="font-semibold leading-none">Body</label>
-                        <textarea value={desc} onChange={e=>setDesc(e.target.value)} type="text" className="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea>
+                        {/* <textarea value={desc} onChange={e=>setDesc(e.target.value)} type="text" className="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea> */}
+                        <Editor
+        onInit={(evt, editor) => editorRef.current = editor}
+        initialValue={desc}
+        onChange={e=>setDesc(e.target.value)}
+        init={{
+        height: 500,
+        menubar: false,
+        plugins: [
+           'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+           'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+           'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
+        ],
+        toolbar: 'undo redo | casechange blocks | bold italic backcolor | ' +
+           'alignleft aligncenter alignright alignjustify | ' +
+           'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        }}
+    />
+    
                     </div>
                 </div>
                 

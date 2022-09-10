@@ -22,6 +22,14 @@ const SingleBlog = () => {
  }, [path])
 
  useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+});
+}, [path])
+
+ useEffect(() => {
   const fetchCat = async () =>{
    const response = await axios.get("http://localhost:6060/api/categories")
    setCat(response.data);

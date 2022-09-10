@@ -68,11 +68,11 @@ const Navbar = () => {
                   About Me
                 </p>
               </Link>
-              <Link to="/shop" className="active:scale-90 duration-200">
+              {/* <Link to="/shop" className="active:scale-90 duration-200">
                 <p className="block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300  my-2 lg:my-0 ">
                   Shop
                 </p>
-              </Link>
+              </Link> */}
               <Link to="/contact" className="active:scale-90 duration-200">
                 <p className=" block cursor-pointer p-2 hover:text-blue-500 transition-colors duration-300  my-2 lg:my-0 ">
                   Contact Me
