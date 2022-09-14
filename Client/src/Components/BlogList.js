@@ -16,6 +16,7 @@ const BlogList = () => {
      const response = await axios.get("http://localhost:6060/api/post"+ search)
      const data = response.data
      const filtered = data.filter((d)=>d.status === true);
+     console.log(filtered.sort((a, b) => b.createdAt - a.createdAt));
      setPost(filtered);
     }
    fetchPost()

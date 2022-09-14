@@ -85,7 +85,7 @@ router.get("/", async (req,res)=>{
                 $in:[category]
             }})
         }else{
-            posts = await Post.find()
+            posts = await Post.find().sort({updatedAt:-1 })
         }
         res.status(200).json(posts);
     } catch (error) {
