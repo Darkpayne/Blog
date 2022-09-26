@@ -3,9 +3,6 @@ import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import Down from "./Down";
 import Navbar from "./Navbar";
-import axios from "axios";
-import fileDownload from "js-file-download";
-import Posts from "./Posts";
 import { Link } from "react-router-dom";
 
 const Joshua = () => {
@@ -14,10 +11,10 @@ const Joshua = () => {
   return (
     <section>
       <Navbar />
-      <section className="snap-mandatory snap-y">
-        <div className="snap-start container mx-auto lg:basis-3/4 flex justify-center items-center h-screen">
+      <section className="">
+        <div className=" container mx-auto lg:basis-3/4 flex justify-center items-center h-screen">
           <div className="grid gap-x-5 md:gap-x-3 pb-16 grid-cols-10 text-black p-2 xl:p-0">
-            <div className="col-span-8 flex justify-center items-center cursor-pointer">
+            <div className="md:col-span-8 col-span-12 text-center md:text-start flex justify-center items-center cursor-pointer">
               <h1 className="mb-4 xl:text-8xl lg:text-7xl  md:text-7xl text-6xl font-extrabold leading-none ease-in-out transition-all duration-500">
                 <p className="md:text-2xl text-gray-500 text-lg  font-normal my-2">
                   Hello,{" "}
@@ -26,15 +23,12 @@ const Joshua = () => {
                   {" "}
                   Joshua Clifford
                 </span>
-                {/* <span className="block lg:text-5xl md:text-3xl text-2xl category">
-                {" "}
-                I build things for the web
-              </span> */}
+                
                 <p className="md:text-xl text-lg text-gray-500 font-normal  mt-5">
                   A software Developer with a passion for solving problems and
                   learning new things.
                 </p>
-                <div id="wrapper" className="mt-10">
+                <div id="wrapper" className="mt-10 flex md:justify-start justify-center">
                   <a
                     href="http://localhost:6060/api/download"
                     id="a"
@@ -50,9 +44,7 @@ const Joshua = () => {
           </div>
         </div>
         <Brief />
-        <Stack />
         <Work />
-        {/* <FunFact /> */}
         <GetInTouch />
         <Down />
       </section>
@@ -65,7 +57,10 @@ export default Joshua;
 const Stack = () => {
   return (
     <div className=" text-black relative mb-10 bg-white ">
-      <div className=""></div>
+      <div className="text-center">
+          <p className="text-gray-500 text-lg">MY STACK</p>
+          {/* <h1 className="text-2xl font-light text-blue-500 "></h1> */}
+        </div>
       <div className="container mx-auto ">
         <div className="grid lg:grid-cols-4 xl:grid-cols-8 grid-cols-2 gap-x-5 py-5 md:grid-cols-3">
           <div className="flex flex-col items-center justify-center">
@@ -163,19 +158,6 @@ const AltStack = () => {
             <SiMongodb />
           </p>
           </div>
-          {/* <div className="col-span-5 flex justify-center items-center tracking-wider leading-10">
-            <p>
-              Hello! My name is Joshua Clifford and I enjoy creating things that
-              live on the internet. My interest in web development started back
-              in 2021 as a hobby. Fast-forward to today, and I’ve had the
-              privilege of working at an advertising agency, a start-up, a huge
-              corporation, and a student-led design studio. My main focus these
-              days is building accessible, inclusive products and digital
-              experiences at for a variety of clients. I also recently launched
-              a course that covers everything you need to build a web app with
-              the Spotify API using Node React.
-            </p>
-          </div> */}
         </div>
       </article>
     </section>
@@ -184,7 +166,7 @@ const AltStack = () => {
 
 const Brief = () => {
   return (
-    <section className="snap-start">
+    <section className="">
       <div className="container mx-auto flex justify-center items-center relative">
         <div className="text-center">
           <p className="text-gray-500 text-lg">MAIN INFO</p>
@@ -285,13 +267,14 @@ const Brief = () => {
           </div>
         </div>
       </article>
+      <Stack />
     </section>
   );
 };
 
 const Work = () => {
   return (
-    <div className="snap-start">
+    <div className="">
       <div className="container m-auto px-6 py-20 md:px-12 lg:px-20">
         <div className="text-center">
           <p className="text-gray-500 text-lg">PORTFOLIO</p>
@@ -308,18 +291,19 @@ const ProjectWork = () =>{
   return (
     <section>
       <div class="flex space-x-3 justify-center my-10">
-        <button class="hover:bg-black hover:text-white text-black font-medium tracking-wide leading-7 px-5 py-1 rounded-full border-2 border-black">
+        <button class="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
           ALL
         </button>
-        <button class="hover:bg-black hover:text-white text-black font-medium tracking-wide leading-7 px-5 py-1 rounded-full border-2 border-black">
+        <button class="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
           CLONE PROJECT
         </button>
-        <button class="hover:bg-black hover:text-white text-black font-medium tracking-wide leading-7 px-5 py-1 rounded-full border-2 border-black">
+        <button class="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
           WEB APP
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
         <div className="group relative shadow-lg">
           <img
             src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
@@ -345,6 +329,8 @@ const ProjectWork = () =>{
             </a>
           </div>
         </div>
+
+
         <div className="group relative shadow-lg">
           <img
             src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
@@ -352,7 +338,7 @@ const ProjectWork = () =>{
           />
           <div className="text-center my-3">
             <h1 className="font-medium text-lg my-2 text-blue-500">
-              MUSIC APP
+              QUORA CLONE
             </h1>
             <p className="text-sm text-gray-500 mb-5">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -370,6 +356,8 @@ const ProjectWork = () =>{
             </a>
           </div>
         </div>
+
+
         <div className="group relative shadow-lg">
           <img
             src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
@@ -377,7 +365,7 @@ const ProjectWork = () =>{
           />
           <div className="text-center my-3">
             <h1 className="font-medium text-lg my-2 text-blue-500">
-              MUSIC APP
+              KONGA CLONE
             </h1>
             <p className="text-sm text-gray-500 mb-5">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -395,6 +383,8 @@ const ProjectWork = () =>{
             </a>
           </div>
         </div>
+
+
         <div className="group relative shadow-lg">
           <img
             src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
@@ -402,7 +392,7 @@ const ProjectWork = () =>{
           />
           <div className="text-center my-3">
             <h1 className="font-medium text-lg my-2 text-blue-500">
-              MUSIC APP
+              JOSH BLOG
             </h1>
             <p className="text-sm text-gray-500 mb-5">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -420,6 +410,8 @@ const ProjectWork = () =>{
             </a>
           </div>
         </div>
+
+
         <div className="group relative shadow-lg">
           <img
             src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
@@ -427,7 +419,7 @@ const ProjectWork = () =>{
           />
           <div className="text-center my-3">
             <h1 className="font-medium text-lg my-2 text-blue-500">
-              MUSIC APP
+              ROCK PAPER SCISSORS
             </h1>
             <p className="text-sm text-gray-500 mb-5">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -445,6 +437,7 @@ const ProjectWork = () =>{
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );
