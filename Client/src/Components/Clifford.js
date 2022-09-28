@@ -176,7 +176,7 @@ const Brief = () => {
 
       <article className="container mx-auto mt-16 mb-5 flex justify-center items-center">
         <div className="grid gap-x-5 md:gap-x-3 grid-cols-10 xl:basis-3/4 p-2 xl:p-0">
-          <div className="lg:mt-0 lg:col-span-4 col-span-10 mt-10 flex flex-col justify-center items-center relative p-2 lg:p-0">
+          <div className="lg:mt-0 lg:col-span-4 col-span-10  flex flex-col justify-center items-center relative p-2 lg:p-0">
             <img
               src={"assets/fulljoshua.jpeg"}
               className=" rounded-[50px] w-[355px] h-[470px]"
@@ -234,7 +234,7 @@ const Brief = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-6 col-span-10 flex justify-center  tracking-wider leading-10 text-lg">
+          <div className="lg:col-span-6 col-span-10 my-5 flex justify-center  tracking-wider leading-10 text-lg">
             <section>
               <p>
                 Hey! I'm <span class="text-blue-500">Joshua Clifford.</span> I'm

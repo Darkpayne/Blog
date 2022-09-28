@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../Context/Context"
 
 const Navbar = () => {
-  const {dispatch} = useContext(Context)
+  const {dispatch, user} = useContext(Context)
 
   const [isOpen, setIsOpen] = useState(true);
   const handleNav = () =>{
@@ -39,7 +39,7 @@ const Navbar = () => {
               </Link>
 
               
-                <p className="cursor-pointer hover:text-blue-500 transition-colors duration-300  p-2  my-2 lg:my-0 ">
+                {/* <p className="cursor-pointer hover:text-blue-500 transition-colors duration-300  p-2  my-2 lg:my-0 ">
                   <div className="dropdown dropdown-hover">
                     <label tabIndex="0" className="">
                       My Lists
@@ -60,7 +60,7 @@ const Navbar = () => {
                     </ul>
                   </div>
                   
-                </p>
+                </p> */}
               
 
               <Link to="/joshua" className="active:scale-90 duration-200">
@@ -82,7 +82,23 @@ const Navbar = () => {
           </div>
 
           <div className="mt-5 md:mt-0 lg:block hidden">
-            <ul className="flex flex-col md:flex-row md:space-x-5 w-full items-center">
+            {user
+            ?
+            <span  onClick={handleLogout}  className="duration-200 active:scale-90 ">
+            <p className="bg-blue-700 px-3 rounded tracking-tight cursor-pointer font-bold hover:text-blue-500 hover:bg-white py-2 transition-colors text-xl flex justify-center items-center">
+              <span className="mr-3">
+              Logout
+              </span>
+              <span className="flex">
+              <ion-icon name="exit-outline"></ion-icon>
+              </span>
+
+            </p>
+          </span>
+
+          :
+          <ul className="flex flex-col md:flex-row md:space-x-5 w-full items-center">
+              
               <li className="duration-200 active:scale-90 ">
                 <p className=" tracking-tight block cursor-pointer hover:text-blue-500 transition-colors  text-3xl active:scale-90 ">
                   <Link to=""><ion-icon name="logo-instagram"></ion-icon></Link>
@@ -100,7 +116,11 @@ const Navbar = () => {
                   <ion-icon name="logo-linkedin"></ion-icon>
                 </p>
               </li>
+                     
             </ul>
+          }
+             
+            
           </div>
         </nav>
       </section>

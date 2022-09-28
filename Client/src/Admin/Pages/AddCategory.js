@@ -73,7 +73,7 @@ const {user} = useContext(Context);
     <section className='basis-5/6'>
         <Nav/>  
         <div className="navbar bg-base-100">
-				<div className="flex justify-between items-center w-full">
+				<div className="flex justify-between items-center w-full ">
 					<div className=""></div>
 					<Link to="/admin/viewcategory" className="btn btn-info">View Category</Link>
 				</div>
