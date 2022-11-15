@@ -5,14 +5,7 @@ import Clock from '../Components/Clock'
 
 const Admin = ({user}) => {
   return (
-    // <div className='flex min-h-screen'>
-    //     <section className='basis-1/6 border-r-2 '>
-    //         <Sidebar/>
-    //     </section>
-    //     <section className='basis-5/6'>
-    //         <Nav/>
-    //     </section>
-    // </div>
+
     <div className='pb-10 bg-fixed' 
     style={{ 
       backgroundImage: `url("/assets/bgimage-removebg-preview1.png")`,
@@ -34,9 +27,6 @@ const Admin = ({user}) => {
               </p>
             </Link>
                             <Clock/>    
-                        {/* <div className="flex md:text-xl mx-5 text-right">
-                            <h1 className='font-semibold rounded-lg bg-indigo-600 px-5 py-1 text-white shadow-lg cursor-pointer hover:translate-y-1 duration-300'>Sign In</h1>
-                        </div> */}
                         </div>
                         
                     </nav>

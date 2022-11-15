@@ -96,7 +96,7 @@ const PostFull = ({post,path}) => {
           </div>
         </div>
 
-        <div className="flex justify-between items-center ">
+        {/* <div className="flex justify-between items-center ">
             <div className="flex items-center gap-x-5 text-sm text-gray-500 mt-5">
               <p>
                 345 <span className="tracking-widest ml-1">views </span>
@@ -109,7 +109,7 @@ const PostFull = ({post,path}) => {
                 <ion-icon name="heart-outline"></ion-icon>
               </span>
             </div>
-          </div>
+          </div> */}
 
         <RecentPost/>
         <Comments path={path}/>

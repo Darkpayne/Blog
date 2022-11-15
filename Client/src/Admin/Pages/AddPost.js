@@ -90,8 +90,8 @@ const AddPost = () => {
                         'Content-type':'application/json',
                         'authorization':`Bearer ${user.accessToken}`,
                     },
-                    
                   })
+                  console.log('finished');
                 // window.location.replace("/post/" + res.data._id)
                 window.location.replace("/admin/viewpost")
             } catch (error) {
@@ -151,6 +151,7 @@ const AddPost = () => {
                                     <label className="font-semibold leading-none">Body</label>
                                     <textarea type="text"
                                      value={desc} 
+                                     required
                                      onChange={e=>setDesc(e.target.value)}
                                      className="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea>
                                 </div>

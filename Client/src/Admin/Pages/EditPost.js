@@ -116,8 +116,8 @@ const EditPost = () => {
             },1000)
         } catch (error) {
             setError(true)
-
-            createError(error.response.data);
+            console.log(error);
+            createError(error.response.data.message);
         }
     }
 
@@ -175,8 +175,8 @@ const editorRef = useRef(null);
                 <div>
                     <div className="w-full flex flex-col mt-8">
                         <label className="font-semibold leading-none">Body</label>
-                        {/* <textarea value={desc} onChange={e=>setDesc(e.target.value)} type="text" className="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea> */}
-                        <Editor
+                        <textarea value={desc} onChange={e=>setDesc(e.target.value)} type="text" className="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"></textarea>
+                        {/* <Editor
         onInit={(evt, editor) => editorRef.current = editor}
         initialValue={desc}
         onChange={e=>setDesc(e.target.value)}
@@ -193,7 +193,7 @@ const editorRef = useRef(null);
            'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         }}
-    />
+    /> */}
     
                     </div>
                 </div>

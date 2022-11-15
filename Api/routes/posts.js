@@ -4,18 +4,19 @@ const verifyJWt = require('../middleware/verifyJWT')
 const verifyRoles = require('../middleware/verifyRoles')
 
 // CREATE NEW POST
-router.post("/",verifyJWt , verifyRoles(2002,2003) , async (req, res) => {
+router.post("/", verifyJWt , verifyRoles(2002,2003) , async (req, res) => {
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();
         res.status(200).json(savedPost)    
     } catch (error) {
+        console.log('a little error')
         res.status(500).json(error)
     }
 });
 
 // UPDATE
-router.put("/:id",verifyJWt , verifyRoles(2002,2003) , async (req, res) => {
+router.put("/:id",verifyJWt , verifyRoles(2003) , async (req, res) => {
     try {
          await Post.findById(req.params.id)
 

@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const Category = require("../models/Category");
-const verifyJWt = require('../middleware/verifyJWT')
+const verifyJWt = require('../middleware/verifyJWT');
+const verifyRoles = require("../middleware/verifyRoles");
 
 
 //ADD Category
-router.post("/",verifyJWt, async (req,res)=>{
+router.post("/",verifyJWt, verifyRoles(2003) , async (req,res)=>{
     const newCat = new Category(req.body);
     try {
         const savedCat = await newCat.save();
@@ -15,7 +16,7 @@ router.post("/",verifyJWt, async (req,res)=>{
 })
 
 // DELETE CATEGORY
-router.delete("/:id",verifyJWt, async (req, res) => {
+router.delete("/:id",verifyJWt,  verifyRoles(2003) ,async (req, res) => {
    
         const cat = await Category.findById(req.params.id)
        

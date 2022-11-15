@@ -28,28 +28,7 @@ const Sidebar = () => {
                 </Link>
                 
                 
-                <p  className='heading'>SHOP</p>
-                
-                <Link to="/admin/sadfgser">
-                    <li className='list'>
-                    <span className='icon'>
-                        <ion-icon name="storefront-outline"></ion-icon>
-                    </span>
-                    <span className='title'>Products</span>
-                    </li>
-                </Link>
-                <li className='list'>
-                    <span className='icon'>
-                    <ion-icon name="card-outline"></ion-icon>
-                    </span>
-                    <span className='title'>Orders</span>
-                </li>
-                <li className='list'>
-                    <span className='icon'>
-                    <ion-icon name="briefcase-outline"></ion-icon>
-                    </span>
-                    <span className='title'>Delivery</span>
-                </li>
+              
                 <p className='heading'>USERS</p>
                 <Link to="/admin/viewusers" className='list'>
                     <span className='icon'>

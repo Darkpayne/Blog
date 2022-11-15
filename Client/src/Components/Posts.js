@@ -18,7 +18,7 @@ const Posts = ({post}) => {
    }, [comments])
 
   return (
-    <div className="">
+    <div className=" mx-5">
     {post.map((post)=>(
       <Post key={post._id} post={post} comments={comments}/>
     ))}
@@ -99,9 +99,9 @@ const Post = ({post,comments}) =>{
               </p>
             </div>
             <div className="hidden icon md:flex justify-between items-start mt-5">
-              <span className="md:text-sm text-xs">12</span>{" "}
+              <span className="md:text-sm text-xs"></span>{" "}
               <span className="ml-1 text-red-500 text-baseline  font-bolder">
-                <ion-icon name="heart-outline"></ion-icon>
+                {/* <ion-icon name="heart-outline"></ion-icon> */}
               </span>
             </div>
           </div>

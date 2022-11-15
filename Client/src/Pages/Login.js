@@ -10,6 +10,7 @@ import Navbar from "../Components/Navbar";
 const Login = () => {
   const {dispatch,user} = useContext(Context);
   const navigate = useNavigate();
+
   useEffect(()=>{
     if (user){
       navigate('/');
@@ -26,7 +27,7 @@ const Login = () => {
       setError(true)
       createError('input your credentials')
     }else{
-    setError(true);  
+    setError(false);  
     dispatch({type:"LOGIN_START"})
     try {
       const res = await axios.post("http://localhost:6060/api/auth/login" , {
@@ -37,10 +38,10 @@ const Login = () => {
         
       });
       console.log(res?.data);
-       
-      dispatch({type:"ACCESS_TOKEN", payload: res.data.accessToken});
       dispatch({type:"LOGIN_SUCCESS", payload: res.data})
-      res.data && window.location.replace("/admin")
+      dispatch({type:"ACCESS_TOKEN", payload: res.data.accessToken});
+      // res.data && window.location.replace("/admin")
+      navigate("/admin");
     } catch (error) {
       createError(error.response.data.message)
       dispatch({type:"LOGIN_FAIL"})
