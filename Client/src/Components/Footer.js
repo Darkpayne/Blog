@@ -41,11 +41,11 @@ const Footer = () => {
            .then((result) => {
             setError(true);
             createSuccess("Message sent Successfully");
-               console.log(result.text);
+              //  console.log(result.text);
            }, (error) => {
             setError(true)
             createError('something went wrong');
-               console.log(error.text);
+              //  console.log(error.text);
            });
 
            e.target.reset();

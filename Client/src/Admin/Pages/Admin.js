@@ -35,7 +35,7 @@ const Admin = ({user}) => {
         </div>
         <div className="lg:container lg:mx-auto">
             <div className="flex justify-center my-5 md:text-4xl text-2xl text-center font-semibold capitalize">
-              { user.username } Admin Dashboard
+              { user.username } Dashboard
             </div>
                 <hr className='md:w-[400px] mx-auto w-[200px] mb-10'/>
                 <Cards/>

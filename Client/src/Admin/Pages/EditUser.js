@@ -78,7 +78,7 @@ const EditUser = () => {
                 window.location.replace("/admin/viewusers")
             } catch (error) {
                 setError(true);
-                console.log(error);
+                // console.log(error);
                 createError(error.response.data)
             }
     }
@@ -90,17 +90,17 @@ const EditUser = () => {
             return roles;
         }else{
              if (userRole === 'Admin'){
-                console.log('admin role');
+                // console.log('admin role');
                  setRoles({...roles, Admin:2003 })
                  return roles;
              }
              if(userRole === 'Editor'){
-                console.log('editor role');
+                // console.log('editor role');
                 setRoles({...roles, Editor:2002 })
                 return roles;
              }
              if(userRole === 'User'){
-                console.log('user role');
+                // console.log('user role');
                 setRoles({...roles, User:2001 })
                 return roles;
              }

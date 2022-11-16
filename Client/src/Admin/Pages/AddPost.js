@@ -91,8 +91,7 @@ const AddPost = () => {
                         'authorization':`Bearer ${user.accessToken}`,
                     },
                   })
-                  console.log('finished');
-                // window.location.replace("/post/" + res.data._id)
+                
                 window.location.replace("/admin/viewpost")
             } catch (error) {
                 setError(true);

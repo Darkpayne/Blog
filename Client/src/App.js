@@ -28,7 +28,7 @@ import EditUser from "./Admin/Pages/EditUser";
 
 function App() {
   const { user } = useContext(Context);
-  console.log(user);
+
   return (
     <div className="">
       <BrowserRouter>

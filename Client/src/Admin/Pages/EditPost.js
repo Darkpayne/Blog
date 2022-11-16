@@ -61,7 +61,7 @@ const EditPost = () => {
 	}
     const fetchData = async() =>{
         const res = await axios.get("http://localhost:6060/api/post/" + path);
-        console.log(res.data);
+        
         setDesc(res.data.desc);
         setTitle(res.data.title);
         setCateg(res.data.categories);

@@ -37,7 +37,7 @@ const Login = () => {
         headers:{'Content-type':'application/json'},
         
       });
-      console.log(res?.data);
+      // console.log(res?.data);
       dispatch({type:"LOGIN_SUCCESS", payload: res.data})
       dispatch({type:"ACCESS_TOKEN", payload: res.data.accessToken});
       // res.data && window.location.replace("/admin")
@@ -87,7 +87,7 @@ const Login = () => {
                    ref={userRef}
                   />
                   <label
-                    for="username"
+                    htmlFor="username"
                     className="absolute left-0 -top-4 cursor-text text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-sm   peer-focus:text-gray-600 md:text-base md:peer-placeholder-shown:text-xl md:peer-focus:text-base"
                   >
                     <span className="flex items-center space-x-3">
@@ -101,14 +101,14 @@ const Login = () => {
                           stroke="currentColor"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          stroke-width="1.5"
+                          strokeWidth="1.5"
                           d="M17.268 9.061l-4.266 3.434a2.223 2.223 0 01-2.746 0L5.954 9.061"
                         ></path>
                         <path
                           stroke="currentColor"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          stroke-width="1.5"
+                          strokeWidth="1.5"
                           d="M6.888 3.5h9.428c1.36.015 2.653.59 3.58 1.59a5.017 5.017 0 011.326 3.704v6.528a5.017 5.017 0 01-1.326 3.704 4.957 4.957 0 01-3.58 1.59H6.888C3.968 20.616 2 18.241 2 15.322V8.794C2 5.875 3.968 3.5 6.888 3.5z"
                           clip-rule="evenodd"
                         ></path>
@@ -129,7 +129,7 @@ const Login = () => {
                       ref={passwordRef}
                     />
                     <label
-                      for="passwordId"
+                      htmlFor="passwordId"
                       className="absolute left-0 -top-4 cursor-text text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-sm   peer-focus:text-gray-600 md:text-base md:peer-placeholder-shown:text-xl md:peer-focus:text-base"
                     >
                       <span className="flex items-center space-x-3">
@@ -143,14 +143,14 @@ const Login = () => {
                             stroke="currentColor"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            stroke-width="1.5"
+                            strokeWidth="1.5"
                             d="M16.423 9.448V7.3a4.552 4.552 0 00-4.551-4.551 4.55 4.55 0 00-4.57 4.53v2.168"
                           ></path>
                           <path
                             stroke="currentColor"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            stroke-width="1.5"
+                            strokeWidth="1.5"
                             d="M15.683 21.25H8.042a3.792 3.792 0 01-3.792-3.792v-4.29a3.792 3.792 0 013.792-3.791h7.641a3.792 3.792 0 013.792 3.792v4.289a3.792 3.792 0 01-3.792 3.792z"
                             clip-rule="evenodd"
                           ></path>
@@ -158,7 +158,7 @@ const Login = () => {
                             stroke="currentColor"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            stroke-width="1.5"
+                            strokeWidth="1.5"
                             d="M11.862 14.203v2.22"
                           ></path>
                         </svg>

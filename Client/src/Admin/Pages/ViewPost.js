@@ -63,7 +63,7 @@ const handleDelete = async (id) =>{
     setError(true);
     createSuccess("Post Deleted Successfully");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     setError(true)
     createError(error.response.data.message);
   }

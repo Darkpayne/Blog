@@ -59,7 +59,6 @@ const {user} = useContext(Context);
       } catch (error) {
         setError(true);
         createError(error.response.data.message)
-        console.log(error)
       }
     }
   }

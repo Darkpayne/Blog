@@ -7,6 +7,7 @@ import Hero1 from "../Components/Hero1";
 import Navbar from "../Components/Navbar";
 
 const Home = () => {
+  
   return (
     <div>
       <Navbar />

@@ -46,11 +46,11 @@ const Contact = () => {
            .then((result) => {
             setError(true);
             createSuccess("Message sent Successfully");
-               console.log(result.text);
+               // console.log(result.text);
            }, (error) => {
             setError(true)
             createError('error');
-               console.log(error.text);
+               // console.log(error.text);
            });
 
            e.target.reset();
