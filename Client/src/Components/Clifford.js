@@ -307,11 +307,11 @@ const ProjectWork = () =>{
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
 
         <div className="group relative shadow-lg">
           <img
-            src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
+            src={'assets/Quora.png'}
             alt=""
           />
           <div className="text-center my-3">
@@ -319,9 +319,7 @@ const ProjectWork = () =>{
               QUORA CLONE
             </h1>
             <p className="text-sm text-gray-500 mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              consequuntur, iste aut dolorem mollitia accusamus.adipisicing
-              elit. Nemo consequuntur, iste aut dolorem mollitia accusamus.
+              A FullStack Application, Frontend developed using React JS by myself and the  Backend developed using Laravel by <span className="text-red-500"> Jonathan Audu</span>, also making use of MySql database.
             </p>
           </div>
           <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
@@ -338,7 +336,7 @@ const ProjectWork = () =>{
 
         <div className="group relative shadow-lg">
           <img
-            src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
+            src={'assets/Konga.png'}
             alt=""
           />
           <div className="text-center my-3">
@@ -346,16 +344,15 @@ const ProjectWork = () =>{
               KONGA CLONE
             </h1>
             <p className="text-sm text-gray-500 mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              consequuntur, iste aut dolorem mollitia accusamus.adipisicing
-              elit. Nemo consequuntur, iste aut dolorem mollitia accusamus.
+              A Frontend clone application of Konga made with React JS. Made the most use of the ContextApi.
             </p>
           </div>
           <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
             <h1 class="text-2xl text-white">VIEW PROJECT</h1>
             <a
               class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
-              href="#"
+              href="https://joshkonga.netlify.app/"
+              target="_blank"
             >
               Click Here
             </a>
@@ -365,7 +362,7 @@ const ProjectWork = () =>{
 
         <div className="group relative shadow-lg">
           <img
-            src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
+            src={'assets/Blog.png'}
             alt=""
           />
           <div className="text-center my-3">
@@ -373,16 +370,39 @@ const ProjectWork = () =>{
               JOSH BLOG
             </h1>
             <p className="text-sm text-gray-500 mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              consequuntur, iste aut dolorem mollitia accusamus.adipisicing
-              elit. Nemo consequuntur, iste aut dolorem mollitia accusamus.
+              A Full stack Application, made solely by me using React JS as my Frontend and Node JS as my backend service, with Mongo DB as my database.
+            </p>
+          </div>
+          <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 class="text-2xl text-white">VIEW PROJECT</h1>
+            <Link
+              class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
+              to="/"
+            >
+              Click Here
+            </Link>
+          </div>
+        </div>
+
+        <div className="group relative shadow-lg">
+          <img
+            src={'assets/Music App.png'}
+            alt=""
+          />
+          <div className="text-center my-3">
+            <h1 className="font-medium text-lg my-2 text-blue-500">
+              MUSIC APP
+            </h1>
+            <p className="text-sm text-gray-500 mb-5">
+              A Frontend Application, made solely by me using React JS as my Frontend and Dezzer Music API services from Rapid API.
             </p>
           </div>
           <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
             <h1 class="text-2xl text-white">VIEW PROJECT</h1>
             <a
+            target="_blank"
               class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
-              href="#"
+              href="https://joshmusic.netlify.app/"
             >
               Click Here
             </a>
