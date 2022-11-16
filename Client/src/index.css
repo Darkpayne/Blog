@@ -156,19 +156,19 @@ border: 1px solid rgba(255, 255, 255, 0.14);
 
 }
 .heading{
-  @apply font-bold text-indigo-600 mt-4 mb-1 text-xl;
+  @apply font-bold text-indigo-600 mt-4 mb-1 text-xl text-center md:text-start
 }
 
 .list{
-  @apply flex items-center p-1 cursor-pointer hover:bg-purple-100 md:text-xs overflow-hidden 
+  @apply flex items-center p-1 cursor-pointer hover:bg-purple-100 md:text-xs overflow-hidden justify-center md:justify-start 
 }
 
 .icon{
-  @apply text-purple-600 text-xl 
+  @apply text-purple-600 md:text-xl text-3xl
 }
 
 .title{
-  @apply font-bold text-lg text-black hover:text-blue-500 ml-3
+  @apply font-bold text-lg text-black hover:text-blue-500 ml-3 hidden md:block
 }
 
 .item{

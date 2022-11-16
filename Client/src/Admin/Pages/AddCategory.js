@@ -18,7 +18,7 @@ const {user} = useContext(Context);
     toast.error(msg , {
       position: "top-right",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -59,6 +59,7 @@ const {user} = useContext(Context);
       } catch (error) {
         setError(true);
         createError(error.response.data.message)
+        console.log(error)
       }
     }
   }

@@ -46,9 +46,6 @@ const EditUser = () => {
           progress: undefined,
           });
       }
-    
-    
-  
 	const fetchCategories = async () =>{
 	  const response = await axios.get("http://localhost:6060/api/user/"+ userId)
     //   Object.entries(response.data.roles).map(([key,value])=>{
@@ -109,15 +106,6 @@ const EditUser = () => {
              }
         }
     }
-    // const setAllUserRole = (prev,userRole) =>{
-    //     if(Object.keys(prev).includes(userRole)){
-    //         delete prev.userRole
-    //         return prev
-    //     }else{
-    //         return {...prev, userRole: true}
-    //     }
-    // }
-
     
   return (
     <div>

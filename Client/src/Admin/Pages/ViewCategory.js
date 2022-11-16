@@ -16,7 +16,7 @@ const ViewCategory = () => {
 	  toast.success(msg , {
 		position: "top-right",
 		autoClose: 5000,
-		hideProgressBar: false,
+		hideProgressBar: true,
 		closeOnClick: true,
 		pauseOnHover: true,
 		draggable: true,
@@ -27,7 +27,7 @@ const ViewCategory = () => {
 	  toast.error(msg , {
 		position: "top-right",
 		autoClose: 5000,
-		hideProgressBar: false,
+		hideProgressBar: true,
 		closeOnClick: true,
 		pauseOnHover: true,
 		draggable: true,
@@ -66,7 +66,7 @@ const ViewCategory = () => {
 				
 			} catch (error) {
 				setError(true);
-				createErrors(error.response.data)
+				createErrors(error.response.data.message)
 			}
 		  }
 		

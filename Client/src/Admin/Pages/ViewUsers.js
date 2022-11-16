@@ -66,7 +66,7 @@ const handleDelete = async (id) =>{
     	createSuccess("User Deleted Successfully");
 	} catch (error) {
 		setError(true)
-    	createError(error.response.data);
+    	createError(error.response.data.message);
 	}
 }
   return (

@@ -6,7 +6,7 @@ const verifyRoles = require("../middleware/verifyRoles");
 
 
 // UPDATE
-router.put("/:id", verifyJWT ,verifyRoles(2002,2003) ,async (req, res) => {
+router.put("/:id", verifyJWT ,verifyRoles(2003) ,async (req, res) => {
  
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
@@ -29,7 +29,7 @@ router.put("/:id", verifyJWT ,verifyRoles(2002,2003) ,async (req, res) => {
 });
 
 // DELETE
-router.delete("/:id",verifyJWT,verifyRoles(2002,2003) , async (req, res) => {
+router.delete("/:id",verifyJWT,verifyRoles(2003) , async (req, res) => {
   // if (req.body.userId === req.params.id) {
   try {
     await User.findByIdAndDelete(req.params.id);
@@ -64,4 +64,6 @@ router.get("/",async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+
 module.exports = router;

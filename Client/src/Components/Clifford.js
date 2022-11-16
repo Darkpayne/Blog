@@ -5,6 +5,11 @@ import Down from "./Down";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import { Autoplay } from "swiper";
+
 const Joshua = () => {
 
  
@@ -267,7 +272,7 @@ const Brief = () => {
           </div>
         </div>
       </article>
-      <Stack />
+      <StackSwiper />
     </section>
   );
 };
@@ -303,33 +308,6 @@ const ProjectWork = () =>{
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-        <div className="group relative shadow-lg">
-          <img
-            src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
-            alt=""
-          />
-          <div className="text-center my-3">
-            <h1 className="font-medium text-lg my-2 text-blue-500">
-              MUSIC APP
-            </h1>
-            <p className="text-sm text-gray-500 mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              consequuntur, iste aut dolorem mollitia accusamus.adipisicing
-              elit. Nemo consequuntur, iste aut dolorem mollitia accusamus.
-            </p>
-          </div>
-          <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-            <h1 class="text-2xl text-white">VIEW PROJECT</h1>
-            <a
-              class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
-              href="#"
-            >
-              Click Here
-            </a>
-          </div>
-        </div>
-
 
         <div className="group relative shadow-lg">
           <img
@@ -412,32 +390,7 @@ const ProjectWork = () =>{
         </div>
 
 
-        <div className="group relative shadow-lg">
-          <img
-            src="https://www.xtrafondos.com/wallpapers/resized/satoru-gojo-jujutsu-kaisen-9171.jpg?s=large"
-            alt=""
-          />
-          <div className="text-center my-3">
-            <h1 className="font-medium text-lg my-2 text-blue-500">
-              ROCK PAPER SCISSORS
-            </h1>
-            <p className="text-sm text-gray-500 mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              consequuntur, iste aut dolorem mollitia accusamus.adipisicing
-              elit. Nemo consequuntur, iste aut dolorem mollitia accusamus.
-            </p>
-          </div>
-          <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-            <h1 class="text-2xl text-white">VIEW PROJECT</h1>
-            <a
-              class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
-              href="#"
-            >
-              Click Here
-            </a>
-          </div>
-        </div>
-
+       
       </div>
     </section>
   );
@@ -541,3 +494,103 @@ const FunFact = () =>{
     </div>
     )
 }
+
+
+const StackSwiper = () => {
+  return (
+
+    <div className=" text-black relative mb-10 bg-white ">
+        <div className="text-center">
+          <p className="text-gray-500 text-lg">MY STACK</p>
+          {/* <h1 className="text-2xl font-light text-blue-500 "></h1> */}
+      </div>
+      <Swiper
+      spaceBetween={50}
+      slidesPerView={3}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      modules={[Autoplay]}
+      breakpoints={{
+        576: {
+          slidesPerView: 4,
+        },
+        1008:{
+          slidesPerView:6
+        }
+      }}
+    
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
+    >
+
+
+      <SwiperSlide> 
+        <div className="flex flex-col items-center justify-center">
+            <p className=" tracking-tight  cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center rounded-full hover:bg-black hover:text-white m-2 w-24 h-24  flex flex-col justify-center items-center">
+              <FaHtml5 />
+            </p>
+            <span className="text-sm font-bold tracking-wide">HTML 5</span>
+          </div>
+      </SwiperSlide>
+      <SwiperSlide> <div className="flex flex-col items-center justify-center">
+            <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-24 h-24   flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center">
+              <FaReact />
+            </p>
+            <span className="text-sm font-bold tracking-wide">REACT JS</span>
+          </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="flex flex-col items-center justify-center">
+              <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-24 h-24   flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center">
+                <FaNodeJs />
+              </p>
+              <span className="text-sm font-bold tracking-wide">NODE JS</span>
+          </div>
+      </SwiperSlide>
+      <SwiperSlide>
+          <div className="flex flex-col items-center justify-center">
+            <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-24 h-24   flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center">
+              <SiJavascript />
+            </p>
+            <span className="text-sm font-bold tracking-wide">JAVASCRIPT</span>
+          </div>
+      </SwiperSlide>
+      <SwiperSlide>
+          <div className="flex flex-col items-center justify-center">
+            <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-24 h-24   flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center">
+              <SiCss3 />
+            </p>
+            <span className="text-sm font-bold tracking-wide">CSS 3</span>
+          </div>
+      </SwiperSlide>
+      <SwiperSlide>
+          <div className="flex flex-col items-center justify-center">
+            <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-24 h-24   flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center">
+              <SiTailwindcss />
+            </p>
+              <span className="text-sm font-bold tracking-wide">TAILWIND</span>
+          </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="flex flex-col items-center justify-center">
+            <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-24 h-24   flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center">
+              <FaGithub />
+            </p>
+              <span className="text-sm font-bold tracking-wide">GITHUB</span>
+          </div>
+      </SwiperSlide>
+      <SwiperSlide>
+      <div className="flex flex-col items-center justify-center">
+            <p className=" tracking-tight  rounded-full hover:bg-black hover:text-white m-2 w-24 h-24   flex justify-center items-center cursor-pointer hover:scale-110 p-2 duration-500 transition-all text-5xl justify-self-center ">
+              <SiMongodb />
+            </p>
+            <span className="text-sm font-bold tracking-wide">MONGO DB</span>
+          </div>
+      </SwiperSlide>
+    </Swiper>
+    </div>
+  );
+};
