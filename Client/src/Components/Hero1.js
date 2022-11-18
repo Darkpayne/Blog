@@ -78,9 +78,9 @@ const NewSlider = () =>{
       <SwiperSlide>
       <img src={"/assets/naruto.jpg"} className="w-full" />
       </SwiperSlide>
-      <SwiperSlide>
+      {/* <SwiperSlide>
       <img src={"/assets/cod.jpg"} className="w-full" />
-      </SwiperSlide>
+      </SwiperSlide> */}
       
     </Swiper>
     </div>
