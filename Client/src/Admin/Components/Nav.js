@@ -1,12 +1,14 @@
 import React from 'react'
 import { useContext } from "react";
+import { Navigate, useNavigate } from 'react-router';
 import { Context } from "../../Context/Context";
 
 
 const Nav = () => {
   const {dispatch} = useContext(Context)
-
+  const navigate = useNavigate()
   const handleLogout = () =>{
+      navigate('/')
       dispatch({type:"LOGOUT"})
   }
   const { user } = useContext(Context);

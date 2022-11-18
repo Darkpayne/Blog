@@ -29,12 +29,20 @@ const Posts = ({post}) => {
 export default Posts;
 
 const Post = ({post,comments}) =>{
+
+  const truncateString = (string = '', maxLength = 200) => string.length > maxLength && `${string.substring(0, maxLength)}`  ;
+
   const PF = "http://localhost:6060/images/"; 
 
   const length = () =>{
     const commentlength = comments.filter((data)=>data.postId === post._id)
     return commentlength.length
   }
+
+  
+  // function getRndInteger(min, max) {
+  //   return Math.floor(Math.random() * (max - min + 1) ) + min;
+  // }
   return(
     <>
 
@@ -81,19 +89,16 @@ const Post = ({post,comments}) =>{
 
             <div className="desc md:tracking-wide md:leading-7 font-light px-3 lg:px-0 sm:mb-10 lg:mb-0">
               <p className='md:text-base text-sm'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Veritatis natus et ipsam repudiandae, corporis ut voluptas
-                nihil, eius cupiditate quas nulla dolore dignissimos doloremque
-                consequuntu.... 
+                {post.desc.length > 40 ? truncateString(post.desc) : truncateString(" Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem veniam dolores, quasi repellendus suscipit delectus quia architecto totam, distinctio quod nisi sint incidunt veritatis vel. Cupiditate nobis at corporis repellendus perferendis quis fugiat modi deserunt laudantium, autem dicta tempora sequi perspiciatis minima molestias culpa mollitia. Architecto autem quaerat esse similique praesentium repudiandae aperiam, laborum labore soluta vel sit animi earum impedit? Qui laborum nostrum adipisci eligendi neque aut architecto quod nam excepturi, dolore laboriosam repellendus animi. Pariatur adipisci labore non praesentium nesciunt unde, ducimus laborum aliquam tempora accusantium odio vitae, atque ipsam minus quibusdam reprehenderit dignissimos consequatur corrupti qui cum?")}...
               </p>
             </div>
           </section>
 
           <div className="flex justify-between items-center border-t-2 mt-5 md:mt-0 px-3 lg:px-0">
             <div className="flex items-center justify-between md:justify-start lg:gap-x-5 gap-x-2 md:text-sm text-xs text-gray-500 mt-5">
-              <p>
-                345 <span className="lg:tracking-widest ml-1 text-xs">views </span>
-              </p>
+              {/* <p>
+               {getRndInteger(50, 500)}<span className="lg:tracking-widest ml-1 text-xs">views </span>
+              </p> */}
               <p>
                 {length()} <span className="lg:tracking-widest ml-1 text-xs"> comments</span>
               </p>

@@ -242,21 +242,22 @@ const Brief = () => {
           <div className="lg:col-span-6 col-span-10 my-5 flex justify-center  tracking-wider leading-10 text-lg">
             <section>
               <p>
-                Hey! I'm <span class="text-blue-500">Joshua Clifford.</span> I'm
+                Hey! I am <span class="text-blue-500">Joshua Clifford, </span> 
                 a Front-End/Web Developer with a working proficiency in HTML,
-                CSS, JavaScript, jQuery, ReactJs & Bootstrap.
+                CSS, JavaScript.
               </p>
               <p class="mt-4">
-                I have a solid understanding of Bootstrap 5, ReactJS and Git
-                version control. i am currently expanding my skills set by
-                studying React Native and Ruby on Rails along side SQL.
+                I have a solid understanding of  ReactJs, Tailwind CSS and Git
+                version control (Git Hub), with a background knowledge of backend technologies like Node Js and MongoDb Database. I am currently expanding my skills set by
+                studying React Native and Typescript along side SQL.
               </p>
               <p class="mt-4">
-                My goal is to take the step from hobbyist to professional with a
+              I have discovered my passion for the world of web development and the beauty behind building useful websites like the one you will find in my portfolio.
+                My goal is to take a step forward in a
                 company where i can learn, grow and showcase my skills. I
-                believe that with my current experience i would be an excellent
-                choice for an entry level{" "}
-                <span class="text-blue-500">Junior developer.</span>
+                believe that with my current experience, I would be an excellent
+                choice for a{" "}
+                <span class="text-blue-500">Junior Frontend Developer.</span>
               </p>
               <p class="mt-4">
                 You can contact me{" "}

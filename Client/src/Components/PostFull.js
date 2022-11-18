@@ -2,10 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Comments from './Comments'
 import RecentPost from './RecentPost'
+import LinesEllipsis from 'react-lines-ellipsis'
 
 
 const PostFull = ({post,path}) => {
   const PF = "http://localhost:6060/images/";
+  const fullStop = post?.desc?.indexOf('.',0)
   return (
     <>
     <div className='my-16'>
@@ -31,10 +33,13 @@ const PostFull = ({post,path}) => {
        <div className="short-desc my-5">
        <div className="desc tracking-widest leading-7">
          <p>
-           Lorem ipsum dolor sit amet consectetur adipisicing elit.
-           Veritatis natus et ipsam repudiandae, corporis ut voluptas
-           nihil, eius cupiditate quas nulla dolore dignissimos doloremque
-           consequuntu....
+         <LinesEllipsis
+            text={post?.desc}
+            maxLine='2'
+            ellipsis='..'
+            trimRight
+            basedOn='letters'
+          /> 
          </p>
        </div>
        </div>
@@ -43,7 +48,7 @@ const PostFull = ({post,path}) => {
         {post.photo
         ?
         <img src={PF + post.photo} alt="" 
-        className="w-[573px] h-[454px] object-cover rounded"/>
+        className="w-[573px] h-full object-cover rounded"/>
         :
         <img src="https://images.unsplash.com/photo-1623786159887-8a747d692e8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="" 
         className="w-[573px] h-[454px] object-cover rounded"/>
@@ -51,14 +56,12 @@ const PostFull = ({post,path}) => {
        </div>
 
        <div className="long-desc mb-10">
-           <p className='indent-5 mt-5 leading-10 tracking-widest'>
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam excepturi ex sit dolores aspernatur, fuga voluptas qui eaque fugit. Excepturi sunt mollitia facere dignissimos sit ea, eligendi magnam ipsum voluptatem omnis. Eum, et? Recusandae a quaerat, asperiores, commodi hic velit harum blanditiis magni nesciunt, accusamus illo soluta sint ipsa similique!
+           <p className='indent-5 mt-5 leading-10 tracking-widest' style={{whiteSpace: "pre-wrap"}}>
+               {post.desc}
 
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quaerat dolores doloremque ad aliquam facere, iste fuga in eaque nam illum praesentium earum? Quas voluptatum itaque cum illum impedit earum deserunt magni deleniti harum quo molestias ad molestiae atque modi mollitia obcaecati, cupiditate sed? Debitis omnis accusamus dolores. Rem, quisquam.
+               {/* <h1 className='text-lg font-bold underline uppercase my-5'>{post.title}</h1> */}
 
-               <h1 className='text-lg font-bold underline uppercase my-5'>heading one from here</h1>
-
-               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse corporis officia labore totam veritatis fugit, praesentium repudiandae nam ratione eaque quos dolores odio omnis inventore enim tempora illum, eligendi perspiciatis obcaecati rem rerum ipsum aperiam? Nisi nobis cumque porro dolorum nihil non adipisci maxime excepturi est aliquid necessitatibus asperiores quae illum laudantium dignissimos facere, officiis quibusdam perspiciatis fuga magnam aliquam corporis voluptas? Expedita magnam asperiores quas natus saepe beatae itaque vel veritatis recusandae illum. Harum cumque illo, dolores, dolor autem quod neque corrupti tenetur soluta perspiciatis ratione, voluptates quis magnam amet placeat laudantium? Consectetur, sint! Eaque ex cum nesciunt odit.
+               {/* Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse corporis officia labore totam veritatis fugit, praesentium repudiandae nam ratione eaque quos dolores odio omnis inventore enim tempora illum, eligendi perspiciatis obcaecati rem rerum ipsum aperiam? Nisi nobis cumque porro dolorum nihil non adipisci maxime excepturi est aliquid necessitatibus asperiores quae illum laudantium dignissimos facere, officiis quibusdam perspiciatis fuga magnam aliquam corporis voluptas? Expedita magnam asperiores quas natus saepe beatae itaque vel veritatis recusandae illum. Harum cumque illo, dolores, dolor autem quod neque corrupti tenetur soluta perspiciatis ratione, voluptates quis magnam amet placeat laudantium? Consectetur, sint! Eaque ex cum nesciunt odit. */}
            </p>
        </div>
    </div>

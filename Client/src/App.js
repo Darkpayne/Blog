@@ -39,17 +39,17 @@ function App() {
           <Route path="/login" element={ <Login/>} />
           <Route path="/signup" element={ <Signup />} />
           <Route path="/joshua" element={ <Clifford />} />
-          <Route path="/shop" element={user ? <Shop /> : <Login/>} />
+          <Route path="/shop" element={user ? <Shop /> :  <Home />} />
           <Route path="/contact" element={ <Contact />} />
-          <Route path="/admin" element={user?.ROLES.includes(2002 || 2003) ?  <Admin user={user} /> : <Login/>} />
-          <Route path="/admin/addpost" element={user?.ROLES.includes(2002 || 2003) ? <AddPost user={user}  />: <Login/>} />
-          <Route path="/admin/editpost/:id" element={user?.ROLES.includes(2002 || 2003) ? <EditPost />: <Login/>} />
-          <Route path="/admin/edituser/:id" element={user?.ROLES.includes(2002 || 2003) ? <EditUser />: <Login/>} />
-          <Route path="/admin/viewpost" element={user?.ROLES.includes(2002 || 2003) ? <ViewPost />: <Login/>} />
-          <Route path="/admin/viewusers" element={user?.ROLES.includes(2002 || 2003) ? <ViewUsers />: <Login/>} /> 
-          <Route path="/admin/adduser" element={user?.ROLES.includes(2002 || 2003) ? <AddUser />: <Login/>} /> 
-          <Route path="/admin/viewcategory" element={user?.ROLES.includes(2002 || 2003) ? <ViewCategory />: <Login/>} /> 
-          <Route path="/admin/addcategory" element={user?.ROLES.includes(2002 || 2003) ? <AddCategory />: <Login/>} /> 
+          <Route path="/admin" element={user?.ROLES.includes(2002 || 2003) ?  <Admin user={user} /> :  <Home />} />
+          <Route path="/admin/addpost" element={user?.ROLES.includes(2002 || 2003) ? <AddPost user={user}  />:  <Home />} />
+          <Route path="/admin/editpost/:id" element={user?.ROLES.includes(2002 || 2003) ? <EditPost />:  <Home />} />
+          <Route path="/admin/edituser/:id" element={user?.ROLES.includes(2002 || 2003) ? <EditUser />:  <Home />} />
+          <Route path="/admin/viewpost" element={user?.ROLES.includes(2002 || 2003) ? <ViewPost />:  <Home />} />
+          <Route path="/admin/viewusers" element={user?.ROLES.includes(2002 || 2003) ? <ViewUsers />:  <Home />} /> 
+          <Route path="/admin/adduser" element={user?.ROLES.includes(2002 || 2003) ? <AddUser />:  <Home />} /> 
+          <Route path="/admin/viewcategory" element={user?.ROLES.includes(2002 || 2003) ? <ViewCategory />:  <Home />} /> 
+          <Route path="/admin/addcategory" element={user?.ROLES.includes(2002 || 2003) ? <AddCategory />:  <Home />} /> 
           <Route path="*" element={ <ErrorPage /> } />
         </Routes>
       </BrowserRouter>
