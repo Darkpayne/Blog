@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
+import LinesEllipsis from 'react-lines-ellipsis'
 const Posts = ({post}) => {
   const [comments, setComments] = useState([]);
 
@@ -30,7 +31,7 @@ export default Posts;
 
 const Post = ({post,comments}) =>{
 
-  const truncateString = (string = '', maxLength = 200) => string.length > maxLength && `${string.substring(0, maxLength)}`  ;
+  const truncateString = (string = '', maxLength = 150) => string.length > maxLength && `${string.substring(0, maxLength)}`  ;
 
   const PF = "http://localhost:6060/images/"; 
 
@@ -47,7 +48,7 @@ const Post = ({post,comments}) =>{
     <>
 
   <div className="my-16">
-      <div className="flex shadow-lg">
+      <div className="flex flex-col md:flex-row shadow-lg">
         <div className="image basis-1/2 md:block ">
         {post.photo
         ?
@@ -56,12 +57,12 @@ const Post = ({post,comments}) =>{
         :
           <img
             src="https://images.unsplash.com/photo-1623786159887-8a747d692e8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FsbCUyMG9mJTIwZHV0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
-            className="w-[473px] h-[354px] object-cover"
+            className="w-[473px] md:h-[354px] h-[200px] object-cover"
             alt=""
           />
         }
         </div>
-        <div className="lg:p-5 p-1 basis-1/2 h-[354px] flex flex-col lg:justify-between">
+        <div className="lg:p-5 p-1 pt-3 md:pt-0 basis-1/2 h-[354px] flex flex-col lg:justify-between">
 
           <section>
             <div className="profile-image mb-5 flex items-center gap-x-5 px-3 lg:px-0">
@@ -81,7 +82,7 @@ const Post = ({post,comments}) =>{
             </div>
             <Link to={`/post/${post._id}`}>
             <div className=" md:mb-3 px-3 lg:px-0">
-              <h2 className="tracking-widest font-normal md:text-2xl text-lg uppercase">
+              <h2 className="tracking-widest font-normal md:text-2xl text-lg uppercase overflow-hidden">
                 {post.title}
               </h2>
             </div>
@@ -94,13 +95,13 @@ const Post = ({post,comments}) =>{
             </div>
           </section>
 
-          <div className="flex justify-between items-center border-t-2 mt-5 md:mt-0 px-3 lg:px-0">
+          <div className="flex  items-center border-t mt-5 md:mt-0 px-3 lg:px-0">
             <div className="flex items-center justify-between md:justify-start lg:gap-x-5 gap-x-2 md:text-sm text-xs text-gray-500 mt-5">
               {/* <p>
                {getRndInteger(50, 500)}<span className="lg:tracking-widest ml-1 text-xs">views </span>
               </p> */}
-              <p>
-                {length()} <span className="lg:tracking-widest ml-1 text-xs"> comments</span>
+              <p className='flex justify-center items-center mb-2'>
+               <span> {length()}</span> <span className="lg:tracking-widest ml-1 text-xs "> comments</span>
               </p>
             </div>
             <div className="hidden icon md:flex justify-between items-start mt-5">

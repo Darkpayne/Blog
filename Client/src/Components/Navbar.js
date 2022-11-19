@@ -183,7 +183,7 @@ const handleLoginButton = async (e) =>{
       </section>
 
       <div id="defaultModal" tabIndex="-1" aria-hidden="true" data-modal-show="true" className={`${!showModal ? 'hidden': ''} bg-slate-800 bg-opacity-90 flex justify-center items-center transition-all ease-in-out top-0 right-0 bottom-0 left-0 z-50 h-screen fixed`}>
-          <div className={`relative p-4 w-full max-w-xl h-full md:h-auto transition-all ease-in-out ${!showModal?'opacity-0 ':'opacity-100 '}`}>
+          <div className={`relative p-4 w-full max-w-xl  flex justify-center items-center h-fit md:h-auto transition-all ease-in-out ${!showModal?'opacity-0 ':'opacity-100 '}`}>
             
               <div className="relative bg-white rounded-lg shadow">
                   
@@ -197,7 +197,7 @@ const handleLoginButton = async (e) =>{
                   <section className={`${signupPage ? 'block' : 'hidden'}`}>
                     <div className="  bg-white px-8 pb-8 pt-3 rounded-xl  shadow-slate-300">
                         <h1 className="text-4xl font-medium">Hello 👋 </h1>
-                        <p className="text-slate-500 text-lg mt-5">Welcome to JoshBlog </p>
+                        <p className="text-slate-500 text-lg mt-5">Welcome to <span className="text-indigo-500 font-medium"> Josh </span>Blog </p>
                         <p className="text-slate-500 text-lg mt-5">It seems you want to create a post where other users can view and interact with.</p>
                         <p className="text-slate-500 text-lg mt-5">To do that you will need this login credentials
                         </p>

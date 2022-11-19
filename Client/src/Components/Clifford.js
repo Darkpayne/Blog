@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import Down from "./Down";
@@ -12,7 +12,10 @@ import { Autoplay } from "swiper";
 
 const Joshua = () => {
 
- 
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <section>
       <Navbar />

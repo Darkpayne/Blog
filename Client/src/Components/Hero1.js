@@ -70,13 +70,13 @@ const NewSlider = () =>{
       // onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide> 
-        <img src={"/assets/game.jpg"} className="w-full" />
+        <img src={"/assets/game.jpg"} className="w-full h-48 sm:h-auto" />
       </SwiperSlide>
       <SwiperSlide> 
-        <img src={"/assets/sakuna.jpg"} className="w-full" />
+        <img src={"/assets/sakuna.jpg"} className="w-full h-48 sm:h-auto" />
       </SwiperSlide>
       <SwiperSlide>
-      <img src={"/assets/naruto.jpg"} className="w-full" />
+      <img src={"/assets/naruto.jpg"} className="w-full h-48 sm:h-auto" />
       </SwiperSlide>
       {/* <SwiperSlide>
       <img src={"/assets/cod.jpg"} className="w-full" />

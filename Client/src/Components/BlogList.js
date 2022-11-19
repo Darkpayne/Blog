@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import Posts from "./Posts";
 import axios from "axios"
 import { Link, useLocation } from "react-router-dom";
+import LinesEllipsis from 'react-lines-ellipsis'
 
 const BlogList = () => {
   const [post, setPost] = useState([])
   const [cat, setCat] = useState([])
  
-  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   const {search} = useLocation()
 
   useEffect(() => {
@@ -35,7 +38,7 @@ const BlogList = () => {
     <>
       <div className=" flex items-center justify-between pb-3 border-b-2 px-5">
         <ul className="flex md:text-xl sm:text-lg tracking-wider font-semibold gap-x-10 category">
-        <li className=" active:scale-90 cursor-pointer  duration-200"><Link to={`/`}> All Post</Link></li>
+        <li className=" active:scale-90 cursor-pointer  text-sm md:text-lg  duration-200"><Link to={`/`}> All Post</Link></li>
           {cat.map((c)=>(
          <div key={c._id} className=" active:scale-90 cursor-pointer text-sm md:text-lg duration-200">
           <Link to={`/?cat=${c.name}`}>{c.name}</Link>
