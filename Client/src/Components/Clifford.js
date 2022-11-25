@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import Down from "./Down";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import { useInView } from 'react-intersection-observer';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -11,11 +12,22 @@ import 'swiper/css';
 import { Autoplay } from "swiper";
 
 const Joshua = () => {
+  const { ref:myRef, inView : myElementisVisible } = useInView({
+    threshold : .1
+  });
 
-  
+console.log('myElementisVisible' , myElementisVisible);
+  // useEffect(() => {
+  // const observer = new IntersectionObserver((entries)=>{
+  //   const entry = entries[0];
+  //   setMyElementisVisible(entry.isIntersecting);
+  // })
+  // observer.observe(myRef.current)
+  // }, [])
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [])
+
   return (
     <section>
       <Navbar />
@@ -51,7 +63,9 @@ const Joshua = () => {
             </div>
           </div>
         </div>
-        <Brief />
+        <section className={`${myElementisVisible ? 'opacity-100' : 'opacity-0'} transition-all ease-in duration-500`} ref={myRef}>
+          <Brief />
+        </section>
         <Work />
         <GetInTouch />
         <Down />
@@ -245,28 +259,28 @@ const Brief = () => {
           <div className="lg:col-span-6 col-span-10 my-5 flex justify-center  tracking-wider leading-10 text-lg">
             <section>
               <p>
-                Hey! I am <span class="text-blue-500">Joshua Clifford, </span> 
+                Hey! I am <span className="text-blue-500">Joshua Clifford, </span> 
                 a Front-End/Web Developer with a working proficiency in HTML,
                 CSS, JavaScript.
               </p>
-              <p class="mt-4">
+              <p className="mt-4">
                 I have a solid understanding of  ReactJs, Tailwind CSS and Git
                 version control (Git Hub), with a background knowledge of backend technologies like Node Js and MongoDb Database. I am currently expanding my skills set by
                 studying React Native and Typescript along side SQL.
               </p>
-              <p class="mt-4">
+              <p className="mt-4">
               I have discovered my passion for the world of web development and the beauty behind building useful websites like the one you will find in my portfolio.
                 My goal is to take a step forward in a
                 company where i can learn, grow and showcase my skills. I
                 believe that with my current experience, I would be an excellent
                 choice for a{" "}
-                <span class="text-blue-500">Junior Frontend Developer.</span>
+                <span className="text-blue-500">Junior Frontend Developer.</span>
               </p>
-              <p class="mt-4">
+              <p className="mt-4">
                 You can contact me{" "}
                 <a
                   href="#contact"
-                  class="text-blue-500"
+                  className="text-blue-500"
                   
                 >
                   Here.
@@ -299,14 +313,14 @@ const Work = () => {
 const ProjectWork = () =>{
   return (
     <section>
-      <div class="flex space-x-3 justify-center my-10">
-        <button class="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
+      <div className="flex space-x-3 justify-center my-10">
+        <button className="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
           ALL
         </button>
-        <button class="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
+        <button className="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
           CLONE PROJECT
         </button>
-        <button class="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
+        <button className="hover:bg-black hover:text-white text-black font-medium md:tracking-wide leading-7 text-sm md:text-base md:px-5 md:py-1 px-3 transition duration-500 rounded-full border-2 border-black">
           WEB APP
         </button>
       </div>
@@ -326,10 +340,10 @@ const ProjectWork = () =>{
               A FullStack Application, Frontend developed using React JS by myself and the  Backend developed using Laravel by <span className="text-red-500"> Jonathan Audu</span>, also making use of MySql database.
             </p>
           </div>
-          <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-            <h1 class="text-2xl text-white">VIEW PROJECT</h1>
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 className="text-2xl text-white">VIEW PROJECT</h1>
             <a
-              class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
+              className="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
               href="#"
             >
               Click Here
@@ -351,10 +365,10 @@ const ProjectWork = () =>{
               A Frontend clone application of Konga made with React JS. Made the most use of the ContextApi.
             </p>
           </div>
-          <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-            <h1 class="text-2xl text-white">VIEW PROJECT</h1>
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 className="text-2xl text-white">VIEW PROJECT</h1>
             <a
-              class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
+              className="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
               href="https://joshkonga.netlify.app/"
               target="_blank"
             >
@@ -377,10 +391,10 @@ const ProjectWork = () =>{
               A Full stack Application, made solely by me using React JS as my Frontend and Node JS as my backend service, with Mongo DB as my database.
             </p>
           </div>
-          <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-            <h1 class="text-2xl text-white">VIEW PROJECT</h1>
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 className="text-2xl text-white">VIEW PROJECT</h1>
             <Link
-              class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
+              className="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
               to="/"
             >
               Click Here
@@ -401,11 +415,11 @@ const ProjectWork = () =>{
               A Frontend Application, made solely by me using React JS as my Frontend and Dezzer Music API services from Rapid API.
             </p>
           </div>
-          <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
-            <h1 class="text-2xl text-white">VIEW PROJECT</h1>
+          <div className="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-black opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+            <h1 className="text-2xl text-white">VIEW PROJECT</h1>
             <a
             target="_blank"
-              class="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
+              className="mt-5 px-8 py-3 rounded-full bg-white hover:bg-blue-500 duration-300"
               href="https://joshmusic.netlify.app/"
             >
               Click Here
